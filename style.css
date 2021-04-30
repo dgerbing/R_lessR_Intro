@@ -1,0 +1,60 @@
+@import 'https://fonts.googleapis.com/css?family=Istok+Web|Oxygen|Palanquin';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+body {
+/* font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;  */
+/*   font-family: 'Crimson Text', Arial, Helvetica, sans-serif;  */
+ font-family: 'Palanquin', Arial, Helvetica, sans-serif;
+ font-size: 1.1;
+ background-color: #fefefe;
+ margin-top: 0;
+}
+
+span.newthought {
+  font-variant: small-caps;
+  font-size: 1.1em;
+}
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+  font-size: .9em;
+}
+pre code {
+  white-space: inherit;
+}
+div.sourceCode {
+  font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5 {
+  color: rgb(47, 84, 150);
+}
+
+blockquote p em{
+  color: rgb(37, 74, 135);
+  font-weight: 600;
+  border-left-color: rgb(47, 84, 150)
+}
+
+blockquote.q {
+  background-color: rgb(235,235,245);
+}
+
+blockquote footer {
+  text-align: right;
+  padding-right: 3em;
+  font-size:small;
+}
+
+/* font-family does not change font, but needed for font-size, color */
+span.math.display {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size:1.1em;
+}

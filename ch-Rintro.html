@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 1 Data Analysis with R | Data Analysis with R/lessR</title>
+  <meta name="description" content="Using bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 1 Data Analysis with R | Data Analysis with R/lessR" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Using bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 1 Data Analysis with R | Data Analysis with R/lessR" />
+  
+  <meta name="twitter:description" content="Using bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-04-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Welcome to R and lessR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="ch-Rintro.html"><a href="ch-Rintro.html"><i class="fa fa-check"></i><b>1</b> Data Analysis with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:RvsExcel"><i class="fa fa-check"></i><b>1.1.1</b> R vs. Excel</a></li>
+<li class="chapter" data-level="1.1.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#lessr-enhancements"><i class="fa fa-check"></i><b>1.1.2</b> <strong>lessR</strong> Enhancements</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:start"><i class="fa fa-check"></i><b>1.2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:getR"><i class="fa fa-check"></i><b>1.2.1</b> Download and Run R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:getRStudio"><i class="fa fa-check"></i><b>1.2.2</b> Download and Run RStudio</a></li>
+<li class="chapter" data-level="1.2.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:lessR"><i class="fa fa-check"></i><b>1.2.3</b> Download and Access <strong>lessR</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:dt"><i class="fa fa-check"></i><b>1.3.1</b> Data Table</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:read"><i class="fa fa-check"></i><b>1.3.2</b> Read the Data into R</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#display-the-data"><i class="fa fa-check"></i><b>1.3.3</b> Display the Data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#two-types-of-variables"><i class="fa fa-check"></i><b>1.3.4</b> Two Types of Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:count"><i class="fa fa-check"></i><b>1.4</b> Visualize the Data</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#bar-chart-and-pie-chart"><i class="fa fa-check"></i><b>1.4.1</b> Bar Chart and Pie Chart</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:hist"><i class="fa fa-check"></i><b>1.4.2</b> Histogram</a></li>
+<li class="chapter" data-level="1.4.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:params"><i class="fa fa-check"></i><b>1.4.3</b> Parameter Values</a></li>
+<li class="chapter" data-level="1.4.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:summary"><i class="fa fa-check"></i><b>1.4.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="ch-Rintro.html"><a href="ch-Rintro.html#misc"><i class="fa fa-check"></i><b>1.5</b> Misc</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#report-generation"><i class="fa fa-check"></i><b>1.5.1</b> Report Generation</a></li>
+<li class="chapter" data-level="1.5.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:errors"><i class="fa fa-check"></i><b>1.5.2</b> Errors</a></li>
+<li class="chapter" data-level="1.5.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:vig"><i class="fa fa-check"></i><b>1.5.3</b> Get Help</a></li>
+<li class="chapter" data-level="1.5.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#comments"><i class="fa fa-check"></i><b>1.5.4</b> Comments</a></li>
+<li class="chapter" data-level="1.5.5" data-path="ch-Rintro.html"><a href="ch-Rintro.html#optional-color-themes"><i class="fa fa-check"></i><b>1.5.5</b> Optional: Color Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">David Gerbing</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis with R/lessR</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch:Rintro" class="section level1" number="1">
+<h1><span class="header-section-number">Section 1</span> Data Analysis with R</h1>
+<p><span class="newthought">The hottest topic in business is data analytics</span>, a real revolution within the last ten or so years. Here you learn some of the basics of data analytics applied to business analysis. You initially spend some time with the R system, and then once you see how it works, the rest becomes straightforward.
+From a small investment in learning how the system works, you have access to much data analytic prowess, learning how to use one of the key languages of modern data science.</p>
+<div id="overview" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Overview</h2>
+<p><span class="newthought">We begin with some basic concepts of data analytics.</span>
+All data analysis, as in 100%, is done on the computer. We use R <span class="citation">(<a href="references.html#ref-R" role="doc-biblioref">R Core Team 2020</a>)</span> as the app for data analytics, the same analysis system many data scientists use doing real data science.</p>
+<p>A core set of tasks form part of <em>every</em> analytics project:</p>
+<ul>
+<li><a href="ch-Rintro.html#sec:read">Read</a> the data from a computer file into the analysis system, here R.<br />
+</li>
+<li><a href="ch-Rintro.html#sec:count">Count</a> the data values recorded for each variable with either a bar chart or a histogram.</li>
+</ul>
+<p>The following content explains how to access and use R to accomplish these tasks. Sequentially follow the provided instructions, from downloading R to reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material.</p>
+<blockquote>
+<p>The key to successfully using the computer for data analysis is to carefully – even compulsively – follow the instructions given each week regarding R.</p>
+</blockquote>
+<p>Work through the following content step-by-step. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion. The best is to follow along with your computer, actively running each step as you proceed through this material. Get the basics down here, and the rest readily follows.</p>
+<div id="sec:RvsExcel" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> R vs. Excel</h3>
+<p><span class="newthought">Excel and R analyze data from function calls.</span> You already know more about using R than you thought you did. Excel works with many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
+<blockquote>
+<p><em>Function</em>: A procedure to analyze data by performing the computations that transform input data values into the results, the output.</p>
+</blockquote>
+<p>The input into a data analysis function is data. The output of a function can appear in several forms. The output can be text such as organized into tables, data visualizations in a graphics format such as <em>pdf</em> or <em>png</em>, and data transformed from the original input data.</p>
+<div id="sec:functions" class="section level4" number="1.1.1.1">
+<h4><span class="header-section-number">1.1.1.1</span> Functions</h4>
+<p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following data, six data values for the variable <em>Salary</em>. Find the variable name <em>Salary</em> in the first row of the corresponding Excel worksheet, with the data values listed in the same column under the variable name. The standard organization of data for analysis lists the variable name in the first row. List data values for that variable in the corresponding column, beginning in the second row.</p>
+<p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
+<blockquote>
+<p><em>Function call</em>: Process the computations of a function from within a data analysis system such as Excel or R.</p>
+</blockquote>
+With Excel, enter the function call into a cell in the worksheet, sharing the same type of storage area, cells, as the data itself.
+<p style="float: right; margin-top: -.75em;">
+<img width="120" style="padding-left: 1em;" src="images/ExcelFunction.png" />
+</p>
+<p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell in which to enter the function call. Here the cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
+<p>R works differently.</p>
+<blockquote>
+<p><em>Command line</em>: R presents a prompt, <code>&gt;</code>, which indicates where to enter instructions for data analysis.</p>
+</blockquote>
+<p>Invoke R functions from the command line. Unlike Excel, R separates the data from the instructions to analyze that data, an advantage that contributes to the power of R for data analysis. With R, enter function calls at the command line apart from the same storage area as the data.</p>
+<p><img src="images/RCommandPrompt.png" width="22%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>After entering an instruction in response to the <code>&gt;</code>, press Enter/Return, which instructs R to process the instruction, and then display a new prompt on a new command line. Instructions for an R data analysis consist of at least several lines of code entered at successive command lines.</p>
+<p>R can directly read data in the form of an Excel worksheet. To begin this analysis, <a href="ch-Rintro.html#sec:read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Instead of the <code>mean()</code> function, here invoke the more general <code>Histogram()</code> function, which computes the mean of <em>Salary</em>, plus many other statistics, plus the histogram.</p>
+<blockquote>
+<p>R references the data values for a variable by the variable’s name.</p>
+</blockquote>
+<p>To do an analysis in R, always be aware of the exact spelling of the variable names that define the data, including capitalization.</p>
+<p>In this example, specify the data to analyze with the corresponding variable name, here <em>Salary</em>.</p>
+<p><img src="images/R_HistogramPrompt.png" width="22%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>As with the Excel example, there is no programming involved in this analysis. The programming was done by the people who wrote the functions. Instead of programming code, to use either Excel or R in this example, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel involves much more work.</p>
+<p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
+</div>
+<div id="advantages-of-r" class="section level4" number="1.1.1.2">
+<h4><span class="header-section-number">1.1.1.2</span> Advantages of R</h4>
+<p><span class="newthought">Data scientists use R (or similar languages) for their analyses</span> instead of Excel. The following are some reasons for the preference for R and related languages.</p>
+<ul style="list-style-type: circle;">
+<li>
+Excel is great for data entry and viewing data as a spreadsheet app, but provides only the most basic statistics computations.
+</li>
+<li>
+R does Big Data, efficiently handling data sets with millions of rows of data, limited only by the computer’s available memory.
+</li>
+<li>
+Once the concept of working with an app like R is understood, less time is required to conduct an analysis, such as entering a simple <code>Histogram(Salary)</code> instruction instead of clicking and mousing around.
+</li>
+<li>
+R separates the instructions for the analysis of data from the data. This separation makes debugging errors much more straightforward for complicated Excel files that can span multiple worksheets.
+<li>
+Obtain each R analysis in this course with one or more instructions, function calls, instead of irrecoverable mouse clicks. The results of R analyses are <i>reproducible</i>, an important enough concept to merit its own discussion.
+</li>
+</ul>
+<p>The multiple instructions to perform an analysis document exactly how to conduct the analysis. Save these instructions in a file for later use to repeat the analysis.</p>
+<blockquote>
+<p><em>Reproducibility</em>: Analyses can be re-run in the future to reproduce previously obtained results.</p>
+</blockquote>
+<p>In real world data analysis <em>no one enters code directly into R</em>. Instead the analyst writes the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis.</p>
+<p>The saved R code is an instruction manual for how to accomplish the analysis, a set of instructions anyone with access can repeat. The instructions for analyses done by one person become accessible to all applicable members of your organization at any subsequent point in time, including yourself. On the contrary, the Excel mouse clicks disappear into digital dust.</p>
+<p>Much better to separate your data from the code. Countless overly complex Excel worksheets are horrendous to debug and understand in their complexity. Let the data reside within Excel, but use R or similar language to write your code that manipulates and analyzes your data. If needed, you can then export your results back to Excel. R writes data to Excel files as easily as it reads data from Excel worksheets.</p>
+</div>
+</div>
+<div id="lessr-enhancements" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> <strong>lessR</strong> Enhancements</h3>
+<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls.
+I have made using R for basic data analysis much more straightforward with my 43 or so functions added to the standard R functions, such as my <code>Histogram()</code> function. These functions, and the much more extensive and helpful error diagnostics that my functions provide, result in a more or less “un-geeked” R. The set of these functions is called <strong>lessR</strong>.</p>
+<blockquote>
+<p><strong>lessR</strong> function calls are straightforward – no programming required to obtain comprehensive results.</p>
+</blockquote>
+<p><strong>lessR</strong> organizes functions into what the R system refers to as a package. The R system, available on servers worldwide, consists of the hundreds of base R functions included with the installation of R, plus the functions found in additional packages accepted into the R ecosystem. Downloading R installs all the base R functions available in R. Download packages such as <strong>lessR</strong> to access additional functions, all referenced via the standard R environment.</p>
+</div>
+</div>
+<div id="sec:start" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Getting Started</h2>
+<p><span class="newthought">Download and install R and RStudio on your computer, or run in the cloud.</span> The choice is yours. R runs the same regardless. From the cloud, run R and RStudio with a web browser on any device, such as a Chromebook or an iPad. A potential disadvantage to running in the cloud is the need for an active Internet connection. Also, the free account provides only limited free access, though likely sufficient for this course.</p>
+<p>If you choose the cloud, follow these <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud directions</a>, then skip the following <em>Download and Run R</em> and <em>Download and Run RStudio sections</em>. Jump directly to <a href="ch-Rintro.html#sec:lessR"><em>Download and Access lessR</em></a>. RStudio, Inc. provides 15 hours of free access per month. This time limit is not just CPU time, but also includes time that a cloud project is open. So when the analysis session is complete, best to exit a project, then log out of your cloud account.</p>
+<div id="sec:getR" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Download and Run R</h3>
+<p><span class="newthought">R is free and runs the same on any Windows, Macintosh, or Linux/Unix computer.</span> Getting R is simple: Download the app from the network of worldwide R servers.</p>
+<em>Download R</em>.
+<ul>
+<li>
+<a href="https://cran.r-project.org/bin/windows/base/" target="_blank" rel="noopener">Windows</a> [click the first link such as <span style="text-decoration: underline;">Download R 4.0.4 for Windows</span>].
+</li>
+<li>
+<a href="https://cran.r-project.org/bin/macosx/" target="_blank" rel="noopener">Mac</a> [several paragraphs down the page, click the link such as <span style="text-decoration: underline;">R-4.0.4.pkg</span>].
+</li>
+</ul>
+<p><em>Install R</em>. If you are asked the question, <em>Install in a personal library?</em> answer y for yes (unless you understand administrative privileges, which are needed if R is installed system-wide).</p>
+<p>The installer offers both 32-bit and 64-bit versions. Unless your computer is more than 10 years old, run 64-bit software as you would any other app.</p>
+<p>Once downloaded the installation proceeds as with any app. Accept the given defaults for each step of the process. When installed, run the R app as you would any other application, such as double-clicking on the application’s icon in your file system display. When opened, R displays a window called the <em>console</em>. Enter instructions into the R console command line, where R presents the <code>&gt;</code> prompt.</p>
+</div>
+<div id="sec:getRStudio" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Download and Run RStudio</h3>
+<p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. You can download now, or later, or never, but there are some advantages to running R from within RStudio.</p>
+<p><a href="https://www.rstudio.com/products/rstudio/download/" target="_blank" rel="noopener">Download RStudio</a>. [choose the option: <em>RStudio Desktop, Open Source License</em>].</p>
+<p>From RStudio, you are running R, but within the RStudio environment. As shown in the following figure, RStudio presents a window divided into several window panes, all resizable to customize for a specific analysis. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions. A potential fourth window pane provides for files of R code, ready for analysis.</p>
+<div class="figure" style="text-align: center"><span id="fig:RStudio"></span>
+<img src="images/RStudio.png" alt="RStudio window panes." width="70%" />
+<p class="caption">
+Figure 1.1: RStudio window panes.
+</p>
+</div>
+<p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio, as you would any app on your computer.</p>
+</div>
+<div id="sec:lessR" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Download and Access <strong>lessR</strong></h3>
+<p><span class="newthought">To do a specific analysis,</span> enter into the console, after the <code>&gt;</code> prompt, the name of the function designed to accomplish that analysis. Each function has a name, such as <code>Histogram()</code> to display a histogram. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, a value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
+<p>Running R, within RStudio or by itself, on either your computer or in the cloud, one time only, download the <strong>lessR</strong> package of functions (and associated dependent packages) from the worldwide network of R servers onto your computer. In response to the R console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R console, either running R by itself or within RStudio. After entering the instruction, press Enter/Return. Note the use of quotes.</p>
+<p>[<a href="https://media.pdx.edu/media/install+lessR/1_b0oyltic" target="_blank" rel="noopener noreferrer">video: install lessR</a> (1:28)]</p>
+
+<div class="example">
+<span id="exm:install" class="example"><strong>Example 1.1  </strong></span>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ch-Rintro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lessR&quot;</span>)</span></code></pre></div>
+If asked the following question about compilation, answer <code>no</code>.
+<pre>
+Do you want to install from sources the package which needs compilation? (Yes/no/cancel)
+</pre>
+<p>This installation process involves not only downloading the <strong>lessR</strong> functions, but also many packages on which <strong>lessR</strong> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
+<p>Once downloaded, R stores the <strong>lessR</strong> functions in your R library created for you during the installation process. To access these functions for a specific R session, retrieve them from the library.</p>
+<blockquote>
+<p>At the beginning of <i>every</i> R session, first invoke the R function call <code>library("lessR")</code> to retrieve the <b>lessR</b> functions from your library for data analysis.</p>
+</blockquote>
+<p><a href="https://media.pdx.edu/media/t/1_egcscbuy" target="_blank" rel="noopener noreferrer">video: library(“lessR”)</a> [2:43]</p>
+
+<div class="example">
+<span id="exm:library" class="example"><strong>Example 1.2  </strong></span>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ch-Rintro.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lessR&quot;</span>)</span></code></pre></div>
+<p>Does it work? If the <strong>lessR</strong> functions successfully load from your R library the following appears, which includes some instructions for getting started with R/lessR. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="ch-Rintro.html#sec:vig">documented examples</a> of various analyses.</p>
+<pre style="font-size:0.9em; font-family: 'courier new', courier, sans-serif;">
+lessR 4.0.0  feedback: gerbing@pdx.edu  web: lessRstats.com/new
+---------------------------------------------------------------
+> d <- Read("")   Read text, Excel, SPSS, SAS, or R data file
+  d is default data frame, data= in analysis routines optional
+
+Vignettes show by example how to use lessR. Topics are
+read, write, & manipulate data, graphics, means, regression,
+  factor analysis, and customization. Two ways to view.
+Enter:  browseVignettes("lessR")
+Visit:  https://CRAN.R-project.org/package=lessR
+</pre>
+<p>If this information does not appear when you enter <code>library("lessR")</code>, then the <strong>lessR</strong> package is not correctly installed into your R library.
+One option is to run R/RStudio with the free plan in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a> instead of on your computer.</p>
+<p>Adding the functions from any package to the R environment adds more to the many hundreds of functions in base R as downloaded from the Internet. When using <strong>lessR</strong> you work in the same R environment and have access to the same R functions as any R user. The only distinction is that with my about 43 <strong>lessR</strong> functions available, R becomes simpler to use because each <strong>lessR</strong> function replaces several to many R functions plus additional programming code. Also, I have trapped many errors so that if you do make a mistake, usually you can read my “plain English” description of how to fix the problem, instead of some cryptic error message from R itself.</p>
+<p>Every month or so, update your R packages. To update, enter:</p>
+<p><code>update.packages(ask=FALSE)</code></p>
+<p>This instruction updates <strong>lessR</strong> as well as the packages upon which <strong>lessR</strong> depends. Or, if using RStudio, from the <code>Tools</code> menu, select <code>Check for Package Updates...</code>.</p>
+</div>
+</div>
+<div id="data" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Data</h2>
+<div id="sec:dt" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Data Table</h3>
+<p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds.
+To know how to use any data analysis system such as R, <em>understand the organization of data values into a table</em>.</p>
+<p>[<a href="https://media.pdx.edu/media/Data/0_ntiet07l" target="_blank" rel="noopener">video: Data Table</a> (4:05)]</p>
+<blockquote>
+<p><em>Data Table</em>: Organize data values into a rectangular data table with the data values for each variable in a column, and the name of the variable at the top of the column.</p>
+</blockquote>
+<p>Store the structured data values within a computer file, such as an Excel formatted file or text file. Store this file on your computer, an accessible local network, or the world wide web.
+The data table in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a>, formatted as an Excel file, contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em> plus an ID field called <em>Name</em> for a total of five columns. Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a> displays data values in the Excel file for these variables for just the first six employees out of many more.</p>
+<div class="figure" style="text-align: center"><span id="fig:dataTable"></span>
+<img src="images/DataTable.png" alt="Structure of a data table." width="70%" />
+<p class="caption">
+Figure 1.2: Structure of a data table.
+</p>
+</div>
+<p>Describe the data table by its columns, rows, and cell entries.</p>
+<blockquote>
+<p><em>Data value</em>: The contents of a single cell of a data table, a specific measurement.</p>
+</blockquote>
+<blockquote>
+<p><em>Variable name</em>: A short, concise word or abbreviation that identifies a column of data values in a data table.</p>
+</blockquote>
+<blockquote>
+<p><em>Example</em>: Each row of the data table, the data for a specific instance of a single person, organization, place, event, or whatever is the object of analysis.</p>
+</blockquote>
+<p><em>Examples</em> are also referred to as <em>cases</em>, <em>samples</em>, <em>instances</em>, and <em>observations</em>.</p>
+<p>Consider employee Darnell Ritchie. From the data table, he has worked at the company for seven years, identifies as a male, and works in administration with an annual salary of $43,788.26. Two data values in this section of the data table are missing. The number of years James Wu has worked at the company is not recorded, nor is the department in which Alissa Jones works.</p>
+<p>Encode the data table in one of a variety of computer file formats. The formats we encounter are Excel files, indicated by a file type of <code>.xlsx</code>, and text files in the form of comma-separated value files (csv). Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
+<p>Analysis of data can only proceed with the data table identified and the relevant variables in the data table identified by their names.</p>
+<blockquote>
+<p>All R functions analyze the data values within a data table for one or more specified variables, identified by their names, such as <i>Salary</i>.</p>
+</blockquote>
+<p>Analysis requires the correct spelling of each variable name, including the same pattern of capitalization.</p>
+</div>
+<div id="sec:read" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Read the Data into R</h3>
+<p><span class="newthought">To begin an analysis, read the data stored within a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored on a computer system, on your computer or a network, including the web. The data table may be stored in on of many different formats, including Excel. Figure <a href="ch-Rintro.html#fig:file">1.3</a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a> shows the first several lines of this data table in detail.</p>
+<div class="figure" style="text-align: center"><span id="fig:file"></span>
+<img src="images/fileComputerDark.png" alt="Data table, named _employee.xlsx_, stored as an Excel file." width="55%" />
+<p class="caption">
+Figure 1.3: Data table, named <em>employee.xlsx</em>, stored as an Excel file.
+</p>
+</div>
+<p>To analyze data in a data table stored in a computer file, first read the data table from the computer file into a corresponding data table within a running R session. R refers to data tables within R according to its name.</p>
+<blockquote>
+<p><em>Data frame</em>: A data table stored <i>within</i> an R session, referenced by its name.</p>
+</blockquote>
+<p>Each variable in a data table has a name, and so does the data table itself. Reference the data table stored on your computer system by its file name and location. When read into R, name the data table, the R data frame, with a name of your choice. Regardless of the file name on your computer system, typically name the data table <em>within</em> the active R session, the data frame, as simply <em>d</em> for data. Not only is <em>d</em> easy to type, but it is also the <strong>lessR</strong> default data frame name for the data processed by its various analysis functions.</p>
+<p>When analyzing data read into R, the same data exists in two different locations: as a computer file on your computer system and as an R data frame within a running R app. Different locations, different names: <em>same</em> data. On your computer system, identify the data table by its file name and location. Within a running R app, identify the same data from the data file by its data frame name, such as <em>d</em>.</p>
+<p>Do a function call to read the data from a file into a data frame of a running R application. R as downloaded and functions in different packages present many read functions. We use the <strong>lessR</strong> function <code>Read()</code> for its simplicity and useful output that helps understand the data that was read into R.</p>
+<div id="sec:browse" class="section level4" number="1.3.2.1">
+<h4><span class="header-section-number">1.3.2.1</span> Browse for the Data Table File</h4>
+<p><span class="newthought">To read the data, direct R to the location of the data file.</span> R cannot read the data file until it knows where the data is stored.
+One option has you locate the data file on your computer system by browsing for it, navigating your file system until you locate the file.</p>
+<blockquote>
+<p>To locate your data file by browsing through your file system, call the <code>Read()</code> function with an empty file reference, <code>("")</code>, literally nothing between the quotes.</p>
+</blockquote>
+<p>The following <code>Read()</code> statement reads the data stored as a rectangular data table from an external file stored on your computer system into an R data frame called <em>d</em>. The empty quotes indicate to R to open your file browser to locate the data file that already exists somewhere on your computer system).</p>
+<p><a href="https://media.pdx.edu/media/Read/1_m1sdcer2" target="_blank" rel="noopener noreferrer">video: Read Data</a> [3:35]</p>
+
+<div class="example">
+<span id="exm:ReadBrowse" class="example"><strong>Example 1.3  </strong></span>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ch-Rintro.html#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>As with all R (and Excel) functions, the call to invoke the function includes a matching set of parentheses. Any information within the parentheses specifies the information provided to the function for analysis.</p>
+<p>The <code>&lt;-</code> indicates to assign what is on the right of the expression, here the data read from an external file, to the object on the left, here the R data frame stored within R, named <em>d</em> in this example. You can also use an ordinary equals sign, <code>=</code>, to indicate the assignment, but the <code>&lt;-</code> is more descriptive and more widely used by R practitioners.</p>
+</div>
+<div id="sec:location" class="section level4" number="1.3.2.2">
+<h4><span class="header-section-number">1.3.2.2</span> Specify the Location of the Data Table File</h4>
+<span class="newthought">Alternatively, explicitly specify the location of the data file to be read</span> within the quotes and parentheses of the <code>Read()</code> function. Specify either the full path name of a file on your computer system, or specify a web address that locates the data table on the web. Again, read the data into the <em>d</em> data frame, remembering to include the quotes.
+<p style="margin-top: .15em;">
+<code>d &lt;- Read("path name" or "web address")</code>
+</p>
+<p>With Excel, R, or any other computer apps that process data, enclose character string values, such as a file name or web address (URL), in quotes. For example, to read the data stored on the web in the data file called <em>employee.xlsx</em> into the data frame <em>d</em>, invoke the following <code>Read()</code> function call.</p>
+
+<div class="example">
+<span id="exm:ReadURL" class="example"><strong>Example 1.4  </strong></span>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ch-Rintro.html#cb4-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">&quot;http://web.pdx.edu/~gerbing/data/employee.xlsx&quot;</span>)</span></code></pre></div>
+<p>This example reads a data file on the web, here into the R data frame <em>d</em>. To specify a location on your computer, provide the full path name of your data file, its name and location. To obtain this path name, first browse for the file with <code>Read("")</code>. The resulting output displays the path name of the identified file. Copy this path name and insert between the quotes of <code>Read("")</code>, save this and other R function calls in a text file, and then run the code in the future to directly read the data file for future analyses without needing to browse for its location.</p>
+<p>In summary, with the <code>Read()</code> function, either put nothing between the quotes to browse for a data file, or specify the data file’s location on your computer system or the web. Direct the data read from a file into an R data frame, usually named <em>d</em>, but can choose any valid name.</p>
+</div>
+<div id="output-of-read" class="section level4" number="1.3.2.3">
+<h4><span class="header-section-number">1.3.2.3</span> Output of <code>Read()</code></h4>
+<p><span class="newthought">R organizes analyses by variable name, so it is crucial to know the exact variable names.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names.</p>
+<blockquote>
+<p>Specify an R analysis for one or more variables (columns) in the data frame (table).</p>
+</blockquote>
+<p>Rows and columns organize a data table. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
+<p><code>Read()</code> also displays the type of each variable stored in the computer, as numbers with or without decimal digits, or as character strings. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. Figure <a href="ch-Rintro.html#fig:readOut">1.4</a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
+<div class="figure" style="text-align: center"><span id="fig:readOut"></span>
+<img src="images/ReadOut.png" alt="Output of Read() function with the Variable Name column highlighted." width="82%" />
+<p class="caption">
+Figure 1.4: Output of Read() function with the Variable Name column highlighted.
+</p>
+</div>
+<p>To ensure that your data was read correctly, always compare the output of <code>Read()</code> with the actual data file. Never blindly read data into R or any other system without first verifying that the data values in the data table stored on some computer system match the variables and data values as read into an R data frame.</p>
+<p>To allow for many variables, <code>Read()</code> lists the information for each variable in a row. Note that the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a> and Figure <a href="ch-Rintro.html#fig:file">1.3</a>.</p>
+</div>
+</div>
+<div id="display-the-data" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Display the Data</h3>
+<p><span class="newthought">To analyze data, first understand the data.</span> You should know what the data values look like for each variable, and you should know the variable names. The output of the <strong>lessR</strong> function <code>Read()</code> assists this understanding, but often you want to view the data directly.</p>
+<p>After reading the data into R, you can view the contents of the newly created data frame. The rule is that to view the contents of any R object, of which there are many types, enter the name of the object at the console, in response to the command prompt <code>&gt;</code>.</p>
+<p><a href="https://media.pdx.edu/media/display/1_py9v24jw" target="_blank" rel="noopener noreferrer">video: Display the Data</a> [1:49]</p>
+
+<div class="example">
+<span id="exm:dlist" class="example"><strong>Example 1.5  </strong></span>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ch-Rintro.html#cb5-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<p>Or, use the R <code>head()</code> function to list the variable names and, by default, the first six rows of data, here for the data frame <em>d</em>.</p>
+
+<div class="example">
+<span id="exm:headl" class="example"><strong>Example 1.6  </strong></span>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ch-Rintro.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code></pre></div>
+<p>The following output from the R data frame <em>d</em> results.</p>
+<pre><code>##               Name Years Gender Dept    Salary JobSat Plan Pre Post
+## 1 Ritchie, Darnell     7      M ADMN  43788.26    med    1  82   92
+## 2        Wu, James    NA      M SALE  84494.58    low    1  62   74
+## 3      Hoang, Binh    15      M SALE 101074.86    low    3  96   97
+## 4    Jones, Alissa     5      F &lt;NA&gt;  43772.58   &lt;NA&gt;    1  65   62
+## 5   Downs, Deborah     7      F FINC  47139.90   high    2  90   86
+## 6   Afshari, Anbar     6      F ADMN  59441.93   high    2 100  100</code></pre>
+<p>Compare this output, the representation of the data within R, to the data table in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a> as an Excel file. Same data, different locations. Note the representation of missing data.</p>
+<blockquote>
+<p><em>R missing data code</em>: <code>NA</code> and <code>&lt;NA&gt;</code>for <em>not available</em> indicates missing data for numerical and non-numerical variables, respectively.</p>
+</blockquote>
+<p>The blank cells in the Excel file, Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a>, are replaced with either <code>NA</code> for the numerical variable Years, and <code>&lt;NA&gt;</code> for the variable Dept with non-numerical values.</p>
+<p>R also provides a corresponding function <code>tail()</code> that lists the data values at the end of the file.</p>
+</div>
+<div id="two-types-of-variables" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Two Types of Variables</h3>
+<p><span class="newthought">Always distinguish <em>continuous variables</em> from <em>categorical variables</em>.</span> This distinction between these two types of variables is fundamental in data analysis.</p>
+<blockquote>
+<p><em>Continuous (quantitative) variable</em>: A numerical variable with many possible values.</p>
+</blockquote>
+<blockquote>
+<p><em>Categorical (qualitative) variable</em>: A variable with relatively few unique labels as data values.</p>
+</blockquote>
+<p>Examples of continuous variables are <em>Salary</em> or <em>Time</em>, all defined on a numerical scale with many unique values. On the contrary, examples of categorical variables are <em>Gender</em> or <em>State</em> of Residence. Each categorical variable has just a relatively few number of possible values compared to numerical values. This distinction of continuous and categorical variables is common to all data analytics.</p>
+<p>Sometimes that distinction gets a little confusing because variables with integer values, which are numeric, could be quantitative or qualitative. For example, sometimes Male, Female, and Other are encoded as 0, 1, and 2, respectively, for three levels of the categorical variable <em>Gender</em>. However, these integer values are just labels for different non-numeric categories. Best to avoid this confusion. Instead, encode categorical variables with non-numeric values, such as <em>Gender</em>, for example, with M F, and O for Other.</p>
+<p>To distinguish between continuous and categorical variables, determine if the values of a variable are on a numerical scale, presumably with a relatively large number of unique values that can be ordered from small to large value. A categorical variable such as <em>Gender</em>, however, as indicated, may be coded numerically. Such coding does not imply the values are on a numerical scale. For example, Female is not more than Male, or vice versa. Moreover, usually there are a small number of unique values for a categorical variable, such as M, F, and O.</p>
+</div>
+</div>
+<div id="sec:count" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Visualize the Data</h2>
+<p><span class="newthought">The most fundamental analysis of data is counting</span> the occurrence of each data value, or group of similar data values.</p>
+<blockquote>
+<p><em>General Principle</em>: Read the data table into R with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
+</blockquote>
+<p>All data analysis in R follows from the names of the relevant variables. In the function call for a data analysis, include the variable name, such as <em>Salary</em>, a continuous variable, or <em>Gender</em>, a categorical variable.
+The <strong>lessR</strong> <code>Read()</code> function lists the variable names as part of its output. Each analysis is of one or more variables, <em>not</em> the entire data table. Distinguish between the name of the data table, and the name of the variable(s) that exist within the data table.</p>
+<p>As with most analyses, effectively communicate the results with data visualizations. The type of visualization for counting data values, as with most analyses, depends on the type of variable, categorical or continuous.</p>
+<div id="bar-chart-and-pie-chart" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Bar Chart and Pie Chart</h3>
+<p><span class="newthought">One of the most encountered data visualizations is the bar chart.</span> Create a bar chart or pie chart from the categories (levels) of a categorical variable with a number associated with each category. First focus on the bar chart.</p>
+<blockquote>
+<p><em>Bar Chart</em>: Plot a bar for each level of a categorical variable with its height scaled according to the value of the associated numerical variable.</p>
+</blockquote>
+<p>A bar chart requires <em>two</em> variables to plot, the categorical variable and the associated numerical variable. The number associated with each level (category) could be any number. A bar chart, then, is constructed from the information in a table with two columns. In one column is a list of each category of the categorical variable. In the second column of the table is the number associated with each category that translates into the height of the corresponding bar.</p>
+<p>What is the source of the table from which the bar chart is constructed? One possibility provides the table directly to the bar chart function. Another possibility, examined here first, is to have the computer construct that table. The most common application of the computer constructing the table is the count of how many times each category appeared in the data. For example, how many students in the class received an A for their course grade? An A-? … and so on. When visualizing the distribution of counts, the height of each bar is the count, or frequency, of how many times the corresponding level in the data occurred.</p>
+<div id="sec:bcMeas" class="section level4" number="1.4.1.1">
+<h4><span class="header-section-number">1.4.1.1</span> Bar Chart from Measurements</h4>
+<p><span class="newthought">One possibility creates the bar chart from the data table of measurements.</span> Data analysis ultimately begins with the measured data values. To plot a bar chart, first <a href="ch-Rintro.html#sec:read">read</a> the data table of measurements from a computer file into the R data frame named <em>d</em>.</p>
+<blockquote>
+<p><em>Raw data</em>: The original, measured data values before any summarization or transformation.</p>
+</blockquote>
+<p>An example of <a href="ch-Rintro.html#sec:dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a>. The data values for each employee are the original data values from which the analysis begins, recorded as measurements. To begin the analysis, <a href="ch-Rintro.html#exm:ReadURL">read</a> these data values into an R data frame, usually <em>d</em>.</p>
+<p>Consider a data frame of the raw data that contains a categorical variable, here referred to with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific meaning, such as <em>Gender</em> or <em>Dept</em>. The following instruction creates the bar chart of the counts of occurrence of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
+<div class="figure" style="text-align: center"><span id="fig:bcExplain"></span>
+<img src="images/bcExplain.png" alt="Instruction to create a bar chart of the counts of each category for the generically named categorical variable _x_ in the default _d_ data frame." width="26%" />
+<p class="caption">
+Figure 1.5: Instruction to create a bar chart of the counts of each category for the generically named categorical variable <em>x</em> in the default <em>d</em> data frame.
+</p>
+</div>
+<p>A call to a function to create a bar chart necessarily contains the name of the variable defined by the categories to plot.</p>
+<p>With the <code>BarChart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If a bar chart is constructed from two variables, and only the categorical variable is supplied to the function, what is the unspecified numerical variable?</p>
+<blockquote>
+<p>When only the name of one categorical variable name is passed to <code>BarChart()</code>, the visualization is of the variable’s distribution, the height of the bar for each category as the corresponding count of the number of occurrences.</p>
+</blockquote>
+<p>To illustrate, return to the <a href="ch-Rintro.html#sec:dt">data</a> in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a>. First, <a href="ch-Rintro.html#sec:location">read</a> the data into R as the <em>d</em> data frame. Given the data, <code>BarChart()</code> tabulates and displays the number of employees in each department, according to the variable named Dept. The values of Dept are in the default data frame (table) named <em>d</em>.</p>
+<p>The result is the bar chart in Figure <a href="ch-Rintro.html#fig:bcEx">1.6</a> for the distribution of the values of the categorical variable Dept. Note that the only information passed to <code>BarChart()</code> is the name of the categorical variable to analyze.</p>
+<p><a href="https://media.pdx.edu/media/bc/1_29ykv9xc" target="_blank" rel="noopener noreferrer">video: Bar Chart of Counts</a> [2:56]</p>
+
+<div class="example">
+<span id="exm:bc1" class="example"><strong>Example 1.7  </strong></span>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ch-Rintro.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:bcEx"></span>
+<img src="Figs/bcEx-1.png" alt="The distribution of variable Dept visualized as the bar chart of tabulated counts of employees in each department." width="50%" />
+<p class="caption">
+Figure 1.6: The distribution of variable Dept visualized as the bar chart of tabulated counts of employees in each department.
+</p>
+</div>
+<pre><code>## &gt;&gt;&gt; Suggestions
+## BarChart(Dept, horiz=TRUE)  # horizontal bar chart
+## BarChart(Dept, fill=&quot;greens&quot;)  # sequential green bars
+## PieChart(Dept)  # doughnut (ring) chart
+## Plot(Dept)  # bubble plot
+## Plot(Dept, stat=&quot;count&quot;)  # lollipop plot 
+## 
+## 
+## --- Dept ---
+## 
+## 
+## Missing Values of Dept: 1 
+## 
+## 
+##                 ACCT   ADMN   FINC   MKTG   SALE    Total 
+## Frequencies:       5      6      4      6     15       36 
+## Proportions:   0.139  0.167  0.111  0.167  0.417    1.000 
+## 
+## 
+## Chi-squared test of null hypothesis of equal probabilities 
+##   Chisq = 10.944, df = 4, p-value = 0.027</code></pre>
+<p>The <code>BarChart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category. The function also provides the corresponding table of counts.</p>
+<blockquote>
+<p><em>Frequency distribution</em>: Table that lists the count of each category (level), from which a bar chart can be constructed.</p>
+</blockquote>
+<p>The <code>BarChart()</code> function provides the tabular form of the frequency distribution as part of its text output to the R console, as shown in the above output. The counts appear in the row labeled Frequencies, with the categories in the previous row. Other names for this frequency distribution are <em>summary table</em>, and in Excel notation, a <em>pivot table</em>.</p>
+<p>From the frequency distribution that pairs a number with each category or level, <code>BarChart()</code> visualizes that pairing with the bar chart. In this example, the frequency distribution reveals that there are five accountants (ACCT), six administrators (ADMN), four financial analysts (FINC), six marketers (MKTG), and 15 people working in sales (SALE). From this information, a bar chart function defines the bars and their associated heights.</p>
+</div>
+<div id="sec:bcSummary" class="section level4" number="1.4.1.2">
+<h4><span class="header-section-number">1.4.1.2</span> Bar Chart from Summary Table</h4>
+<p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="ch-Rintro.html#sec:dt">raw data</a>, the original measurements. The <code>BarChart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data.</p>
+<p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number that translates into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each NBA team. The table would be a list of all NBA teams, each team paired with a number such as 83, for 83 inches tall.</p>
+<p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table of measurements. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
+<p>In this instance, read the summary table into R, the values that <code>BarChart()</code> implicitly computed in the previous example. Or, easily compute the summary table, the category and counts, in Excel directly, as a pivot table, or even more simply with the <strong>lessR</strong> function <code>pivot()</code>. Or, if available from another source, enter the summary table directly into Excel. In this example, simply locate the already constructed summary table on the web.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ch-Rintro.html#cb10-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">&quot;http://web.pdx.edu/~gerbing/data/DeptCount.xlsx&quot;</span>)</span></code></pre></div>
+<pre><code>## [with the read.xlsx function from Alexander Walker&#39;s openxlsx package] 
+## 
+## &gt;&gt;&gt; Suggestions
+## To read a csv or Excel file of variable labels, var_labels=TRUE
+##    Each row of the file:  Variable Name, Variable Label
+## Details about your data, Enter:  details()  for d, or  details(name)
+## 
+## Data Types
+## ------------------------------------------------------------
+## character: Non-numeric data values
+## integer: Numeric data values, integers only
+## ------------------------------------------------------------
+## 
+##     Variable                  Missing  Unique 
+##         Name     Type  Values  Values  Values   First and last values
+## ------------------------------------------------------------------------------------------
+##  1      Dept character      5       0       5   ACCT  ADMN  FINC ... FINC  MKTG  SALE
+##  2      Freq   integer      5       0       4   5  6  4 ... 4  6  15
+## ------------------------------------------------------------------------------------------</code></pre>
+<p>After reading the data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ch-Rintro.html#cb12-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>##   Dept Freq
+## 1 ACCT    5
+## 2 ADMN    6
+## 3 FINC    4
+## 4 MKTG    6
+## 5 SALE   15</code></pre>
+<p>This summary data table contains the two variables relevant to the analysis, categorical variable Dept, and numerical variable Freq. There is one row of the data table for each value (category) of Dept. The values of the numerical variable specify the scaled height of the bar for the corresponding category.</p>
+<p>To create the bar chart from the summary table, specify the categorical variable as before, and then specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>BarChart()</code> that reads data from a summary table.</p>
+<div class="figure" style="text-align: center"><span id="fig:bcXYExplain"></span>
+<img src="images/bcXYExplain.png" alt="Instruction to generate a bar chart of the supplied numerical value for each category for numerical variable _y_ for the categorical variable _x_, both in the _d_ data frame, here a summary table." width="38%" />
+<p class="caption">
+Figure 1.7: Instruction to generate a bar chart of the supplied numerical value for each category for numerical variable <em>y</em> for the categorical variable <em>x</em>, both in the <em>d</em> data frame, here a summary table.
+</p>
+</div>
+<p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named Freq. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>BarChart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
+<blockquote>
+<p>If the numerical variable <span class="math inline">\(y\)</span> is explicitly specified, <code>BarChart()</code> recognizes that the data are in summary (pivot) table form instead of the original measurements.</p>
+</blockquote>
+<p>When the data are a summary table, <code>BarChart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here Freq, directly instead of computing its values.</p>
+
+<div class="example">
+<span id="exm:bc2" class="example"><strong>Example 1.8  </strong></span>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ch-Rintro.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code></pre></div>
+<p>This R instruction, that is, a function call, creates the identical bar chart shown in Figure <a href="ch-Rintro.html#fig:bcEx">1.6</a>. Jere, instead of constructing the bar chart from the original measurements and let <code>BarChart()</code> implicitly calculate the summary table of departments and counts, enter the already calculated summary table directly into the function call.</p>
+</div>
+<div id="more-bar-charts-and-beyond" class="section level4" number="1.4.1.3">
+<h4><span class="header-section-number">1.4.1.3</span> More Bar Charts and Beyond</h4>
+<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts (including some material we cover later in this course), I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation">(<a href="references.html#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access.</p>
+<p>For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation">(<a href="references.html#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>, the primary topic in my Spring Data Visualization course.</p>
+</div>
+<div id="sec:pc" class="section level4" number="1.4.1.4">
+<h4><span class="header-section-number">1.4.1.4</span> Pie Chart from Measurements</h4>
+<p><span class="newthought">An alternative to the bar chart is the pie chart.</span> Data visualized as a bar chart for a single variable can also be represented with a pie chart.</p>
+<blockquote>
+<p><em>Pie Chart</em>: Relate each level of a categorical variable to the area of a circle (pie) scaled according to the value of an associated numerical variable.</p>
+</blockquote>
+<p style="margin-top: 1em; margin-bottom: 1em;">
+As with the bar chart, obtain the pie chart of the frequencies of a categorical variable, generically named <span class="math inline">\(x\)</span>. Of course, replace the generic name with the actual variable name for any one analysis. After reading the data, create the ring chart version of the pie chart.
+</p>
+<div class="figure" style="text-align: center"><span id="fig:pcExplain"></span>
+<img src="images/pcExplain.png" alt="Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable _x_ in the _d_ data frame." width="26%" />
+<p class="caption">
+Figure 1.8: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <em>x</em> in the <em>d</em> data frame.
+</p>
+</div>
+<p>For a single variable, the pie chart presents an alternative visualization of the data provided by the bar chart.
+Here the displayed pie chart is the doughnut or ring chart version of a pie chart.</p>
+<p><a href="https://media.pdx.edu/media/PieChart/1_birzasjy" target="_blank" rel="noopener noreferrer">video: Pie Chart of Counts</a> [1:26]</p>
+
+<div class="example">
+<span id="exm:pc1" class="example"><strong>Example 1.9  </strong></span>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ch-Rintro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ring"></span>
+<img src="Figs/ring-1.png" alt="Ring chart version of a pie chart for variable _Dept_ in the _d_ data frame." width="36%" />
+<p class="caption">
+Figure 1.9: Ring chart version of a pie chart for variable <em>Dept</em> in the <em>d</em> data frame.
+</p>
+</div>
+<pre><code>## &gt;&gt;&gt; Suggestions
+## PieChart(Dept, hole=0)  # traditional pie chart
+## PieChart(Dept, values=&quot;%&quot;)  # display %&#39;s on the chart
+## BarChart(Dept)  # bar chart
+## Plot(Dept)  # bubble plot
+## Plot(Dept, values=&quot;count&quot;)  # lollipop plot 
+## 
+## 
+## --- Dept ---
+## 
+## 
+##                 ACCT   ADMN   FINC   MKTG   SALE    Total 
+## Frequencies:       5      6      4      6     15       36 
+## Proportions:   0.139  0.167  0.111  0.167  0.417    1.000 
+## 
+## 
+## Chi-squared test of null hypothesis of equal probabilities 
+##   Chisq = 10.944, df = 4, p-value = 0.027</code></pre>
+<p>The doughnut or ring chart appears easier to read than a standard bar chart. But the <strong>lessR</strong> function <code>PieChart()</code> also can create the “old-fashioned” pie chart. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> parameter.</p>
+
+<div class="example">
+<span id="exm:pcfilled" class="example"><strong>Example 1.10  </strong></span>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ch-Rintro.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:hole0"></span>
+<img src="Figs/hole0-1.png" alt="Standard pie chart of variable _Dept_ in the _d_ data frame." width="36%" />
+<p class="caption">
+Figure 1.10: Standard pie chart of variable <em>Dept</em> in the <em>d</em> data frame.
+</p>
+</div>
+<p>Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole. The default hole size is 0.65. Set that value to 0 to close the hole.</p>
+</div>
+</div>
+<div id="sec:hist" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Histogram</h3>
+<p><span class="newthought">For a continuous variable, can plot the counts with a histogram.</span> Unlike a categorical variable, a continuous variable presents many different, numeric values. The underlying continuity requires a different approach than for the bar chart, the binning of the data. The resulting visualization of how the values of a continuous variable are distributed is a <em>histogram</em>.</p>
+<blockquote>
+<p><em>Bins</em>: A sequence of adjacent, non-overlapping intervals, each generally of the same size.</p>
+</blockquote>
+<blockquote>
+<p><em>Histogram</em>: Group similar data values from a continuous variable together into a bin, then assign a single count to each bin.</p>
+</blockquote>
+<p>Create the histogram and associated statistics from a continuous variable named with the <strong>lessR</strong> function <code>Histogram()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:hsExplain"></span>
+<img src="images/hsExplain.png" alt="Instruction to generate a histogram of the counts for each bin for the generically named continuous variable _x_ in the _d_ data frame." width="26%" />
+<p class="caption">
+Figure 1.11: Instruction to generate a histogram of the counts for each bin for the generically named continuous variable <em>x</em> in the <em>d</em> data frame.
+</p>
+</div>
+<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in Figure <a href="ch-Rintro.html#fig:dataTable">1.2</a>. Find the histogram in Figure <a href="ch-Rintro.html#fig:h">1.12</a>.</p>
+<p><a href="https://media.pdx.edu/media/Histogram/1_sa3nq4zo" target="_blank" rel="noopener noreferrer">video: Histogram</a> [2:39]</p>
+
+<div class="example">
+<span id="exm:hs1" class="example"><strong>Example 1.11  </strong></span>
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="ch-Rintro.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:h"></span>
+<img src="Figs/h-1.png" alt="Histogram of Salaries." width="50%" />
+<p class="caption">
+Figure 1.12: Histogram of Salaries.
+</p>
+</div>
+<pre><code>## &gt;&gt;&gt; Suggestions 
+## bin_width: set the width of each bin 
+## bin_start: set the start of the first bin 
+## bin_end: set the end of the last bin 
+## Density(Salary)  # smoothed density curves plus histogram 
+## Plot(Salary)  # Violin/Box/Scatterplot (VBS) plot 
+## 
+## 
+## --- Salary --- 
+##  
+##      n   miss         mean           sd          min          mdn          max 
+##      37      0    73795.557    21799.533    46124.970    69547.600   134419.230 
+## 
+## 
+## (Box plot) Outliers: 1 
+##  
+## Small      Large 
+## -----      ----- 
+##             134419.2 
+## 
+## 
+## Bin Width: 10000 
+## Number of Bins: 10 
+##  
+##              Bin  Midpnt  Count    Prop  Cumul.c  Cumul.p 
+## --------------------------------------------------------- 
+##   40000 &gt;  50000   45000      4    0.11        4     0.11 
+##   50000 &gt;  60000   55000      8    0.22       12     0.32 
+##   60000 &gt;  70000   65000      8    0.22       20     0.54 
+##   70000 &gt;  80000   75000      5    0.14       25     0.68 
+##   80000 &gt;  90000   85000      3    0.08       28     0.76 
+##   90000 &gt; 100000   95000      5    0.14       33     0.89 
+##  100000 &gt; 110000  105000      1    0.03       34     0.92 
+##  110000 &gt; 120000  115000      1    0.03       35     0.95 
+##  120000 &gt; 130000  125000      1    0.03       36     0.97 
+##  130000 &gt; 140000  135000      1    0.03       37     1.00</code></pre>
+<p>We get not only the histogram, but the corresponding frequency distribution from which the histogram is constructed, as well as summary statistics and an outlier analysis. The frequency distribution shows the sequence of bins and how many values are located within each bin.</p>
+<p>Choosing the best size for the bins is not a task that a computer algorithm can solve. Usually better to experiment with different bin sizes. For an <em>undersmoothed</em> histogram, bin width is too small. For an <em>oversmoothed</em> histogram, bin width is too large.</p>
+<p>To control the width of the bins, use the <code>bin_width</code> parameter as part of the call to the <code>Histogram()</code> function. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in Figure <a href="ch-Rintro.html#fig:h13000">1.13</a> is smoother than the original in Figure <a href="ch-Rintro.html#fig:h">1.12</a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
+
+<div class="example">
+<span id="exm:binwidth" class="example"><strong>Example 1.12  </strong></span>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="ch-Rintro.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:h13000"></span>
+<img src="Figs/h13000-1.png" alt="Histogram of Salaries with a specified bin width of 13000." width="50%" />
+<p class="caption">
+Figure 1.13: Histogram of Salaries with a specified bin width of 13000.
+</p>
+</div>
+<p>There are many different parameters for most functions, discussed in the next section.</p>
+</div>
+<div id="sec:params" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Parameter Values</h3>
+<p><span class="newthought">A variety of conditions control the output of each analysis, text or visualization.</span>
+A bar chart or a histogram, for example, requires colors for the bars, colors for the bar edges, labels for the axes, and many other characteristics. In terms of text output, for example, the maximum width of each line must be pre-set before analysis begins.</p>
+<p>Characteristics such as bar color and maximum line width are not hard-coded into the function but instead can be customized. This logic applies to any analysis system, such as Excel or R.</p>
+<blockquote>
+<p><em>Parameter</em>: A user-controlled value of a function’s code, a placeholder, that specifies some characteristic of the way the data is processed or the output of the function is displayed.</p>
+</blockquote>
+<p>Each function includes parameters to customize input or output. For any bar chart or histogram function from any analysis system, such as Excel or R, one parameter sets the color of the bars, and another parameter sets the color of the bar edges.</p>
+<p>To use a function and have to manually select all the parameter values manually would be much too tedious.</p>
+<blockquote>
+<p><em>Default parameter value</em>: A preset value of a parameter, unless explicitly changed when invoking the function.</p>
+</blockquote>
+<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>BarChart()</code> and <code>Histogram()</code> parameter <code>fill</code> sets the color that fills the bars. By default <code>BarChart()</code>, for example, displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, here set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+
+<div class="example">
+<span id="exm:bcblue" class="example"><strong>Example 1.13  </strong></span>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="ch-Rintro.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:bcblueEx"></span>
+<img src="Figs/bcblueEx-1.png" alt="Bar chart with bars filled with a shade of blue." width="50%" />
+<p class="caption">
+Figure 1.14: Bar chart with bars filled with a shade of blue.
+</p>
+</div>
+<p>Just as Excel operates, the general format for setting a parameter value <em>within</em> the call to a function follows. In the following expression, the three dots, …, indicate other stuff that is part of the function call, such as a variable name.</p>
+<pre><code>function_name( ... , parameter_name = value ... )</code></pre>
+<p>In the <code>BarChart()</code> example above, <code>fill</code> names the parameter. The value of <code>"steelblue"</code> is the specific value set for that parameter. Explicitly setting that parameter value overrides the default value of <code>BarChart()</code>, which provides a different color for each bar.</p>
+<p>You can rely upon the default parameter values, or add more paired parameter names and values as there are parameters to add.
+As another example, there is a <em>data</em> parameter for <strong>lessR</strong> analysis functions such as <code>BarChart()</code> that specifies the name of the data table that contains the variable(s) to analyze. These functions default to the data table name <em>d</em>, so no need to specify the parameter if referring to the default name.</p>
+<p>Customize the resulting bar chart, or rely upon the default values that <strong>lessR</strong> provides without customizing anything. Find many possibilities for parameter values, most of which are not covered here.</p>
+<p>Every R function has a help file. To see all the possibilities of applying the function, display the help file for the function. To view its contents, enter a question mark, ?, followed by the function name.</p>
+<pre><code>?BarChart</code></pre>
+<p>Toward the beginning of the help file, find a list of all the parameters, their default values, and an explanation of each.</p>
+</div>
+<div id="sec:summary" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Summary</h3>
+<p><span class="newthought">To use R to do a data analysis requires at least three separate R functions.</span> Run R either on your <a href="ch-Rintro.html#sec:start">computer</a> or in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Retrieve the <strong>lessR</strong> functions from your R <a href="ch-Rintro.html#sec:lessR">library</a> <code>library("lessR")</code></li>
+<li>Read the data from a file into R:<br />
+<code>d &lt;- Read("")</code> to <a href="ch-Rintro.html#sec:browse">browse</a> for the file,<br />
+or,<br />
+<code>d &lt;- Read("path name" or "web address")</code> specify the <a href="ch-Rintro.html#sec:location">location</a> of the file</li>
+<li>Analyze the data values for a specific variable, generically named <span class="math inline">\(x\)</span>, such as with the <strong>lessR</strong> function calls <code>Histogram(x)</code>,<code>BarChart(x)</code>, or <code>PieChart(x)</code></li>
+</ol>
+<p>Find many, many analysis functions in base R as originally download. Find even more functions in contributed packages such as <strong>lessR</strong>.
+<!-- <hr style="width: 30em; margin-top: 1.5em;" /> --></p>
+</div>
+</div>
+<div id="misc" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Misc</h2>
+<div id="report-generation" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Report Generation</h3>
+<p><span class="newthought">Follow one of two strategies for reporting your work in R.</span> The choice of format to use is yours. One method is to do a manual copy and paste from R output, text and graphics, into a word processing document such as Word. Or, let R do the work for you, using one of two methods: Compile Report or R Markdown. The R Markdown method is ultimately more useful, but for this class the Compile Report method works just fine.</p>
+<div id="sec:figures" class="section level4" number="1.5.1.1">
+<h4><span class="header-section-number">1.5.1.1</span> Copy and Paste</h4>
+<p><span class="newthought"></span> For the first technique, manually construct a word processing document, such as for a homework assignment. Copy and paste text and graphics output from R into the MS Word or other word processing app document.</p>
+<p><em>Text</em>: All input and output to the R Console, with or without RStudio, is pure text. So select and copy the desired output and paste into MS Word or, for example, an email (no screenshot). Display the text in a mono-spaced font, such as Courier New. First, this lines up the columns of tables, and second, this distinguishes computer output in your writing from words that you write yourself, such as interpretative text.</p>
+<p><em>Graphics</em>: For RStudio use the <em>Export</em> button at the top of the window pane for Plots. Then select <em>Copy to Clipboard</em> and paste into the app such Word. Generally, re-size the image to better fit on the page.</p>
+<div class="figure" style="text-align: center"><span id="fig:image"></span>
+<img src="images/Exportpdf.png" alt="Export an image from RStudio." width="36%" />
+<p class="caption">
+Figure 1.15: Export an image from RStudio.
+</p>
+</div>
+<p>If running R by itself, right-click on each visualization, select Copy.</p>
+</div>
+<div id="compile-a-report" class="section level4" number="1.5.1.2">
+<h4><span class="header-section-number">1.5.1.2</span> Compile a Report</h4>
+<p><span class="newthought">Save R input instructions in a text file and run as a single unit with output to MS Word.</span> From the <code>File --&gt; New File --&gt; R</code> Script menu sequence create a new file and save. Or, start with the <code>+</code> sign at the top-left corner of the RStudio window to create the new text file. Then enter the R instructions into the text file window pane.</p>
+<p>From the window pane, can run the code with the <code>Run</code> button at the top-right of the window-pane for the file. Or, even better, click on the <code>Compile Report</code> button. Then choose MS Word as the output medium.</p>
+<div class="figure" style="text-align: center"><span id="fig:TextFileMenu"></span>
+<img src="images/TextFileMenu.png" alt="Compile Report and Run buttons on the toolbar of the RStudio text file window pane." width="84%" />
+<p class="caption">
+Figure 1.16: Compile Report and Run buttons on the toolbar of the RStudio text file window pane.
+</p>
+</div>
+<p>The entire R analysis will run and output to Word, including the visualizations. From there, edit the Word document as desired. <a href="https://media.pdx.edu/media/t/1_hfrq2064">Video: Compile Report</a> [4:40]</p>
+<p>The only issue with the Word output is that if used for homework, there are no homework questions. Either copy and paste the questions into the Word doc from R, or the reverse copy sections from the R output into the homework assignment.</p>
+</div>
+<div id="report-from-r-markdown" class="section level4" number="1.5.1.3">
+<h4><span class="header-section-number">1.5.1.3</span> Report from R Markdown</h4>
+<p><span class="newthought"></span> The most flexible technique from which to deliver an analysis uses <code>R Markdown</code> to construct the report (such as this document). Follow these <a href="Rmd/RmdR.html">directions</a>.</p>
+<p>Develop your reports that use R for analytics directly in RStudio using R Markdown as a single, integrated report. The output can be HTML for a web page, or .docx for MS Word. R can directly generate web pages and Word documents (plus pdf’s) as standard output using R Markdown.
+To apply to homework assignments, copy and paste the homework questions into an RStudio text file, perhaps just the worked problems part of the homework. Then adjust R code as needed, plus your interpretations.</p>
+<p>Again, a relatively small investment of time to obtain more useful skills for doing data analysis.</p>
+</div>
+</div>
+<div id="sec:errors" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Errors</h3>
+<p><span class="newthought">The R console records interaction with R.</span> If you encounter some error and need some help to solve the issue, you can be very specific about the feedback you provide to me regarding that error. Best to copy the input/output from <code>Read()</code>, as well as the particular error you encountered and then paste directly into an email, forwarded to at <a href="mailto:gerbing@pdx.edu">gerbing@pdx.edu</a>. From that information I can see the error and the data you have in the system when the error occurs. The console is just text, so no screenshots of the error.</p>
+</div>
+<div id="sec:vig" class="section level3" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> Get Help</h3>
+<p><span class="newthought">Get Help.</span> <strong>lessR</strong> contains several vignettes, each of which explains, with examples, how to do a specified analysis. Access the vignettes with the R function call <code>browseVignettes("lessR")</code>. The output is shown in Figure <a href="ch-Rintro.html#fig:vig">1.17</a>, which opens on a web page. Click on an <code>HTML</code> link for a given vignette to view its web page.</p>
+<div class="figure" style="text-align: center"><span id="fig:vig"></span>
+<img src="images/vignettes.png" alt="Available vignettes for using lessR." width="64%" />
+<p class="caption">
+Figure 1.17: Available vignettes for using lessR.
+</p>
+</div>
+<p>Alternatively, as previously indicated, access the R manual for a function by entering a <em>?</em> followed by the function name.</p>
+</div>
+<div id="comments" class="section level3" number="1.5.4">
+<h3><span class="header-section-number">1.5.4</span> Comments</h3>
+<p><span class="newthought">R recognizes as a comment</span> any information that follows a # sign, either at the start of a new line or any place on an existing line, and write any comment you wish after that # sign that describes what the corresponding R code accomplishes. That helps you understand what you did at a later time.</p>
+</div>
+<div id="optional-color-themes" class="section level3" number="1.5.5">
+<h3><span class="header-section-number">1.5.5</span> Optional: Color Themes</h3>
+<p><span class="newthought">Data visualizations can be styled in different ways.</span>
+The <strong>lessR</strong> <code>style()</code> function provides many color themes. The default is <code>colors</code>. Other styles include <code>darkred</code> and <code>lightbronze</code>. To change the style for all subsequent visualizations, enter the chosen theme name in quotes.</p>
+<p style="margin-top: 0em;">
+<code>style("darkred")</code>
+</p>
+<p>A call to the style function with a new theme changes many colors at once.</p>
+<p style="margin-top: 0em;">
+Individual properties of a visualization can also be customized separately from the entire theme. Two essential parameters for individual customization:
+</p>
+<ul>
+<li><code>fill</code> for the interior color of a region such as a bar or a point</li>
+<li><code>color</code> for the color of a line segment, either by itself or as the edge of a region such as a bar or point.</li>
+</ul>
+<p style="margin-top: 0em;">
+To see all available theme and individual properties amenable to customization, enter: <code>style(show=TRUE)</code>
+</p>
+<p>Generally, rely upon the default styles, but customize as desired.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>View all R color names and colors with the <strong>lessR</strong> function <code>showColors()</code>.<a href="ch-Rintro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"toc_depth": 1
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
