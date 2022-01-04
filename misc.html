@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Data Analysis with R/lessR</title>
+  <title>Section 2 Misc | Data Analysis with R/lessR</title>
   <meta name="description" content="Using bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Data Analysis with R/lessR" />
+  <meta property="og:title" content="Section 2 Misc | Data Analysis with R/lessR" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Data Analysis with R/lessR" />
+  <meta name="twitter:title" content="Section 2 Misc | Data Analysis with R/lessR" />
   
   <meta name="twitter:description" content="Using bookdown::gitbook." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="misc.html"/>
-
+<link rel="prev" href="Rintro.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -220,37 +220,93 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="misc" class="section level1" number="2">
+<h1><span class="header-section-number">Section 2</span> Misc</h1>
+<div id="report-generation" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Report Generation</h2>
+<p><span class="newthought">Follow one of two strategies for reporting your work in R.</span> The choice of format to use is yours. One method is to do a manual copy and paste from R output, text and graphics, into a word processing document such as Word. Or, let R do the work for you, using one of two methods: Compile Report or R Markdown. The R Markdown method is ultimately more useful, but for this class the Compile Report method works just fine.</p>
+<div id="figures" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Copy and Paste</h3>
+<p><span class="newthought"></span> For the first technique, manually construct a word processing document, such as for a homework assignment. Copy and paste text and graphics output from R into the MS Word or other word processing app document.</p>
+<p><em>Text</em>: All input and output to the R Console, with or without RStudio, is pure text. So select and copy the desired output and paste into MS Word or, for example, an email (no screenshot). Display the text in a mono-spaced font, such as Courier New. First, this lines up the columns of tables, and second, this distinguishes computer output in your writing from words that you write yourself, such as interpretative text.</p>
+<p><em>Graphics</em>: For RStudio use the <em>Export</em> button at the top of the window pane for Plots. Then select <em>Copy to Clipboard</em> and paste into the app such Word. Generally, re-size the image to better fit on the page.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image"></span>
+<img src="images/Exportpdf.png" alt="Export an image from RStudio." width="36%" />
+<p class="caption">
+Figure 2.1: Export an image from RStudio.
+</p>
+</div>
+<p>If running R by itself, right-click on each visualization, select Copy.</p>
+</div>
+<div id="compile-a-report" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Compile a Report</h3>
+<p><span class="newthought">Save R input instructions in a text file and run as a single unit with output to MS Word.</span> From the <code>File --&gt; New File --&gt; R</code> Script menu sequence create a new file and save. Or, start with the <code>+</code> sign at the top-left corner of the RStudio window to create the new text file. Then enter the R instructions into the text file window pane.</p>
+<p>From the window pane, can run the code with the <code>Run</code> button at the top-right of the window-pane for the file. Or, even better, click on the <code>Compile Report</code> button. Then choose MS Word as the output medium.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TextFileMenu"></span>
+<img src="images/TextFileMenu.png" alt="Compile Report and Run buttons on the toolbar of the RStudio text file window pane." width="84%" />
+<p class="caption">
+Figure 2.2: Compile Report and Run buttons on the toolbar of the RStudio text file window pane.
+</p>
+</div>
+<p>The entire R analysis will run and output to Word, including the visualizations. From there, edit the Word document as desired. <a href="https://media.pdx.edu/media/t/1_hfrq2064">Video: Compile Report</a> [4:40]</p>
+<p>The only issue with the Word output is that if used for homework, there are no homework questions. Either copy and paste the questions into the Word doc from R, or the reverse copy sections from the R output into the homework assignment.</p>
+</div>
+<div id="report-from-r-markdown" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Report from R Markdown</h3>
+<p><span class="newthought"></span> The most flexible technique from which to deliver an analysis uses <code>R Markdown</code> to construct the report (such as this document). Follow these <a href="Rmd/RmdR.html">directions</a>.</p>
+<p>Develop your reports that use R for analytics directly in RStudio using R Markdown as a single, integrated report. The output can be HTML for a web page, or .docx for MS Word. R can directly generate web pages and Word documents (plus pdf’s) as standard output using R Markdown.
+To apply to homework assignments, copy and paste the homework questions into an RStudio text file, perhaps just the worked problems part of the homework. Then adjust R code as needed, plus your interpretations.</p>
+<p>Again, a relatively small investment of time to obtain more useful skills for doing data analysis.</p>
+</div>
+</div>
+<div id="errors" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Errors</h2>
+<p><span class="newthought">The R console records your interaction with R.</span> If you encounter some error and need some help to solve the issue, you can be very specific about the feedback you provide to me regarding that error. Best to copy the input/output from <code>Read()</code>, as well as the particular error you encountered and then paste directly into an email, forwarded to at <a href="mailto:gerbing@pdx.edu">gerbing@pdx.edu</a>. From that information I can see the error and the data you have in the system when the error occurs. The console is just text, so no screenshots of the error.</p>
+</div>
+<div id="vig" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Get Help</h2>
+<p><span class="newthought">Get Help.</span> <strong>lessR</strong> contains several documented sets of examples, called vignettes, each of which explains how to do a specified analysis. Access the vignettes with the R function call <code>browseVignettes("lessR")</code>. The output is shown in Figure <a href="misc.html#fig:vig">2.3</a>, which opens on a web page. Click on an <code>HTML</code> link for a given vignette to view its web page.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vig"></span>
+<img src="images/vignettes.png" alt="Available vignettes for using lessR." width="64%" />
+<p class="caption">
+Figure 2.3: Available vignettes for using lessR.
+</p>
+</div>
+<p>Alternatively, as previously indicated, access the R manual for a function by entering a <em>?</em> followed by the function name.</p>
+</div>
+<div id="comments" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Comments</h2>
+<p><span class="newthought">R recognizes as a comment</span> any information that follows a # sign, either at the start of a new line or any place on an existing line, and write any comment you wish after that # sign that describes what the corresponding R code accomplishes. That helps you understand what you did at a later time.</p>
+</div>
+<div id="optional-color-themes" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Optional: Color Themes</h2>
+<p><span class="newthought">Data visualizations can be styled in different ways.</span>
+The <strong>lessR</strong> <code>style()</code> function provides many color themes. The default is <code>colors</code>. Other styles include <code>darkred</code> and <code>lightbronze</code>. To change the style for all subsequent visualizations, enter the chosen theme name in quotes.</p>
+<p style="margin-top: 0em;">
+<code>style("darkred")</code>
+</p>
+<p>A call to the style function with a new theme changes many colors at once.</p>
+<p style="margin-top: 0em;">
+Individual properties of a visualization can also be customized separately from the entire theme. Two essential parameters for individual customization:
+</p>
+<ul>
+<li><code>fill</code> for the interior color of a region such as a bar or a point</li>
+<li><code>color</code> for the color of a line segment, either by itself or as the edge of a region such as a bar or point.</li>
+</ul>
+<p style="margin-top: 0em;">
+To see all available theme and individual properties amenable to customization, enter: <code>style(show=TRUE)</code>
+</p>
+<p>Generally, rely upon the default styles, but customize as desired.</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Gerbing, David. 2019. <span>“Easy, Engaging Bar Charts from Simple to Sophisticated.”</span> <em>Medium.com</em>. <a href="&quot;https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b&quot;">"https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b"</a>.
 </div>
-<div class="csl-entry">
-———. 2020. <em>R Visualizations: Derive Meaning from Data</em>. CRC Press.
-</div>
-<div class="csl-entry">
-Gerbing, David W. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
-</div>
-<div class="csl-entry">
-R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-</div>
-</div>
-<div class="footnotes footnotes-end-of-document">
-<hr />
-<ol>
-<li id="fn1"><p>View all R color names and colors with the <strong>lessR</strong> function <code>showColors()</code>.<a href="Rintro.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="misc.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="Rintro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -281,7 +337,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {

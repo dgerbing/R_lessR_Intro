@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Data Analysis with R/lessR</title>
   <meta name="description" content="Using bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Data Analysis with R/lessR" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-04-30" />
+<meta name="date" content="2022-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,9 +31,10 @@
   
   
 
-<link rel="next" href="ch-Rintro.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="Rintro.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,13 +50,15 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -116,6 +119,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,41 +159,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="ch-Rintro.html"><a href="ch-Rintro.html"><i class="fa fa-check"></i><b>1</b> Data Analysis with R</a>
+<li class="chapter" data-level="1" data-path="Rintro.html"><a href="Rintro.html"><i class="fa fa-check"></i><b>1</b> Data Analysis with R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<li class="chapter" data-level="1.1" data-path="Rintro.html"><a href="Rintro.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:RvsExcel"><i class="fa fa-check"></i><b>1.1.1</b> R vs. Excel</a></li>
-<li class="chapter" data-level="1.1.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#lessr-enhancements"><i class="fa fa-check"></i><b>1.1.2</b> <strong>lessR</strong> Enhancements</a></li>
+<li class="chapter" data-level="1.1.1" data-path="Rintro.html"><a href="Rintro.html#RvsExcel"><i class="fa fa-check"></i><b>1.1.1</b> R vs. Excel</a></li>
+<li class="chapter" data-level="1.1.2" data-path="Rintro.html"><a href="Rintro.html#lessr-enhancements"><i class="fa fa-check"></i><b>1.1.2</b> <strong>lessR</strong> Enhancements</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:start"><i class="fa fa-check"></i><b>1.2</b> Getting Started</a>
+<li class="chapter" data-level="1.2" data-path="Rintro.html"><a href="Rintro.html#start"><i class="fa fa-check"></i><b>1.2</b> Getting Started</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:getR"><i class="fa fa-check"></i><b>1.2.1</b> Download and Run R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:getRStudio"><i class="fa fa-check"></i><b>1.2.2</b> Download and Run RStudio</a></li>
-<li class="chapter" data-level="1.2.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:lessR"><i class="fa fa-check"></i><b>1.2.3</b> Download and Access <strong>lessR</strong></a></li>
+<li class="chapter" data-level="1.2.1" data-path="Rintro.html"><a href="Rintro.html#access-r-in-the-cloud"><i class="fa fa-check"></i><b>1.2.1</b> Access R in the Cloud</a></li>
+<li class="chapter" data-level="1.2.2" data-path="Rintro.html"><a href="Rintro.html#access-r-on-your-computer"><i class="fa fa-check"></i><b>1.2.2</b> Access R on Your Computer</a></li>
+<li class="chapter" data-level="1.2.3" data-path="Rintro.html"><a href="Rintro.html#lessR"><i class="fa fa-check"></i><b>1.2.3</b> Download and Access <strong>lessR</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a>
+<li class="chapter" data-level="1.3" data-path="Rintro.html"><a href="Rintro.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:dt"><i class="fa fa-check"></i><b>1.3.1</b> Data Table</a></li>
-<li class="chapter" data-level="1.3.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:read"><i class="fa fa-check"></i><b>1.3.2</b> Read the Data into R</a></li>
-<li class="chapter" data-level="1.3.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#display-the-data"><i class="fa fa-check"></i><b>1.3.3</b> Display the Data</a></li>
-<li class="chapter" data-level="1.3.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#two-types-of-variables"><i class="fa fa-check"></i><b>1.3.4</b> Two Types of Variables</a></li>
+<li class="chapter" data-level="1.3.1" data-path="Rintro.html"><a href="Rintro.html#dt"><i class="fa fa-check"></i><b>1.3.1</b> Data Table</a></li>
+<li class="chapter" data-level="1.3.2" data-path="Rintro.html"><a href="Rintro.html#read"><i class="fa fa-check"></i><b>1.3.2</b> Read the Data into R</a></li>
+<li class="chapter" data-level="1.3.3" data-path="Rintro.html"><a href="Rintro.html#display-the-data"><i class="fa fa-check"></i><b>1.3.3</b> Display the Data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="Rintro.html"><a href="Rintro.html#two-types-of-variables"><i class="fa fa-check"></i><b>1.3.4</b> Two Types of Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:count"><i class="fa fa-check"></i><b>1.4</b> Visualize the Data</a>
+<li class="chapter" data-level="1.4" data-path="Rintro.html"><a href="Rintro.html#count"><i class="fa fa-check"></i><b>1.4</b> Visualize the Data</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#bar-chart-and-pie-chart"><i class="fa fa-check"></i><b>1.4.1</b> Bar Chart and Pie Chart</a></li>
-<li class="chapter" data-level="1.4.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:hist"><i class="fa fa-check"></i><b>1.4.2</b> Histogram</a></li>
-<li class="chapter" data-level="1.4.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:params"><i class="fa fa-check"></i><b>1.4.3</b> Parameter Values</a></li>
-<li class="chapter" data-level="1.4.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:summary"><i class="fa fa-check"></i><b>1.4.4</b> Summary</a></li>
+<li class="chapter" data-level="1.4.1" data-path="Rintro.html"><a href="Rintro.html#bar-chart-and-pie-chart"><i class="fa fa-check"></i><b>1.4.1</b> Bar Chart and Pie Chart</a></li>
+<li class="chapter" data-level="1.4.2" data-path="Rintro.html"><a href="Rintro.html#hist"><i class="fa fa-check"></i><b>1.4.2</b> Histogram</a></li>
+<li class="chapter" data-level="1.4.3" data-path="Rintro.html"><a href="Rintro.html#params"><i class="fa fa-check"></i><b>1.4.3</b> Parameter Values</a></li>
+<li class="chapter" data-level="1.4.4" data-path="Rintro.html"><a href="Rintro.html#summary"><i class="fa fa-check"></i><b>1.4.4</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="ch-Rintro.html"><a href="ch-Rintro.html#misc"><i class="fa fa-check"></i><b>1.5</b> Misc</a>
+</ul></li>
+<li class="chapter" data-level="2" data-path="misc.html"><a href="misc.html"><i class="fa fa-check"></i><b>2</b> Misc</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="ch-Rintro.html"><a href="ch-Rintro.html#report-generation"><i class="fa fa-check"></i><b>1.5.1</b> Report Generation</a></li>
-<li class="chapter" data-level="1.5.2" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:errors"><i class="fa fa-check"></i><b>1.5.2</b> Errors</a></li>
-<li class="chapter" data-level="1.5.3" data-path="ch-Rintro.html"><a href="ch-Rintro.html#sec:vig"><i class="fa fa-check"></i><b>1.5.3</b> Get Help</a></li>
-<li class="chapter" data-level="1.5.4" data-path="ch-Rintro.html"><a href="ch-Rintro.html#comments"><i class="fa fa-check"></i><b>1.5.4</b> Comments</a></li>
-<li class="chapter" data-level="1.5.5" data-path="ch-Rintro.html"><a href="ch-Rintro.html#optional-color-themes"><i class="fa fa-check"></i><b>1.5.5</b> Optional: Color Themes</a></li>
+<li class="chapter" data-level="2.1" data-path="misc.html"><a href="misc.html#report-generation"><i class="fa fa-check"></i><b>2.1</b> Report Generation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="misc.html"><a href="misc.html#figures"><i class="fa fa-check"></i><b>2.1.1</b> Copy and Paste</a></li>
+<li class="chapter" data-level="2.1.2" data-path="misc.html"><a href="misc.html#compile-a-report"><i class="fa fa-check"></i><b>2.1.2</b> Compile a Report</a></li>
+<li class="chapter" data-level="2.1.3" data-path="misc.html"><a href="misc.html#report-from-r-markdown"><i class="fa fa-check"></i><b>2.1.3</b> Report from R Markdown</a></li>
 </ul></li>
+<li class="chapter" data-level="2.2" data-path="misc.html"><a href="misc.html#errors"><i class="fa fa-check"></i><b>2.2</b> Errors</a></li>
+<li class="chapter" data-level="2.3" data-path="misc.html"><a href="misc.html#vig"><i class="fa fa-check"></i><b>2.3</b> Get Help</a></li>
+<li class="chapter" data-level="2.4" data-path="misc.html"><a href="misc.html#comments"><i class="fa fa-check"></i><b>2.4</b> Comments</a></li>
+<li class="chapter" data-level="2.5" data-path="misc.html"><a href="misc.html#optional-color-themes"><i class="fa fa-check"></i><b>2.5</b> Optional: Color Themes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -194,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em><div class="line-block"> David Gerbing<br />
  The School of Business<br />
  Portland State University</div></em></p>
-<p class="date"><em>2021-04-30</em></p>
+<p class="date"><em>2022-01-01</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -213,11 +244,10 @@ As you read through this material you will encounter some numbered lines of R in
         </div>
       </div>
 
-<a href="ch-Rintro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Rintro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -236,6 +266,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -256,6 +287,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
