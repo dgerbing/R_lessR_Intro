@@ -594,6 +594,7 @@ The <strong>lessR</strong> <code>Read()</code> function lists the variable names
 </blockquote>
 <p>An example of <a href="Rintro.html#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in Figure <a href="Rintro.html#fig:dataTable">1.3</a>. The data values for each employee are the original data values from which the analysis begins, recorded as measurements. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <em>d</em>.</p>
 <p>Consider a data frame of the raw data that contains a categorical variable, here referred to with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific name, such as <em>Gender</em> or <em>Dept</em>. One way to construct the corresponding bar chart is to use the <strong>lessR</strong> interactive analysis, called by entering <code>interact("BarChart")</code> into the R console. Then you can create a bar chart and explore different forms of the bar chart simply by clicking with your mouse.</p>
+<p><a href="https://media.pdx.edu/media/t/1_tejddk8e" target="_blank" rel="noopener noreferrer">video: Create a bar chart interactively</a> [4:16]</p>
 <p>Or, the following instruction creates the bar chart of the counts of occurrence of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:bcExplain"></span>
 <img src="images/bcExplain.png" alt="Instruction to create a bar chart of the counts of each category for the generically named categorical variable _x_ in the default _d_ data frame." width="26%" />
@@ -773,6 +774,7 @@ A bar chart or a histogram, for example, requires colors for the bars, colors fo
 Figure 1.15: Bar chart with bars filled with a shade of blue.
 </p>
 </div>
+<p><a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">video: Examine the created <code>BarChart() code</code></a> from the interactive session. [3:26]</p>
 <p>Parameter values can be numeric or a character string such as a word or a letter. As is true of all computer analysis systems such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as <code>1300</code> in the previous example of setting the bin width of a histogram.</p>
 <p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in Figure <a href="Rintro.html#fig:parameters">1.16</a>. The three dots, …, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:parameters"></span>
