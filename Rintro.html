@@ -353,6 +353,7 @@ I have made using R for basic data analysis much more straightforward with my 45
 <div id="do-r-on-your-computer" class="section level3 hasAnchor" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Do R on Your Computer<a href="Rintro.html#do-r-on-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Running R on your computer, of course, requires to first download the R app to your computer. Although optional, most people also download a second app called RStudio from which to run R. Get both free apps at <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">Download Data Science Apps</a>.</p>
+<p>[<a href="https://media.pdx.edu/media/t/1_dlx9dpo8" target="_blank" rel="noopener noreferrer">video: download R and RStudio</a> (3:44)]</p>
 <div id="getR" class="section level4 hasAnchor" number="1.2.2.1">
 <h4><span class="header-section-number">1.2.2.1</span> Download and Run R<a href="Rintro.html#getR" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><span class="newthought">R is free and runs the same on any Windows, Macintosh, or Linux/Unix computer.</span> Getting R is straightforward, such as from the above link, which provides the link to download the app from the worldwide network of R servers.</p>
@@ -364,7 +365,7 @@ I have made using R for basic data analysis much more straightforward with my 45
 </div>
 <div id="getRStudio" class="section level4 hasAnchor" number="1.2.2.2">
 <h4><span class="header-section-number">1.2.2.2</span> Download and Run RStudio<a href="Rintro.html#getRStudio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. You can <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">download</a> now, or later, or never, but there are some advantages to running R from within RStudio.</p>
+<p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. You can <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">download</a> now, later, or never, but there are some advantages to running R from within RStudio.</p>
 <p>From RStudio, you are running R at the standard R console, but within the RStudio environment. As shown in the following figure, RStudio divides the main window into several window panes, all resizable to customize for a specific analysis. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions.</p>
 <p>A potential fourth window pane in the top-left corner provides for files of R code, ready for analysis. Request this fourth window within RStudio by creating a new R script file as shown.</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
@@ -385,7 +386,7 @@ Figure 1.2: RStudio Compile Report and Run buttons.
 </div>
 <p>Or, click on the <code>Compile Report</code> button and send the input from the <code>Source</code> window and subsequent output to an HTML file for reading with a web browser or a Word document (a pdf option is also available, but requires LaTeX software installed).</p>
 <p>Your choice: Enter and run individual instructions at the command line one-by-one or save your instructions over time to gradually build a collection to accomplish a variety of analyses. With this strategy, you can reproduce the output of any one analysis or do a simple modification to obtain a related analysis. Either way your data analyses get done.</p>
-<p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio, as you would any app on your computer.</p>
+<p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio from which to access R, as you would any app on your computer.</p>
 </div>
 </div>
 <div id="lessR" class="section level3 hasAnchor" number="1.2.3">
@@ -642,6 +643,10 @@ Figure 1.6: Instruction to create a bar chart of the counts of each category for
 Figure 1.7: The distribution of variable Dept visualized as the bar chart of tabulated counts of employees in each department.
 </p>
 </div>
+<pre><code>## 
+##  names(x): ACCT ADMN FINC MKTG SALE 
+## ACCT ADMN FINC MKTG SALE 
+##    5    6    4    6   15</code></pre>
 <p>Obtain the same analysis by including the <code>data</code> parameter to explicitly identify the name of the data frame.</p>
 <pre><code>BarChart(Dept, data=d)</code></pre>
 <p>Again, if the data frame that contains the variable of interest is named <em>d</em>, then no need to include the <code>data</code> parameter. If the data frame name is something other than <em>d</em>, then include the parameter to identify the data table that contains the variable of interest. When doing R analyses you can have as many data tables as your computer memory will allow.</p>
@@ -654,9 +659,9 @@ Figure 1.7: The distribution of variable Dept visualized as the bar chart of tab
 <p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number that translates into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each NBA team. The table would be a list of all NBA teams, each team paired with a number such as 83, for 83 inches tall.</p>
 <p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table of measurements. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
 <p>In this instance, read the summary table into R as the data to analyze, the values that <code>BarChart()</code> implicitly computed in the previous example. Or, easily compute the summary table, the category and counts, in Excel directly, as a pivot table, or even more simply with the <strong>lessR</strong> function <code>pivot()</code>. Or, if available from another source, enter the summary table directly into Excel. In this example, simply locate the already constructed summary table on the web.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="Rintro.html#cb12-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">&quot;http://web.pdx.edu/~gerbing/data/DeptCount.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Rintro.html#cb13-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">&quot;http://web.pdx.edu/~gerbing/data/DeptCount.xlsx&quot;</span>)</span></code></pre></div>
 <p>After reading the data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Rintro.html#cb13-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="Rintro.html#cb14-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div>
 <pre><code>##   Dept Freq
 ## 1 ACCT    5
 ## 2 ADMN    6
@@ -679,7 +684,7 @@ Figure 1.8: Instruction to create a bar chart for the categorical variable <em>x
 <div class="example">
 <p><span id="exm:unlabeled-div-8" class="example"><strong>Example 1.8  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Rintro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Rintro.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code></pre></div>
 <p>This R instruction, a function call, creates the identical bar chart shown in Figure <a href="Rintro.html#fig:bc1">1.7</a>. Here, instead of constructing the bar chart from the original measurements and let <code>BarChart()</code> implicitly calculate the summary table of departments and counts, <code>BarChart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>BarChart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </div>
 <div id="more-bar-charts-and-beyond" class="section level4 hasAnchor" number="1.4.1.3">
@@ -708,24 +713,34 @@ Figure <a href="Rintro.html#fig:ring">1.10</a> displays the pie chart in the for
 <div class="example">
 <p><span id="exm:unlabeled-div-9" class="example"><strong>Example 1.9  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Rintro.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Rintro.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ring"></span>
 <img src="bookdown-demo_files/figure-html/ring-1.png" alt="Ring chart version of a pie chart for variable _Dept_ in the _d_ data frame." width="45%" />
 <p class="caption">
 Figure 1.10: Ring chart version of a pie chart for variable <em>Dept</em> in the <em>d</em> data frame.
 </p>
 </div>
+<pre><code>## 
+##  names(x): ACCT ADMN FINC MKTG SALE 
+## x
+## ACCT ADMN FINC MKTG SALE 
+##    5    6    4    6   15</code></pre>
 <p>The doughnut or ring chart appears easier to read than a standard bar chart. But the <strong>lessR</strong> function <code>PieChart()</code> also can create the “old-fashioned” pie chart. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> parameter.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-10" class="example"><strong>Example 1.10  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Rintro.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Rintro.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hole0"></span>
 <img src="bookdown-demo_files/figure-html/hole0-1.png" alt="Standard pie chart of variable _Dept_ in the _d_ data frame." width="45%" />
 <p class="caption">
 Figure 1.11: Standard pie chart of variable <em>Dept</em> in the <em>d</em> data frame.
 </p>
 </div>
+<pre><code>## 
+##  names(x): ACCT ADMN FINC MKTG SALE 
+## x
+## ACCT ADMN FINC MKTG SALE 
+##    5    6    4    6   15</code></pre>
 <p>Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole. The default hole size is 0.65. Set that value to 0 to close the hole.</p>
 </div>
 </div>
@@ -750,7 +765,7 @@ Figure 1.12: Instruction to generate a histogram of the counts for each bin for 
 <div class="example">
 <p><span id="exm:unlabeled-div-11" class="example"><strong>Example 1.11  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Rintro.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Rintro.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hs1"></span>
 <img src="bookdown-demo_files/figure-html/hs1-1.png" alt="Histogram of Salary." width="45%" />
 <p class="caption">
@@ -763,7 +778,7 @@ Figure 1.13: Histogram of Salary.
 <div class="example">
 <p><span id="exm:unlabeled-div-12" class="example"><strong>Example 1.12  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Rintro.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Rintro.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:binwidth"></span>
 <img src="bookdown-demo_files/figure-html/binwidth-1.png" alt="Histogram of Salaries with a specified bin width of 13000." width="50%" />
 <p class="caption">
@@ -789,13 +804,17 @@ A bar chart or a histogram, for example, requires colors for the bars, colors fo
 <div class="example">
 <p><span id="exm:unlabeled-div-13" class="example"><strong>Example 1.13  </strong></span> </p>
 </div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Rintro.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Rintro.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">&quot;steelblue&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:bcblue"></span>
 <img src="bookdown-demo_files/figure-html/bcblue-1.png" alt="Bar chart with bars filled with a shade of blue." width="50%" />
 <p class="caption">
 Figure 1.15: Bar chart with bars filled with a shade of blue.
 </p>
 </div>
+<pre><code>## 
+##  names(x): ACCT ADMN FINC MKTG SALE 
+## ACCT ADMN FINC MKTG SALE 
+##    5    6    4    6   15</code></pre>
 <p><a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">video: Examine the created <code>BarChart() code</code></a> from the interactive session. [3:26]</p>
 <p>Parameter values can be numeric or a character string such as a word or a letter. As is true of all computer analysis systems such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as <code>1300</code> in the previous example of setting the bin width of a histogram.</p>
 <p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in Figure <a href="Rintro.html#fig:parameters">1.16</a>. The three dots, …, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
