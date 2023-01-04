@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 3 More Stuff | Data Analysis with R/lessR</title>
+  <meta name="description" content="Using bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 3 More Stuff | Data Analysis with R/lessR" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Using bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 3 More Stuff | Data Analysis with R/lessR" />
+  
+  <meta name="twitter:description" content="Using bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2023-01-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-analysis-with-r.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Welcome to R and lessR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="Rintro.html"><a href="Rintro.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="Rintro.html"><a href="Rintro.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="Rintro.html"><a href="Rintro.html#RvsExcel"><i class="fa fa-check"></i><b>1.1.1</b> R vs. Excel</a></li>
+<li class="chapter" data-level="1.1.2" data-path="Rintro.html"><a href="Rintro.html#lessr-enhancements"><i class="fa fa-check"></i><b>1.1.2</b> <code>lessR</code> Enhancements</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="Rintro.html"><a href="Rintro.html#start"><i class="fa fa-check"></i><b>1.2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="Rintro.html"><a href="Rintro.html#do-r-in-the-cloud"><i class="fa fa-check"></i><b>1.2.1</b> Do R in the Cloud</a></li>
+<li class="chapter" data-level="1.2.2" data-path="Rintro.html"><a href="Rintro.html#do-r-on-your-computer"><i class="fa fa-check"></i><b>1.2.2</b> Do R on Your Computer</a></li>
+<li class="chapter" data-level="1.2.3" data-path="Rintro.html"><a href="Rintro.html#lessR"><i class="fa fa-check"></i><b>1.2.3</b> Download and Access <code>lessR</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html"><i class="fa fa-check"></i><b>2</b> Data Analysis with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#dt"><i class="fa fa-check"></i><b>2.1.1</b> Data Table</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#read"><i class="fa fa-check"></i><b>2.1.2</b> Read the Data into R</a></li>
+<li class="chapter" data-level="2.1.3" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#display-the-data"><i class="fa fa-check"></i><b>2.1.3</b> Display the Data</a></li>
+<li class="chapter" data-level="2.1.4" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#two-types-of-variables"><i class="fa fa-check"></i><b>2.1.4</b> Two Types of Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#count"><i class="fa fa-check"></i><b>2.2</b> Visualize the Data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#bar-chart-and-pie-chart"><i class="fa fa-check"></i><b>2.2.1</b> Bar Chart and Pie Chart</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#hist"><i class="fa fa-check"></i><b>2.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#params"><i class="fa fa-check"></i><b>2.2.3</b> Parameter Values</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-analysis-with-r.html"><a href="data-analysis-with-r.html#summary"><i class="fa fa-check"></i><b>2.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="more-stuff.html"><a href="more-stuff.html"><i class="fa fa-check"></i><b>3</b> More Stuff</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="more-stuff.html"><a href="more-stuff.html#report-generation"><i class="fa fa-check"></i><b>3.1</b> Report Generation</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="more-stuff.html"><a href="more-stuff.html#figures"><i class="fa fa-check"></i><b>3.1.1</b> Copy and Paste</a></li>
+<li class="chapter" data-level="3.1.2" data-path="more-stuff.html"><a href="more-stuff.html#compile-a-report"><i class="fa fa-check"></i><b>3.1.2</b> Compile a Report</a></li>
+<li class="chapter" data-level="3.1.3" data-path="more-stuff.html"><a href="more-stuff.html#report-from-r-markdown"><i class="fa fa-check"></i><b>3.1.3</b> Report from R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="more-stuff.html"><a href="more-stuff.html#miscellaneous"><i class="fa fa-check"></i><b>3.2</b> Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="more-stuff.html"><a href="more-stuff.html#vig"><i class="fa fa-check"></i><b>3.2.1</b> Get Help</a></li>
+<li class="chapter" data-level="3.2.2" data-path="more-stuff.html"><a href="more-stuff.html#comments"><i class="fa fa-check"></i><b>3.2.2</b> Comments</a></li>
+<li class="chapter" data-level="3.2.3" data-path="more-stuff.html"><a href="more-stuff.html#color-themes"><i class="fa fa-check"></i><b>3.2.3</b> Color Themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">David Gerbing</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis with R/lessR</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="more-stuff" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Section 3</span> More Stuff<a href="more-stuff.html#more-stuff" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="report-generation" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Report Generation<a href="more-stuff.html#report-generation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="newthought">Follow one of three strategies for reporting your work in R.</span> The choice of format to use is yours. One method is to do a manual copy and paste from R output, text and graphics, into a word processing document such as Word. Or, let R do the work for you, using one of two methods: Compile Report or R Markdown. The R Markdown method is ultimately more useful, but for this class the Compile Report method works just fine.</p>
+<div id="figures" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Copy and Paste<a href="more-stuff.html#figures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought"></span> For the first technique, manually construct a word processing document, such as for a homework assignment. Copy and paste text and graphics output from R into the MS Word or other word processing app document.</p>
+<p><em>Text</em>: All input and output to the R Console, with or without RStudio, is pure text. So select and copy the desired output and paste into MS Word or, for example, an email (no screenshot). Display the text in a <em>mono-spaced font</em>, such as Courier New. First, this lines up the columns of tables, and second, this distinguishes computer output in your writing from words that you write yourself, such as interpretative text.</p>
+<p><em>Visualizations</em>: For RStudio use the <code>Export</code> button at the top of the window pane for <code>Plots</code>. Then select <code>Copy to Clipboard</code> and paste into the app such Word. Generally, re-size the image to better fit on the page.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image"></span>
+<img src="images/Exportpdf.png" alt="Export an image from RStudio." width="36%" />
+<p class="caption">
+Figure 3.1: Export an image from RStudio.
+</p>
+</div>
+<p>If running R by itself, right-click on each visualization, select <code>Copy</code>.</p>
+</div>
+<div id="compile-a-report" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Compile a Report<a href="more-stuff.html#compile-a-report" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought">Save R input instructions in a text file and run as a single unit with output to MS Word.</span> From the <code>File --&gt; New File --&gt; R</code> <code>Script</code> menu sequence create a new file and save. Or, start with the <code>+</code> sign at the top-left corner of the RStudio window to create the new text file. Then enter the R instructions into the text file window pane.</p>
+<p>From the window pane, can run the code with the <code>Run</code> button at the top-right of the window-pane for the file. Or, even better, click on the <code>Compile Report</code> button. Then choose MS Word as the output medium.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TextFileMenu"></span>
+<img src="images/TextFileMenu.png" alt="Compile Report and Run buttons on the toolbar of the RStudio text file window pane." width="84%" />
+<p class="caption">
+Figure 3.2: Compile Report and Run buttons on the toolbar of the RStudio text file window pane.
+</p>
+</div>
+<p>The entire R analysis will run and output to Word, including the visualizations. From there, edit the Word document as desired. <a href="https://media.pdx.edu/media/t/1_hfrq2064">Video: Compile Report</a> [4:40]</p>
+<p>The only issue with the Word output is that if used for homework, there are no homework questions. Either copy and paste the questions into the Word doc from R, or the reverse copy sections from the R output into the homework assignment.</p>
+</div>
+<div id="report-from-r-markdown" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Report from R Markdown<a href="more-stuff.html#report-from-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought"></span> The most flexible technique from which to deliver an analysis uses <code>R Markdown</code> to construct the report (such as this document). Follow these <a href="Rmd/RmdR.html">directions</a>.</p>
+<p>Develop your reports that use R for analytics directly in RStudio using R Markdown as a single, integrated report. The output can be HTML for a web page, or .docx for MS Word. R can directly generate web pages and Word documents (plus pdf’s) as standard output using R Markdown.
+To apply to homework assignments, copy and paste the homework questions into an RStudio text file, perhaps just the worked problems part of the homework. Then adjust R code as needed, plus your interpretations.</p>
+<p>Again, a relatively small investment of time to obtain more useful skills for doing data analysis.</p>
+</div>
+</div>
+<div id="miscellaneous" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Miscellaneous<a href="more-stuff.html#miscellaneous" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="vig" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Get Help<a href="more-stuff.html#vig" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought">Get Help.</span> <code>lessR</code> contains several documented sets of examples, called vignettes, each of which explains how to do a specified analysis. Access the vignettes with the R function call <code>browseVignettes("lessR")</code>. The output is shown in Figure <a href="more-stuff.html#fig:vig">3.3</a>, which opens on a web page. Click on an <code>HTML</code> link for a given vignette to view its web page.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vig"></span>
+<img src="images/vignettes.png" alt="Available vignettes for using lessR." width="64%" />
+<p class="caption">
+Figure 3.3: Available vignettes for using lessR.
+</p>
+</div>
+<p>Alternatively, as previously indicated, access the R manual for a function by entering a <em>?</em> followed by the function name.</p>
+</div>
+<div id="comments" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Comments<a href="more-stuff.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought">R recognizes as a comment</span> any information that follows a # sign, either at the start of a new line or any place on an existing line, and write any comment you wish after that # sign that describes what the corresponding R code accomplishes. That helps you understand what you did at a later time.</p>
+</div>
+<div id="color-themes" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Color Themes<a href="more-stuff.html#color-themes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="newthought">Data visualizations can be styled in different ways.</span>
+The <code>lessR</code> <code>style()</code> function provides many color themes. The default is <code>colors</code>. Other styles include <code>darkred</code> and <code>lightbronze</code>. To change the style for all subsequent visualizations, enter the chosen theme name in quotes.</p>
+<p style="margin-top: 0em;">
+<code>style("darkred")</code>
+</p>
+<p>A call to the style function with a new theme changes many colors at once.</p>
+<p style="margin-top: 0em;">
+Individual properties of a visualization can also be customized separately from the entire theme. Two essential parameters for individual customization:
+</p>
+<ul>
+<li><code>fill</code> for the interior color of a region such as a bar or a point</li>
+<li><code>color</code> for the color of a line segment, either by itself or as the edge of a region such as a bar or point.</li>
+</ul>
+<p style="margin-top: 0em;">
+To see all available theme and individual properties amenable to customization, enter: <code>style(show=TRUE)</code>
+</p>
+<p>Generally, rely upon the default styles, but customize as desired.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-analysis-with-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toc_depth": 1
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
