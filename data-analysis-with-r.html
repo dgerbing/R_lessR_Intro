@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2023-01-13" />
+<meta name="date" content="2023-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -407,9 +407,10 @@ The <code>lessR</code> <code>Read()</code> function lists the variable names as 
 <p><em>Raw data</em>: The original, measured data values before any summarization or transformation.</p>
 </blockquote>
 <p>An example of <a href="data-analysis-with-r.html#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in Figure <a href="data-analysis-with-r.html#fig:dataTable">2.1</a>. The data values for each employee are the original data values from which the analysis begins, recorded as measurements. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <em>d</em>.</p>
-<p>Consider a data frame of the raw data that contains a categorical variable, here referred to with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific name, such as <em>Gender</em> or <em>Dept</em>. One way to construct the corresponding bar chart is to use the <code>lessR</code> interactive analysis, called by entering <code>interact("BarChart")</code> into the R console. Then you can create a bar chart and explore different forms of the bar chart simply by clicking with your mouse.</p>
-<p><a href="https://media.pdx.edu/media/t/1_tejddk8e" target="_blank" rel="noopener noreferrer">video: Create a bar chart interactively</a> [4:16]</p>
-<p>Now consider entering the function call to create a bar chart directly into the R console. The following instruction creates the bar chart of the counts of occurrence of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
+<div id="from-the-r-console" class="section level5 hasAnchor" number="2.2.1.1.1">
+<h5><span class="header-section-number">2.2.1.1.1</span> From the R Console<a href="data-analysis-with-r.html#from-the-r-console" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Consider a data frame of the raw data that contains a categorical variable, here referred to with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific name, such as <em>Gender</em> or <em>Dept</em>.</p>
+<p>Here, enter the function call to create a bar chart directly into the R console. The following instruction creates the bar chart of the counts of occurrence of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:bcExplain"></span>
 <img src="images/bcExplain.png" alt="Instruction to create a bar chart of the counts of each category for the generically named categorical variable _x_ in the default _d_ data frame." width="26%" />
 <p class="caption">
@@ -437,8 +438,19 @@ Figure 2.5: The distribution of variable Dept visualized as the bar chart of tab
 <p>Obtain the same analysis by including the <code>data</code> parameter to explicitly identify the name of the data frame.</p>
 <pre><code>BarChart(Dept, data=d)</code></pre>
 <p>Again, if the data frame that contains the variable of interest is named <em>d</em>, then no need to include the <code>data</code> parameter. If the data frame name is something other than <em>d</em>, then include the parameter to identify the data table that contains the variable of interest. When doing R analyses you can have as many data tables as your computer memory will allow.</p>
-<p>The <code>BarChart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category. The <code>BarChart()</code> function provides the tabular form of the frequency distribution, an example of a pivot table, as part of its text output to the R console, as shown in the above output. The counts appear in the row labeled Frequencies, with the categories in the previous row.</p>
+<p>The <code>BarChart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category.</p>
+</div>
+<div id="interactive-analysis" class="section level5 hasAnchor" number="2.2.1.1.2">
+<h5><span class="header-section-number">2.2.1.1.2</span> Interactive Analysis<a href="data-analysis-with-r.html#interactive-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Another way to construct the corresponding bar chart is to use the <code>lessR</code> interactive analysis, called by entering <code>interact("BarChart")</code> into the R console. Then you can create a bar chart and explore different forms of the bar chart simply by clicking with your mouse.</p>
+<p><a href="https://media.pdx.edu/media/t/1_tejddk8e" target="_blank" rel="noopener noreferrer">video: Create a bar chart interactively</a> [before 4:04 does interactive bar charts on your computer, after 4:04 does bar charts with a cloud account.]</p>
+<p><em>If</em> you do interactive plots in a cloud account and <em>if</em> you save the interactive plot (instead of taking a screen shot), RStudio will save the plot in your cloud <code>home</code> directory (folder). Navigate to this directory by clicking on the <code>Cloud</code> icon in the <code>Files</code> tab in the bottom-right window pane, then click in the corresponding folder that contains the pdf file, as shown in the second half of the video linked above.</p>
+</div>
+<div id="statistical-output" class="section level5 hasAnchor" number="2.2.1.1.3">
+<h5><span class="header-section-number">2.2.1.1.3</span> Statistical Output<a href="data-analysis-with-r.html#statistical-output" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The <code>BarChart()</code> function provides the tabular form of the frequency distribution, an example of a pivot table, as part of its text output to the R console, as shown in the above output. The counts appear in the row labeled Frequencies, with the categories in the previous row.</p>
 <p>From the frequency distribution that pairs a number with each category or level of the variable of interest, <code>BarChart()</code> visualizes that pairing with the bar chart. In this example, the frequency distribution reveals that there are five accountants (ACCT), six administrators (ADMN), four financial analysts (FINC), six marketers (MKTG), and 15 people working in sales (SALE). From this information, a bar chart function defines the bars and their associated heights.</p>
+</div>
 </div>
 <div id="bcSummary" class="section level4 hasAnchor" number="2.2.1.2">
 <h4><span class="header-section-number">2.2.1.2</span> Bar Chart from Summary Table<a href="data-analysis-with-r.html#bcSummary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
