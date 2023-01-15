@@ -63,6 +63,9 @@ two-types-of-variables
 count
 bar-chart-and-pie-chart
 bcMeas
+from-the-r-console
+interactive-analysis
+statistical-output
 bcSummary
 more-bar-charts-and-beyond
 pc
