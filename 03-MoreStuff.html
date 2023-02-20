@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to Data Analysis - 3&nbsp; More Stuff</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./02-DataAnalysis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Stuff</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Analysis</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-DataAnalysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Analysis with R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-MoreStuff.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Stuff</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#report-generation" id="toc-report-generation" class="nav-link active" data-scroll-target="#report-generation"><span class="toc-section-number">3.1</span>  Report Generation</a>
+  <ul class="collapse">
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="toc-section-number">3.1.1</span>  Copy and Paste</a></li>
+  <li><a href="#compile-a-report" id="toc-compile-a-report" class="nav-link" data-scroll-target="#compile-a-report"><span class="toc-section-number">3.1.2</span>  Compile a Report</a></li>
+  <li><a href="#report-from-quarto" id="toc-report-from-quarto" class="nav-link" data-scroll-target="#report-from-quarto"><span class="toc-section-number">3.1.3</span>  Report from Quarto</a></li>
+  </ul></li>
+  <li><a href="#miscellaneous" id="toc-miscellaneous" class="nav-link" data-scroll-target="#miscellaneous"><span class="toc-section-number">3.2</span>  Miscellaneous</a>
+  <ul class="collapse">
+  <li><a href="#vig" id="toc-vig" class="nav-link" data-scroll-target="#vig"><span class="toc-section-number">3.2.1</span>  Get Help</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="toc-section-number">3.2.2</span>  Comments</a></li>
+  <li><a href="#color-themes" id="toc-color-themes" class="nav-link" data-scroll-target="#color-themes"><span class="toc-section-number">3.2.3</span>  Color Themes</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-more-stuff" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More Stuff</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="report-generation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="report-generation"><span class="header-section-number">3.1</span> Report Generation</h2>
+<p><span class="newthought">Follow one of three strategies for reporting your work in R.</span> The choice of format to use is yours. One method is to do a manual copy and paste from R output, text and graphics, into a word processing document such as Word. Or, let R do the work for you, using one of two methods: Compile Report or Quarto. The Quarto method is ultimately more useful, but for this class the Compile Report method works just fine.</p>
+<section id="figures" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="figures"><span class="header-section-number">3.1.1</span> Copy and Paste</h3>
+<p><span class="newthought"></span> For the first technique, manually construct a word processing document, such as for a homework assignment. Copy and paste text and graphics output from R into the MS Word or other word processing app document.</p>
+<p><em>Text</em>: All input and output to the R Console, with or without RStudio, is pure text. So select and copy the desired output and paste into MS Word or, for example, an email (no screenshot). Display the text in a <em>mono-spaced font</em>, such as Courier New. First, this lines up the columns of tables, and second, this distinguishes computer output in your writing from words that you write yourself, such as interpretative text.</p>
+<p><em>Visualizations</em>: For RStudio use the <code>Export</code> button at the top of the window pane for <code>Plots</code>. Then select <code>Copy to Clipboard</code> and paste into the app such Word. Generally, re-size the image to better fit on the page, shown in Figure <a href="#fig-image">Figure&nbsp;<span>3.1</span></a>.</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<div class="cell-output-display">
+<div id="fig-image" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/Exportpdf.png" class="img-fluid figure-img" style="width:52.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Export an image from RStudio.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If running R by itself, right-click on each visualization, select <code>Copy</code>.</p>
+</section>
+<section id="compile-a-report" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="compile-a-report"><span class="header-section-number">3.1.2</span> Compile a Report</h3>
+<p><span class="newthought">Save R input instructions in a text file and run as a single unit with output to MS Word.</span> From the <code>File --&gt; New File --&gt; R</code> <code>Script</code> menu sequence create a new file and save. Or, start with the <code>+</code> sign at the top-left corner of the RStudio window to create the new text file. Then enter the R instructions into the text file window pane.</p>
+<p>From the window pane, run the code with the <code>Run</code> button at the top-right of the window-pane for the file, shown in <a href="#fig-TextFileMenu">Figure&nbsp;<span>3.2</span></a>. Or, even better, click on the <code>Compile Report</code> button. Then choose MS Word as the output medium.</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<div class="cell-output-display">
+<div id="fig-TextFileMenu" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/TextFileMenu.png" class="img-fluid figure-img" style="width:92.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Compile Report and Run buttons on the toolbar of the RStudio text file window pane.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The entire R analysis will run and output to Word, including the visualizations. From there, edit the Word document as desired. <a href="https://media.pdx.edu/media/t/1_hfrq2064">Video: Compile Report</a> [4:40]</p>
+<p>The only issue with the Word output is that if used for homework, there are no homework questions. Either copy and paste the questions into the Word doc from R, or the reverse copy sections from the R output into the homework assignment.</p>
+</section>
+<section id="report-from-quarto" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="report-from-quarto"><span class="header-section-number">3.1.3</span> Report from Quarto</h3>
+<p><span class="newthought"></span> The most flexible technique from which to deliver an analysis straight from R uses what is called markdown to construct the report (such as this document). Follow these <a href="https://quarto.org/docs/get-started/">directions</a>.</p>
+<p>Develop your reports that use R for analytics directly in RStudio using Quarto as a single, integrated report. The output can be HTML for a web page, or .docx for MS Word. R can directly generate web pages and Word documents (plus pdf’s) as standard output using Quarto. To apply to homework assignments, copy and paste the homework questions into an RStudio text file, perhaps just the worked problems part of the homework. Then adjust R code as needed, plus your interpretations.</p>
+<p>Again, a relatively small investment of time to obtain more useful skills for doing data analysis.</p>
+</section>
+</section>
+<section id="miscellaneous" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="miscellaneous"><span class="header-section-number">3.2</span> Miscellaneous</h2>
+<section id="vig" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="vig"><span class="header-section-number">3.2.1</span> Get Help</h3>
+<p><span class="newthought">Get Help.</span> <code>lessR</code> contains several documented sets of examples, called vignettes, each of which explains how to do a specified analysis. Access the vignettes with the R function call <code>browseVignettes("lessR")</code>. The output is shown in Figure <a href="#fig-vig">Figure&nbsp;<span>3.3</span></a>, which opens on a web page. Click on an <code>HTML</code> link for a given vignette to view its web page.</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<div class="cell-output-display">
+<div id="fig-vig" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/vignettes.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Available vignettes for using lessR.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Alternatively, as previously indicated, access the R manual for a function by entering a <em>?</em> followed by the function name.</p>
+</section>
+<section id="comments" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="comments"><span class="header-section-number">3.2.2</span> Comments</h3>
+<p><span class="newthought">R recognizes as a comment</span> any information that follows a # sign, either at the start of a new line or any place on an existing line, and write any comment you wish after that # sign that describes what the corresponding R code accomplishes. That helps you understand what you did at a later time.</p>
+</section>
+<section id="color-themes" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="color-themes"><span class="header-section-number">3.2.3</span> Color Themes</h3>
+<p><span class="newthought">Data visualizations can be styled in different ways.</span> The <code>lessR</code> <code>style()</code> function provides many color themes. The default is <code>colors</code>. Other styles include <code>darkred</code> and <code>lightbronze</code>. To change the style for all subsequent visualizations, enter the chosen theme name in quotes.</p>
+<p style="margin-top: 0em;">
+</p><p><code>style("darkred")</code></p>
+<p></p>
+<p>A call to the style function with a new theme changes many colors at once.</p>
+<p style="margin-top: 0em;">
+</p><p>Individual properties of a visualization can also be customized separately from the entire theme. Two essential parameters for individual customization:</p>
+<p></p>
+<ul>
+<li><code>fill</code> for the interior color of a region such as a bar or a point</li>
+<li><code>color</code> for the color of a line segment, either by itself or as the edge of a region such as a bar or point.</li>
+</ul>
+<p style="margin-top: 0em;">
+</p><p>To see all available theme and individual properties amenable to customization, enter: <code>style(show=TRUE)</code></p>
+<p></p>
+<p>Generally, rely upon the default styles, but customize as desired.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-DataAnalysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Analysis with R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

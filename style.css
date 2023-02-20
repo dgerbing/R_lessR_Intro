@@ -24,17 +24,20 @@ p code {
 pre {
   word-break: normal;
   word-wrap: normal;
-  font-size: .9em;
 }
 pre code {
   white-space: inherit;
-}
-div.sourceCode {
-  font-size: 1.1em;
+  font-size: .88em;
 }
 
 h1, h2, h3, h4, h5 {
   color: rgb(47, 84, 150);
+}
+
+dfn {
+  color: #7d1633;
+  font-style: normal;
+  font-weight: 600;
 }
 
 blockquote p em{
