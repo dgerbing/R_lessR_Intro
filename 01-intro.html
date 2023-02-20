@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -316,20 +316,19 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 </div>
 <p>After entering an instruction in response to the <code>&gt;</code>, press Enter/Return, which instructs R to process the instruction, and then display a new prompt on a new command line. Instructions for an R data analysis consist of at least several lines of code entered at successive command lines.</p>
-<p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Instead of the <code>mean()</code> function, here invoke the more general <code>Histogram()</code> function, which computes the mean of <em>Salary</em>, plus many other statistics, plus the histogram.</p>
-<p>To analyze the data values for a variable in R, always refer to the variable’s name. Always be aware of the exact spelling of the variable names that define the data, including capitalization.</p>
-<p>In this example, specify the data to analyze with the corresponding variable name, here <em>Salary</em>.</p>
+<p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. To create the histogram of <em>Salary</em>, as well as summary statistics such as the mean, call the <code>Histogram()</code> function, referencing <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/R_HistogramPrompt.png" class="img-fluid figure-img" style="width:32.0%"></p>
+<p><img src="images/R_HistogramPrompt.png" class="img-fluid figure-img" style="width:30.0%"></p>
 <p></p><figcaption class="figure-caption">Function call entered at the command prompt.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>As with the Excel example, there is <em>no programming</em> involved in this analysis with R. The programming was done by the people who wrote the functions. Instead of programming code, to use either Excel or R in this example, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel involves much more work.</p>
+<p>That is it. To get the histogram and summary statistics of <em>Salary</em>, at the command line prompt enter <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, always refer to the variable’s name within the parentheses. Always be aware of the exact spelling of the variable names that define the data, including capitalization, in this case beginning the function reference with an uppercase H`.</p>
+<p>As with the Excel example, there is <em>no programming</em> involved in this histogram analysis with R. The programming was done by the people who wrote the functions. Instead of programming code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel, just getting the histogram itself, involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
 <section id="advantages-of-r" class="level4" data-number="1.1.1.2">
