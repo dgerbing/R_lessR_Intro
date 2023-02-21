@@ -213,13 +213,14 @@ div.csl-indent {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="toc-section-number">1.1</span>  Overview</a>
   <ul class="collapse">
   <li><a href="#RvsExcel" id="toc-RvsExcel" class="nav-link" data-scroll-target="#RvsExcel"><span class="toc-section-number">1.1.1</span>  R vs.&nbsp;Excel</a></li>
-  <li><a href="#lessr-enhancements" id="toc-lessr-enhancements" class="nav-link" data-scroll-target="#lessr-enhancements"><span class="toc-section-number">1.1.2</span>  <code>lessR</code> Enhancements</a></li>
+  <li><a href="#advantages-of-r" id="toc-advantages-of-r" class="nav-link" data-scroll-target="#advantages-of-r"><span class="toc-section-number">1.1.2</span>  Advantages of R</a></li>
+  <li><a href="#getRStudio" id="toc-getRStudio" class="nav-link" data-scroll-target="#getRStudio"><span class="toc-section-number">1.1.3</span>  RStudio</a></li>
   </ul></li>
   <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start"><span class="toc-section-number">1.2</span>  Getting Started</a>
   <ul class="collapse">
-  <li><a href="#in-the-cloud" id="toc-in-the-cloud" class="nav-link" data-scroll-target="#in-the-cloud"><span class="toc-section-number">1.2.1</span>  In the Cloud</a></li>
-  <li><a href="#on-your-computer" id="toc-on-your-computer" class="nav-link" data-scroll-target="#on-your-computer"><span class="toc-section-number">1.2.2</span>  On Your Computer</a></li>
-  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="toc-section-number">1.2.3</span>  Access <code>lessR</code></a></li>
+  <li><a href="#on-your-computer" id="toc-on-your-computer" class="nav-link" data-scroll-target="#on-your-computer"><span class="toc-section-number">1.2.1</span>  On Your Computer</a></li>
+  <li><a href="#in-the-cloud" id="toc-in-the-cloud" class="nav-link" data-scroll-target="#in-the-cloud"><span class="toc-section-number">1.2.2</span>  In the Cloud</a></li>
+  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="toc-section-number">1.2.3</span>  Access <code>lessR</code> Enhancements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -296,16 +297,11 @@ Practice as you go
 <blockquote class="blockquote">
 <p><dfn>Function call</dfn>: Process the computations of a function from within a data analysis system such as Excel or R.</p>
 </blockquote>
-<section id="excel-function-call" class="level5" data-number="1.1.1.1.1">
-<h5 data-number="1.1.1.1.1" class="anchored" data-anchor-id="excel-function-call"><span class="header-section-number">1.1.1.1.1</span> Excel function call</h5>
-<p>With Excel, enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data itself.</p>
+<p><em>Excel function call</em>. With Excel, enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data itself.</p>
 <p style="margin-top: 1em;">
 In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.
 </p>
-</section>
-<section id="r-function-call" class="level5" data-number="1.1.1.1.2">
-<h5 data-number="1.1.1.1.2" class="anchored" data-anchor-id="r-function-call"><span class="header-section-number">1.1.1.1.2</span> R function call</h5>
-<p>R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, a worthy advantage of R for data analysis. The instructions are processed in an area separate from the data.</p>
+<p><em>R function call</em>. R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, a worthy advantage of R for data analysis. The instructions are processed in an area separate from the data.</p>
 <blockquote class="blockquote">
 <p><dfn>Command line</dfn>: R presents a prompt, <code>&gt;</code>, which indicates where to enter instructions for data analysis.</p>
 </blockquote>
@@ -320,6 +316,7 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 </div>
 </div>
+<p>To do a specific analysis, enter into the console, after the <code>&gt;</code> prompt, the name of the function designed to accomplish that analysis. Each function has a name, such as <code>Histogram()</code> to display a histogram. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, a value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
 <p>After entering an instruction in response to the <code>&gt;</code>, press Enter/Return, which instructs R to process the instruction, and then display a new prompt on a new command line. Instructions for an R data analysis consist of at least several lines of code entered at successive command lines.</p>
 <p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. We can calculate the mean <em>Salary</em> with the <code>mean()</code> function as indicated, but just as easy to get so much more. This example creates the histogram of <em>Salary</em>, as well as summary statistics such as the mean, by calling the <code>Histogram()</code> function, referencing the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
@@ -337,8 +334,8 @@ In this example, enter the function call beneath the column of data into the 8th
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
 </section>
-<section id="advantages-of-r" class="level4" data-number="1.1.1.2">
-<h4 data-number="1.1.1.2" class="anchored" data-anchor-id="advantages-of-r"><span class="header-section-number">1.1.1.2</span> Advantages of R</h4>
+<section id="advantages-of-r" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="advantages-of-r"><span class="header-section-number">1.1.2</span> Advantages of R</h3>
 <p><span class="newthought">Data scientists use R (or similar languages) for their analyses</span> instead of Excel. Some reasons for the preference for R and related languages follow.</p>
 <ul style="list-style-type: disc;">
 <li>
@@ -369,24 +366,26 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <p>Much better to separate your data from the code. Countless overly complex Excel worksheets that model business processes are horrendous to debug and understand in their complexity. Let the (moderate size) data reside within Excel, but use R or similar language to write your code that manipulates and analyzes your data. If needed, export the results of your specified computations back to Excel. R writes data to Excel files as easily as it reads data from Excel worksheets.</p>
 <p>Separate your data from your code to manipulate that data. Data analysis programming languages such as R and Python provide that separation. In my opinion, Excel is vastly overused and a detriment to many business operations. Welcome, instead, to the world of real data science.</p>
 </section>
-</section>
-<section id="lessr-enhancements" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="lessr-enhancements"><span class="header-section-number">1.1.2</span> <code>lessR</code> Enhancements</h3>
-<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made using R for basic data analysis much more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Histogram()</code> function. These functions, and the much more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-No programming involved
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>lessR</code> function calls are straightforward – only function calls, no programming required to obtain comprehensive results.</p>
+<section id="getRStudio" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
+<p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line in what is called the R console, but within the RStudio environment. The RStudio environment built around the R console provides the additional features.</p>
+<p>As shown in the following figure, RStudio divides the main window into several window panes, all resizable to customize for a specific analysis. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions.</p>
+<p>A potential fourth window pane in the top-left corner provides for files of R code, ready for analysis. Request this fourth window within RStudio by creating a new R script file as shown in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.1</span></a>.</p>
+<pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
+<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<div class="cell-output-display">
+<div id="fig-RStudio" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/RStudio.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: RStudio window panes.</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p><code>lessR</code> organizes functions into what the R ecosystem refers to as a package. The full R ecosystem, available on servers worldwide, consists of the hundreds of base (standard) R functions included with the installation of R, plus the functions found in additional packages that fulfill a strict set of requirements before published on the R servers. Downloading R installs all the base R functions. Separately download packages such as <code>lessR</code> to access additional functions, all accessed via the standard R environment.</p>
+</div>
+<p>R processes all instructions at the command prompt in the R console. One option is to enter the instructions at the command prompt. The short-coming of this approach is that the instructions need to be repeatedly entered every time the analysis is re-run.</p>
+<p>RStudio improves this process by providing a convenient way to both store R instructions in their own file and then run them from the command prompt. An analysis of saved R instructions is reproducible. You can then save the file of R script for later access. You, or someone else in your organization, can repeat or extend the analysis without having to re-type everything.</p>
+<p>Create a new R script file from the <code>New File</code> option on the RStudio <code>File</code> menu, which opens the top-left window pane in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.1</span></a>. Then, enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console.</p>
+<p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio from which to access R, as you would any app on your computer.</p>
 </section>
 </section>
 <section id="start" class="level2" data-number="1.2">
@@ -394,31 +393,36 @@ No programming involved
 <p><span class="newthought">Download and install R on your computer, or run via a web browser in the cloud.</span> The choice is yours. R works the same regardless of the platform on which it is run. Of course, running in the cloud requires an active Internet connection. With your data and your data processing app on your own computer you maintain a level of independence and security not available with cloud processing, but to run R locally you do need a computing device with more than just a web browser.</p>
 <p>Read one of the two following sections:</p>
 <ol type="1">
-<li>In the <em>Cloud</em><br>
+<li>On Your <em>Computer</em><br>
 &nbsp;&nbsp;&nbsp;&nbsp;or<br>
 </li>
-<li>On Your <em>Computer</em></li>
+<li>In the <em>Cloud</em></li>
 </ol>
-<p>No need to read both sections unless you are curious about exploring both venues. If you wish, you can also use both approaches, switching back and forth, but usually no need to do, unless you carry around an iPad or related when away from home and use your computer when at home. After accessing R on either your computer or the cloud, the next step is to <a href="#lessR"><em>download and access <code>lessR</code></em></a>.</p>
-<section id="in-the-cloud" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="in-the-cloud"><span class="header-section-number">1.2.1</span> In the Cloud</h3>
+<p>No need to read both sections unless you are curious about exploring both venues. If you wish, you can also use both approaches, switching back and forth, but usually no need to do, unless you carry around an iPad or related device when away from home and use your computer when at home. After accessing R on either your computer or the cloud, the next step is to <a href="#lessR"><em>download and access <code>lessR</code></em></a> extension that adds simplifying data analysis functions to R, making analysis with R more straightforward and accessible.</p>
+<section id="on-your-computer" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="on-your-computer"><span class="header-section-number">1.2.1</span> On Your Computer</h3>
+<p>Running R on your computer, of course, requires to first download the R app to your computer, and, usually the RStudio app as well. Get them both at the same <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">location</a>.</p>
+<p>When installing R, choose your operating system from the links at the top of the corresponding web page. For <em>Windows</em>, the top of the resulting web page has the download link. For <em>Mac</em>, several paragraphs down, in the left margin, you have a choice. The first link in the margin is for <code>arm64</code>, which is the version for the more recently developed Apple M series processors. A second link, further down the margin, applies to Apple’s older Intel CPU computers. If not sure of your CPU type, go the first choice under the Apple menu, About this Mac, and look at the information for Chip.</p>
+<p>If you are asked the question, <em>Install in a personal library?</em> answer y for yes (unless you understand administrative privileges). The installer offers both 32-bit and 64-bit versions. Unless your computer was made around 2012 or earlier, run 64-bit software as you would any other app.</p>
+<p>Once R and RStudio are downloaded, their installations proceed as with any app. Accept the given defaults for each step of the process. When installed, you can run the R app as you would any other application, such as double-clicking on the application’s icon in your file system display. Usually, however, run the RStudio app, which then automatically connects to R.</p>
+</section>
+<section id="in-the-cloud" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="in-the-cloud"><span class="header-section-number">1.2.2</span> In the Cloud</h3>
 <p><span class="newthought">From the cloud, access R with a web browser on any computing device</span>, such as a Chromebook or an iPad.</p>
-<section id="the-cloud" class="level4" data-number="1.2.1.1">
-<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="the-cloud"><span class="header-section-number">1.2.1.1</span> The Cloud</h4>
+<section id="the-cloud" class="level4" data-number="1.2.2.1">
+<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="the-cloud"><span class="header-section-number">1.2.2.1</span> The Cloud</h4>
 <blockquote class="blockquote">
 <p><dfn>The cloud</dfn>: One or more computer servers, usually in locations unknown to the users, that run applications accessed via a standard web browser.</p>
 </blockquote>
-<p>An important company in the R ecosystem, Posit (formerly RStudio, Inc.), provides a free, though limited, cloud account for running R within the app called RStudio at <code>posit.cloud</code>. Most people run R from within RStudio. In general, running R in the cloud is the same as running R on your computer. Just from examining the RStudio window you could not tell if you were running in the cloud or on your computer except that the listed file directory under the Files tab begins with Cloud.</p>
+<p>An important company in the R ecosystem, Posit (formerly RStudio, Inc.), provides a free, though limited, cloud account for running R within the app called RStudio. Access an R cloud account at:</p>
+<pre><code>https://posit.cloud/</code></pre>
+<p>Create a free account at the prompt, and you are ready to go.</p>
+<p>In general, running R in the cloud is the same as running R on your computer, with R and RStudio already installed. Just from examining the RStudio window you could not tell if you were running in the cloud or on your computer except that the listed file directory under the Files tab begins with Cloud.</p>
 <p>A free Posit account is limited in the sense that only 25 free hours are available per month. The good news is that 25 hours should be plenty of time to complete the assignments in the typical course that does basic data analysis on small to moderate size data sets. However, this time limit is not just the time the computer requires to perform the data analysis computations but also includes the time that a cloud project is open. Wait to log into your account until you are ready to enter the commands needed to do an analysis, and then log out of your account when an analysis is complete. View your account status by clicking on the icon at the top-right with your initials.</p>
 <p>Off-loading computer processing from your computer to the cloud, or even doing analysis without a standard computer, such as doing R analysis via a Chromebook or iPad, can save money. Typically not needed, but even paying a small amount for monthly access to R in the cloud can be much cheaper than buying a computer or upgrading to a more powerful computer. Of course, the strategy of off-loading computer processing and storage applies to not just running R, but to many types of data processing. Many companies now maintain and access data bases in the cloud. Many people store not just data files, but photographs, videos and other types of information in the cloud.</p>
 </section>
-<section id="instructions" class="level4" data-number="1.2.1.2">
-<h4 data-number="1.2.1.2" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1.2.1.2</span> Instructions</h4>
-<p>Access an R cloud account at:</p>
-<pre><code>https://posit.cloud/</code></pre>
-<p>Create a free account at the prompt, and you are ready to go.</p>
-<section id="new-project" class="level5" data-number="1.2.1.2.1">
-<h5 data-number="1.2.1.2.1" class="anchored" data-anchor-id="new-project"><span class="header-section-number">1.2.1.2.1</span> New project</h5>
+<section id="new-project" class="level4" data-number="1.2.2.2">
+<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="new-project"><span class="header-section-number">1.2.2.2</span> New project</h4>
 <p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To get started, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
@@ -443,30 +447,30 @@ No programming involved
 </div>
 <p>The next time you login click on that project name you will access R and RStudio ready for analysis exactly as it was when you last left that project.</p>
 </section>
-<section id="upload-data-to-the-cloud" class="level5" data-number="1.2.1.2.2">
-<h5 data-number="1.2.1.2.2" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.1.2.2</span> Upload data to the cloud</h5>
-<p>The home directory is in your cloud account, with no direct access to files on your computer. This directory location makes no difference if reading a file from the web. However, if you enter your function calls directly into the R console, to access a data file that resides on your own computer, first upload the data file to your cloud account. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in Figure <a href="#fig-upload">Figure&nbsp;<span>1.1</span></a>.</p>
+<section id="upload-data-to-the-cloud" class="level4" data-number="1.2.2.3">
+<h4 data-number="1.2.2.3" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.2.3</span> Upload data to the cloud</h4>
+<p>The home directory is in your cloud account, with no direct access to files on your computer. This directory location makes no difference if reading a file from the web. However, if you enter your function calls directly into the R console, to access a data file that resides on your own computer, first upload the data file to your cloud account. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in Figure <a href="#fig-upload">Figure&nbsp;<span>1.2</span></a>.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-upload" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudUpload.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Upload a data file to the cloud.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Upload a data file to the cloud.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The <code>Files</code> tab reveals the files in your cloud folder. You will see your data file appear there after uploading.</p>
 </section>
-<section id="logout-and-login" class="level5" data-number="1.2.1.2.3">
-<h5 data-number="1.2.1.2.3" class="anchored" data-anchor-id="logout-and-login"><span class="header-section-number">1.2.1.2.3</span> Logout and login</h5>
-<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in Figure <a href="#fig-logout">Figure&nbsp;<span>1.2</span></a>.</p>
+<section id="logout-and-login" class="level4" data-number="1.2.2.4">
+<h4 data-number="1.2.2.4" class="anchored" data-anchor-id="logout-and-login"><span class="header-section-number">1.2.2.4</span> Logout and login</h4>
+<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in Figure <a href="#fig-logout">Figure&nbsp;<span>1.3</span></a>.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-logout" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudLogout.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Logout of your cloud account.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1.3: Logout of your cloud account.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -474,57 +478,23 @@ No programming involved
 <p>The next time you log in, either select the project you were working on, or create a new one.</p>
 </section>
 </section>
-</section>
-<section id="on-your-computer" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="on-your-computer"><span class="header-section-number">1.2.2</span> On Your Computer</h3>
-<p>Running R on your computer, of course, requires to first download the R app to your computer. Although optional, most people also download a second app called RStudio from which to run R. Get both free apps at <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">Download Data Science Apps</a>.</p>
-<p><a href="https://media.pdx.edu/media/t/1_dlx9dpo8" target="_blank" rel="noopener noreferrer">video: download R and RStudio</a> [(3:44)]</p>
-<section id="getR" class="level4" data-number="1.2.2.1">
-<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="getR"><span class="header-section-number">1.2.2.1</span> Download and Run R</h4>
-<p><span class="newthought">R is free and runs the same on any Windows, Macintosh, or Linux/Unix computer.</span> Getting R is straightforward, such as from the above link, which provides the link to download the app from the worldwide network of R servers.</p>
-<p><em>Download R</em>.</p>
-<p>From the download link, choose your operating system from the links at the top of the corresponding web page. For <em>Windows</em>, the top of the resulting web page has the download link. For <em>Mac</em>, several paragraphs down, in the left margin, you have a choice. The first link in the margin is for <code>arm64</code>, which is the version for the more recently developed Apple M series processors. A second link, further down the margin, applies to Apple’s older Intel CPU computers. If not sure of your CPU type, go the first choice under the Apple menu, About this Mac, and look at the information for Chip.</p>
-<p><em>Install R</em>. If, during installation, you are asked the question, <em>Install in a personal library?</em> answer y for yes (unless you understand administrative privileges, which are needed if R is installed system-wide).</p>
-<p>The installer offers both 32-bit and 64-bit versions. Unless your computer was made around 2012 or earlier, run 64-bit software as you would any other app.</p>
-<p>Once downloaded, the installation proceeds as with any app. Accept the given defaults for each step of the process. When installed, run the R app as you would any other application, such as double-clicking on the application’s icon in your file system display. When opened, R displays a window called the <em>console</em>. Enter instructions into the R console command line, where R presents the <code>&gt;</code> prompt.</p>
-</section>
-<section id="getRStudio" class="level4" data-number="1.2.2.2">
-<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.2.2.2</span> RStudio</h4>
-<p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. You can <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">download</a> now, later, or never, but there are some advantages to running R from within RStudio.</p>
-<p>From RStudio, you are running R at the standard R console, but within the RStudio environment. As shown in the following figure, RStudio divides the main window into several window panes, all resizable to customize for a specific analysis. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions.</p>
-<p>A potential fourth window pane in the top-left corner provides for files of R code, ready for analysis. Request this fourth window within RStudio by creating a new R script file as shown in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.3</span></a>.</p>
-<pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="cell-output-display">
-<div id="fig-RStudio" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/RStudio.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.3: RStudio window panes.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>R processes all instructions at the command prompt in the R console. One option is to enter the instructions at the command prompt. The short-coming of this approach is that the instructions need to be repeatedly entered every time the analysis is re-run.</p>
-<p>RStudio improves this process by providing a convenient way to both store R instructions in their own file and then run them from the command prompt. An analysis of saved R instructions is reproducible. You can then save the file of R script for later access. You, or someone else in your organization, can repeat or extend the analysis without having to re-type everything.</p>
-<p>Create a new R script file from the <code>New File</code> option on the RStudio <code>File</code> menu, which opens the top-left window pane in Figure @ref(fig:RStudio). Then, enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console as in Figure <a href="#fig-Buttons">Figure&nbsp;<span>1.4</span></a>.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="cell-output-display">
-<div id="fig-Buttons" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/RStudioEg.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.4: RStudio Compile Report and Run buttons.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Or, click on the <code>Compile Report</code> button and send the input from the <code>Source</code> window and subsequent output to an HTML file for reading with a web browser or a Word document (a pdf option is also available, but requires LaTeX software installed).</p>
-<p>Your choice: Enter and run individual instructions at the command line one-by-one or save your instructions over time to gradually build a collection to accomplish a variety of analyses. With this strategy, you can reproduce the output of any one analysis or do a simple modification to obtain a related analysis. Either way your data analyses get done.</p>
-<p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio from which to access R, as you would any app on your computer.</p>
-</section>
-</section>
 <section id="lessR" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.3</span> Access <code>lessR</code></h3>
-<p><span class="newthought">To do a specific analysis,</span> enter into the console, after the <code>&gt;</code> prompt, the name of the function designed to accomplish that analysis. Each function has a name, such as <code>Histogram()</code> to display a histogram. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, a value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.3</span> Access <code>lessR</code> Enhancements</h3>
+<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made using R for basic data analysis much more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Histogram()</code> function. These functions, and the much more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+No programming involved
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>lessR</code> function calls are straightforward – only function calls, no programming required to obtain comprehensive results.</p>
+</div>
+</div>
+<p><code>lessR</code> organizes functions into what the R ecosystem refers to as a package. The full R ecosystem, available on servers worldwide, consists of the hundreds of base (standard) R functions included with the installation of R, plus the functions found in additional packages that fulfill a strict set of requirements before published on the R servers. Downloading R installs all the base R functions. Separately download packages such as <code>lessR</code> to access additional functions, all accessed via the standard R environment.</p>
 <p>Running R, within RStudio or by itself, on either your computer or in the cloud, one time only, download the <code>lessR</code> package of functions (and associated dependent packages) from the worldwide network of R servers onto your computer. In response to the R console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R console, either running R by itself or within RStudio. After entering the instruction, press Enter/Return.</p>
 <p><a href="https://media.pdx.edu/media/t/1_as8dy1xh" target="_blank" rel="noopener noreferrer">video: install lessR</a> [1:28]</p>
 <div id="exm-install" class="theorem example">
