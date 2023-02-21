@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -258,7 +258,7 @@ div.csl-indent {
 <li><a href="02-DataAnalysis.html#count">Count</a> the data values recorded for each variable with either a bar chart for a variable with few unique values or a histogram for a variable with many unique values.</li>
 </ul>
 <p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond the material presented here, reference the article <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span> for a wide range of data analyses illustrated and explained in detail.</p>
-<p>Work through the following content step-by-step. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
+<p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -269,7 +269,7 @@ Practice as you go
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Follow along with your computer, actively running each step as you proceed through this material, guided by the written material and the linked videos.</p>
+<p>As you proceed, follow along with your computer, actively running each example, guided by the written material and the linked videos.</p>
 </div>
 </div>
 <p>Get the basics down, and the rest readily follows.</p>
@@ -282,7 +282,7 @@ Practice as you go
 <p>The input into a data analysis function is data. The output of a function can appear in several forms:</p>
 <ul>
 <li>text in the form of writing and tables</li>
-<li>data visualizations in a graphics format such as <em>pdf</em> or <em>png</em></li>
+<li>visualizations in a graphics format such as <em>pdf</em> or <em>png</em></li>
 <li>data transformed from the original input data.</li>
 </ul>
 <p>To run an R program is to process the code, which consists of a sequence of activating functions to accomplish a corresponding sequence of analyses.</p>
@@ -296,11 +296,16 @@ Practice as you go
 <blockquote class="blockquote">
 <p><dfn>Function call</dfn>: Process the computations of a function from within a data analysis system such as Excel or R.</p>
 </blockquote>
+<section id="excel-function-call" class="level5" data-number="1.1.1.1.1">
+<h5 data-number="1.1.1.1.1" class="anchored" data-anchor-id="excel-function-call"><span class="header-section-number">1.1.1.1.1</span> Excel function call</h5>
 <p>With Excel, enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data itself.</p>
 <p style="margin-top: 1em;">
-In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell in which to enter the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.
+In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.
 </p>
-<p>R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, an advantage that contributes to the power of R for data analysis. The instructions are processed in an area separate from the data.</p>
+</section>
+<section id="r-function-call" class="level5" data-number="1.1.1.1.2">
+<h5 data-number="1.1.1.1.2" class="anchored" data-anchor-id="r-function-call"><span class="header-section-number">1.1.1.1.2</span> R function call</h5>
+<p>R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, a worthy advantage of R for data analysis. The instructions are processed in an area separate from the data.</p>
 <blockquote class="blockquote">
 <p><dfn>Command line</dfn>: R presents a prompt, <code>&gt;</code>, which indicates where to enter instructions for data analysis.</p>
 </blockquote>
@@ -316,7 +321,7 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 </div>
 <p>After entering an instruction in response to the <code>&gt;</code>, press Enter/Return, which instructs R to process the instruction, and then display a new prompt on a new command line. Instructions for an R data analysis consist of at least several lines of code entered at successive command lines.</p>
-<p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. To create the histogram of <em>Salary</em>, as well as summary statistics such as the mean, call the <code>Histogram()</code> function, referencing <em>Salary</em>.</p>
+<p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. We can calculate the mean <em>Salary</em> with the <code>mean()</code> function as indicated, but just as easy to get so much more. This example creates the histogram of <em>Salary</em>, as well as summary statistics such as the mean, by calling the <code>Histogram()</code> function, referencing the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -327,9 +332,10 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 </div>
 </div>
-<p>That is it. To get the histogram and summary statistics of <em>Salary</em>, at the command line prompt enter <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, always refer to the variable’s name within the parentheses. Always be aware of the exact spelling of the variable names that define the data, including capitalization, in this case beginning the function reference with an uppercase H`.</p>
+<p>That is it. To get the histogram and summary statistics of <em>Salary</em>, at the command line prompt enter <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, always refer to the variable’s name within the parentheses. Always be aware of the exact spelling of the variable names that define the data, including capitalization, in this case beginning the function reference with an uppercase H.</p>
 <p>As with the Excel example, there is <em>no programming</em> involved in this histogram analysis with R. The programming was done by the people who wrote the functions. Instead of programming code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel, just getting the histogram itself, involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
+</section>
 </section>
 <section id="advantages-of-r" class="level4" data-number="1.1.1.2">
 <h4 data-number="1.1.1.2" class="anchored" data-anchor-id="advantages-of-r"><span class="header-section-number">1.1.1.2</span> Advantages of R</h4>
