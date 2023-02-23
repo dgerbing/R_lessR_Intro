@@ -188,7 +188,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-DataAnalysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Analysis with R</span></a>
+  <a href="./02-DataAnalysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Data Analysis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -276,7 +276,7 @@ Practice as you go
 <p>Get the basics down, and the rest readily follows.</p>
 <section id="RvsExcel" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</h3>
-<p><span class="newthought">Excel and R analyze data from function calls.</span> You already know more about using R than you thought you did. Excel implements many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
+<p><span class="newthought">Excel and R analyze data with functions.</span> You already know more about using R than you thought you did. Excel implements many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
 <blockquote class="blockquote">
 <p><dfn>Function</dfn>: Set of instructions to perform the computations that transform data values into the results, the output of the analysis.</p>
 </blockquote>
@@ -295,13 +295,13 @@ Practice as you go
 <p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values, the annual salaries of six employees at a company. Find the variable name <em>Salary</em> in the first row of the Excel worksheet that contains the data values, listed in the same column under the variable name. The standard organization of data for analysis lists the variable names in the first row. List data values for that variable in the corresponding column, beginning in the second row.</p>
 <p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
 <blockquote class="blockquote">
-<p><dfn>Function call</dfn>: Process the computations of a function from within a data analysis system such as Excel or R.</p>
+<p><dfn>Function call</dfn>: Instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
 </blockquote>
 <p><em>Excel function call</em>. With Excel, enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data itself.</p>
 <p style="margin-top: 1em;">
 In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.
 </p>
-<p><em>R function call</em>. R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, a worthy advantage of R for data analysis. The instructions are processed in an area separate from the data.</p>
+<p><em>R function call</em>. R works differently. Unlike Excel, R separates the data from the instructions to analyze that data, a worthy advantage of R for data analysis. R process the analysis instructions in an area separate from the data.</p>
 <blockquote class="blockquote">
 <p><dfn>Command line</dfn>: R presents a prompt, <code>&gt;</code>, which indicates where to enter instructions for data analysis.</p>
 </blockquote>
@@ -318,7 +318,7 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 <p>To do a specific analysis, enter into the console, after the <code>&gt;</code> prompt, the name of the function designed to accomplish that analysis. Each function has a name, such as <code>Histogram()</code> to display a histogram. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, a value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
 <p>After entering an instruction in response to the <code>&gt;</code>, press Enter/Return, which instructs R to process the instruction, and then display a new prompt on a new command line. Instructions for an R data analysis consist of at least several lines of code entered at successive command lines.</p>
-<p>R can directly read data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from an instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. We can calculate the mean <em>Salary</em> with the <code>mean()</code> function as indicated, but just as easy to get so much more. This example creates the histogram of <em>Salary</em>, as well as summary statistics such as the mean, by calling the <code>Histogram()</code> function, referencing the variable <em>Salary</em>.</p>
+<p>R directly reads data stored within an Excel worksheet. To begin this analysis, <a href="02-DataAnalysis.html#read">read</a> the Excel worksheet into R from a simple instruction you enter at the command line. Suppose a variable in the worksheet is named <em>Salary</em>. We can calculate the mean <em>Salary</em> with the <code>mean()</code> function, but just as easy to get so much more. This example creates the histogram of <em>Salary</em>, as well as summary statistics such as the mean, by calling the <code>Histogram()</code> function, referencing the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -329,8 +329,8 @@ In this example, enter the function call beneath the column of data into the 8th
 </div>
 </div>
 </div>
-<p>That is it. To get the histogram and summary statistics of <em>Salary</em>, at the command line prompt enter <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, always refer to the variable’s name within the parentheses. Always be aware of the exact spelling of the variable names that define the data, including capitalization, in this case beginning the function reference with an uppercase H.</p>
-<p>As with the Excel example, there is <em>no programming</em> involved in this histogram analysis with R. The programming was done by the people who wrote the functions. Instead of programming code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel, just getting the histogram itself, involves much more work.</p>
+<p>That is it. To get the histogram and summary statistics of <em>Salary</em>, after reading the data into R, at the command line prompt enter <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names that define the data, including capitalization, in this case beginning the function reference with an uppercase H.</p>
+<p>As with the Excel example, there is <em>no programming</em> involved in this histogram analysis with R. The programming was done by the people who wrote the functions. Instead of writing computer code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Achieving the equivalent analysis with Excel, just getting the histogram itself, involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
 </section>
@@ -357,7 +357,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <blockquote class="blockquote">
 <p><dfn>Reproducibility</dfn>: Analyses can be re-run in the future to reproduce previously obtained results.</p>
 </blockquote>
-<p>In real world data analysis <em>no one enters code directly into R</em>. Instead the analyst writes the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis.</p>
+<p>In real world data analysis <em>no one enters code directly into R</em>. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis.</p>
 <p>The saved R code instructs how to accomplish the analysis, a set of instructions anyone with access can repeat. The instructions for analyses done by one person become accessible to all applicable members of your organization at any subsequent point in time, including yourself. On the contrary, those Excel mouse clicks disappear into digital dust.</p>
 <p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>:</p>
 <blockquote class="blockquote">
@@ -382,7 +382,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </div>
 </div>
 </div>
-<p>R processes all instructions at the command prompt in the R console. One option is to enter the instructions at the command prompt. The short-coming of this approach is that the instructions need to be repeatedly entered every time the analysis is re-run.</p>
+<p>R processes all instructions at the command prompt in the R console. One option enters the instructions at the command prompt. The short-coming of this approach is that the instructions need to be repeatedly entered every time the analysis is re-run.</p>
 <p>RStudio improves this process by providing a convenient way to both store R instructions in their own file and then run them from the command prompt. An analysis of saved R instructions is reproducible. You can then save the file of R script for later access. You, or someone else in your organization, can repeat or extend the analysis without having to re-type everything.</p>
 <p>Create a new R script file from the <code>New File</code> option on the RStudio <code>File</code> menu, which opens the top-left window pane in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.1</span></a>. Then, enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console.</p>
 <p>Run R by itself, or run R within RStudio. Either way, open the R app directly or open RStudio from which to access R, as you would any app on your computer.</p>
@@ -707,7 +707,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-DataAnalysis.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Analysis with R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Data Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
