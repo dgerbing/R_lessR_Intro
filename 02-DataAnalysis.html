@@ -304,7 +304,21 @@ Analyze variables
 </section>
 <section id="read" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="read"><span class="header-section-number">2.1.2</span> Read Data into R</h3>
-<p><span class="newthought">To begin an analysis, read the data stored within a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored on a computer system, on your computer or a network, including the web. The data table may be stored in one of many different formats, including Excel. Figure <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
+<p><span class="newthought">To begin an analysis, read the data stored within a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored on a computer system, on your computer or a network, including the web.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Read the data into R, then analyze
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the data table into an R data frame (table) with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
+</div>
+</div>
+<p>The data table may be stored in one of many different formats, including Excel. Figure <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-file" class="quarto-figure quarto-figure-center anchored">
@@ -463,10 +477,7 @@ View your data
 </section>
 <section id="count" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="count"><span class="header-section-number">2.2</span> Visualize the Data</h2>
-<p><span class="newthought">The most fundamental analysis of data is counting</span> the occurrence of each data value, or group of similar data values.</p>
-<blockquote class="blockquote">
-<p><dfn>General Principle</dfn>: Read the data table into an R data frame (table) with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
-</blockquote>
+<p><span class="newthought">The most fundamental analysis of data is counting</span> the occurrence of each data value, or group of similar data values. First read the data into R, then run the functions that count the number of times different data values occurred.</p>
 <p>All data analysis in R follows from the names of the relevant variables as stored within the relevant data table. In the function call for a data analysis, include the variable name, such as <em>Salary</em>, a continuous variable, or <em>Gender</em>, a categorical variable. The <code>lessR</code> <code>Read()</code> function lists the variable names as part of its output. Each analysis is of one or more variables, <em>not</em> the entire data table. Distinguish between the name of the data table, and the name of the variable(s) that exist within the data table.</p>
 <p>Effectively communicate the results with data visualizations. The type of visualization for counting data values, as with most analyses, depends on the type of variable, categorical or continuous.</p>
 <section id="bar-chart-and-pie-chart" class="level3" data-number="2.2.1">
@@ -795,7 +806,11 @@ or,<br>
 <code>d &lt;- Read("path name" or "web address")</code> to specify the <a href="#location">location</a> of the file</li>
 <li>Analyze the data values for a specific variable, generically named <em>x</em>. Begin with the <code>lessR</code> function calls that count the data values that have occurred for variable <em>x</em>: <code>Histogram(x)</code> for a continuous variable, or <code>BarChart(x)</code> or <code>PieChart(x)</code> for a categorical variable.</li>
 </ol>
-<p>The above steps can also be done interactively using the <code>lessR</code> function <code>interact()</code>.</p>
+<p>The above steps can also be done interactively using the <code>lessR</code> function <code>interact()</code>. Specifically, to interactively create a bar chart, enter at the command line:</p>
+<pre><code>interact("BarChart")</code></pre>
+<p>To interactively create a histogram, enter at the command line:</p>
+<pre><code>interact("Histogram")</code></pre>
+<p>You can also use the abbreviations <code>"bc"</code> and <code>"hs"</code>, respectively, to trigger the interactive sessions.</p>
 <p>Beyond <code>lessR</code>, find many, many analysis functions in base R as originally downloaded. Find even more functions in contributed packages such as <code>lessR</code>. <!-- <hr style="width: 30em; margin-top: 1.5em;" /> --></p>
 
 
