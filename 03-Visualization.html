@@ -348,16 +348,23 @@ Counts for each category
 </section>
 <section id="bcSummary" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="bcSummary"><span class="header-section-number">3.1.2</span> Bar Chart from Summary Table</h3>
-<p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="02-Data.html#dt">raw data</a>, the original measurements. The <code>BarChart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data. From this tabulation it constructed the summary table of two columns that paired each level of the categorical variable with its corresponding frequency of occurrence, and from this table the bars on the bar chart were drawn.</p>
-<p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number that translates into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each NBA team. The table would be a list of all NBA teams, each team paired with a number such as 83, for 83 inches tall.</p>
+<p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="02-Data.html#dt">raw data</a>, the original measurements. The <code>BarChart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data. From this tabulation it constructed the summary table of two columns, pairing each level of the categorical variable with its corresponding computed frequency of occurrence, the count.</p>
+<pre><code>Dept Freq
+ACCT    5
+ADMN    6
+FINC    4
+MKTG    6
+SALE   15</code></pre>
+<p>From this table the bars on the bar chart were drawn.</p>
+<p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number, which is then translated into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each team in a basketball league. The table would be a list of all the teams in the league, each team paired with a number such as 83, for 83 inches tall.</p>
 <p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table of measurements. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
-<p>In this instance, read the summary table into R as the data to analyze, the values that <code>BarChart()</code> implicitly computed in the previous example. Or, easily compute the summary table, the category and counts, in Excel directly, as a pivot table, or even more simply with the <code>lessR</code> function <code>pivot()</code>. Or, if available from another source, enter the summary table directly into Excel. In this example, simply locate the already constructed summary table on the web.</p>
+<p>In this instance, read the summary table into R as the data to analyze, the values that <code>BarChart()</code> implicitly computed in the previous example. Or, easily compute the summary table, the category and counts, in Excel directly, as a pivot table, or even more simply with the <code>lessR</code> function <code>pivot()</code>. Or, if available from another source, enter the summary table directly into Excel. In the following example, locate the already constructed summary table on the web.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After reading the data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept Freq
 1 ACCT    5
@@ -398,7 +405,7 @@ A bar chart from a summary table
 <p><span class="theorem-title"><strong>Example 3.2 </strong></span>&nbsp;</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This R instruction, a function call, creates the identical bar chart shown in Figure <a href="#fig-bc1">Figure&nbsp;<span>3.1</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>BarChart()</code> implicitly calculate the summary table of departments and counts, <code>BarChart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>BarChart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </section>
@@ -417,7 +424,7 @@ A bar chart from a summary table
 </p><p>As with the bar chart, obtain the pie chart of the frequencies of a categorical variable, generically named <span class="math inline">\(x\)</span>. Of course, replace the generic name with the actual variable name for any one analysis. After reading the data, create the ring chart version of the pie chart.</p>
 <p></p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">rep</span>(<span class="st">"images/pcExplain.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">rep</span>(<span class="st">"images/pcExplain.png"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-pcExplain" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -436,7 +443,7 @@ A bar chart from a summary table
 
 </div>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-ring" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -451,7 +458,7 @@ A bar chart from a summary table
 <p><span class="theorem-title"><strong>Example 3.4 </strong></span>&nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-hole0" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -493,7 +500,7 @@ A bar chart from a summary table
 
 </div>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-hs1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -510,7 +517,7 @@ A bar chart from a summary table
 <p><span class="theorem-title"><strong>Example 3.6 </strong></span>&nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-binwidth" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -539,7 +546,7 @@ A bar chart from a summary table
 <p><span class="theorem-title"><strong>Example 3.7 </strong></span>&nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-bcblue" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">

@@ -261,9 +261,13 @@ div.csl-indent {
 <ul>
 <li><a href="02-Data.html#read">Read</a> the data from a computer file into the analysis system, here R.<br>
 </li>
-<li><a href="#count">Count</a> the data values recorded for each variable with either a bar chart for a variable with few unique values or a histogram for a variable with many unique values.</li>
+<li><a href="03-Visualization.html">Count</a> the data values recorded for each variable with either a
+<ul>
+<li><a href="03-Visualization.html#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
+<li><a href="03-Visualization.html#hist">histogram</a> for a variable with many unique values</li>
+</ul></li>
 </ul>
-<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond the material presented here, reference the article <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span> for a wide range of data analyses illustrated and explained in detail.</p>
+<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
 <p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -294,11 +298,11 @@ Practice as you go
 <p>To run an R program is to process the code, which consists of a sequence of activating functions to accomplish a corresponding sequence of analyses.</p>
 <section id="functions" class="level4" data-number="1.1.1.1">
 <h4 data-number="1.1.1.1" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.1.1.1</span> Function Calls</h4>
-<p><img style="float:right; margin-top:2.5em; padding-left:1.5em;" src="images/ExcelFunction.png" width="140"></p>
+<p><img src="images/ExcelFunction.png" style="float:right; margin-top:2.5em; padding-left:1.5em;" width="140"></p>
 <p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values, the annual salaries of six employees at a company. Find the variable name <em>Salary</em> in the first row of the Excel worksheet that contains the data values, listed in the same column under the variable name. The standard organization of data for analysis lists the variable names in the first row. List data values for that variable in the corresponding column, beginning in the second row.</p>
 <p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
 <blockquote class="blockquote">
-<p><dfn>Function call</dfn>: Instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
+<p><dfn>Function call</dfn>: Computer instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
 </blockquote>
 <p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data itself.</p>
 <p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
@@ -373,14 +377,14 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </blockquote>
 <p>In real world data analysis <em>no one enters code directly into R</em>. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis.</p>
 <p>The saved R code instructs how to accomplish the analysis, a set of instructions anyone with access can repeat. The instructions for analyses done by one person become accessible to all applicable members of your organization at any subsequent point in time, including yourself. On the contrary, those Excel mouse clicks disappear into digital dust.</p>
-<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>:</p>
+<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Much better to separate your data from the code.
+Separate your data from the code
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -393,7 +397,7 @@ Much better to separate your data from the code.
 <section id="getRStudio" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
 <p><span class="newthought">Usually, run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line in what is called the R console, but within the RStudio environment. The RStudio environment built around the R console provides the additional features.</p>
-<p>As shown in the following figure, RStudio divides the main window into several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions.</p>
+<p>As shown in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.1</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. A second window pane is where RStudio directs the data visualizations and can also display other information such as your file directory. A third window pane displays your data or your history of entered R instructions.</p>
 <p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions need to be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in Figure <a href="#fig-RStudio">Figure&nbsp;<span>1.1</span></a>. Request this fourth window within RStudio by creating a new R script file:</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
@@ -577,7 +581,7 @@ View changes in this and recent versions of lessR.
 Gerbing, David. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
 </div>
 <div id="ref-gerbing23" class="csl-entry" role="doc-biblioentry">
-———. 2023. <em>R Data Analysis Without Programming: Explanation and Interpretation</em>. Routledge Publishing.
+———. 2023. <em>R Data Analysis Without Programming: Explanation and Interpretation</em>. 2nd ed. Routledge Publishing.
 </div>
 <div id="ref-R" class="csl-entry" role="doc-biblioentry">
 R Core Team. 2022. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
