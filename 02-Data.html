@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -234,12 +234,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="dt" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="dt"><span class="header-section-number">2.1</span> Data Table</h2>
 <p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds. To use any data analysis system such as R, <em>organize the data values into a table</em>.</p>
-<p><a href="https://media.pdx.edu/media/Data/0_ntiet07l" target="_blank" rel="noopener">video: Data Table</a> [4:05]</p>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Data/0_ntiet07l" target="_blank" rel="noopener">Data Table</a> [4:05]</p>
 <blockquote class="blockquote">
 <p><dfn>Data table</dfn>: Organize data values into a rectangular data table with the data values for each variable in a column, and the name of the variable at the top of the column.</p>
 </blockquote>
 <p>Store the structured data values within a computer file located on your computer, an accessible local network, or the world wide web. Encode the data table in one of a variety of computer file formats. The formats we encounter are Excel files, indicated by a file type of <code>.xlsx</code>, and text files in the form of comma-separated value files (csv). Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
-<p>The data table in Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a>, formatted as an Excel file, contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em> plus an ID field called <em>Name</em> for a total of five columns. Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> displays data values for these variables for just the first six employees.</p>
+<p>The data table in <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a>, formatted as an Excel file, contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em> plus an ID field called <em>Name</em> for a total of five columns. <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> displays data values for these variables for just the first six employees.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-dataTable" class="quarto-figure quarto-figure-center anchored">
@@ -296,7 +296,7 @@ Read the data into R, then analyze
 <p>Read the data table into an R data frame (table) with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
 </div>
 </div>
-<p>The data table may be stored in one of many different formats, including Excel. Figure <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
+<p>The data table may be stored in one of many different formats, including Excel. <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-file" class="quarto-figure quarto-figure-center anchored">
@@ -332,7 +332,7 @@ Browse to locate your data to read
 </div>
 <p>If you are running R/RStudio in the cloud, your “local” computer is your cloud account, not the computer from which you are accessing the cloud. That “computer” could be any device, such as a tablet or an iPhone that does not even run R. So first upload your data file to your cloud account, as shown in the previously link reference <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud directions</a>.</p>
 <p>The following <code>Read()</code> statement reads the data stored as a rectangular data table from an external file stored on your computer system such as an Excel file. The <code>Read()</code> statement reads the data from the file into an R data frame called <em>d</em>. The empty quotes indicate to R to open your file browser to locate the data file that already exists somewhere on your computer system.</p>
-<p><a href="https://media.pdx.edu/media/Read/1_m1sdcer2" target="_blank" rel="noopener noreferrer">video: Read Data</a> [3:35]</p>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Read/1_m1sdcer2" target="_blank" rel="noopener noreferrer">Read Data</a> [3:35]</p>
 <div id="exm-ReadBrowse" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.1 </strong></span>&nbsp;</p>
 </div>
@@ -367,13 +367,13 @@ Read data from a specified location
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/employee.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To specify a location of the data file on your computer, provide the full path name that locates and names your data file. To obtain this path name, first browse for the file with <code>Read("")</code>. The resulting output displays the path name of the identified file. Copy this path name and insert between the quotes of <code>Read("")</code>, save this and other R function calls in a text file. Run the code in the future to directly read the data file for future analyses without needing to browse for its location.</p>
+<p>To specify a location of the data file on your computer, provide the full path name that locates and names your data file. To obtain this path name, first browse for the file with <code>Read("")</code>. The resulting output displays the path name of the identified file. Copy this path name and insert between the quotes of <code>Read("")</code>, save this and other R function calls in a text file for future analyses without needing to browse for its location.</p>
 <p>In summary, with the <code>Read()</code> function, either put nothing between the quotes to browse for a data file, or specify the data file’s location on your computer system or the web. Direct the data read from a file into an R data frame, usually named <em>d</em>, but can choose any valid name.</p>
 </section>
 <section id="output-of-read" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="output-of-read"><span class="header-section-number">2.2.3</span> Output of <code>Read()</code></h3>
 <p><span class="newthought">R organizes analyses by variable name, so knowing the exact variable names is critical.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
-<p><code>Read()</code> also displays the type of how each variable is stored in the computer, as numbers with or without decimal digits, or as character strings. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. Figure <a href="#fig-readOut">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
+<p><code>Read()</code> also displays the type of how each variable is stored in the computer, as numbers with or without decimal digits, or as character strings. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-readOut" class="quarto-figure quarto-figure-center anchored">
@@ -385,14 +385,14 @@ Read data from a specified location
 </div>
 </div>
 <p>Always compare the output of ‘Read()’ with the actual data file to ensure that your data was correctly read. Never read data into R or any other system without first ensuring that the data values in the data table stored on some computer system correspond to the variables and data values read into a R data frame.</p>
-<p>To allow for the display of many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> and Figure <a href="#fig-file">Figure&nbsp;<span>2.2</span></a>.</p>
+<p>To allow for the display of many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> and <a href="#fig-file">Figure&nbsp;<span>2.2</span></a>.</p>
 </section>
 </section>
 <section id="display-the-data" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="display-the-data"><span class="header-section-number">2.3</span> Display the Data</h2>
 <p><span class="newthought">To analyze data, first understand the data.</span> You should know what the data values look like for each variable, and you should know the variable names. The output of the <code>lessR</code> function <code>Read()</code> assists this understanding, but often you want to view the data directly.</p>
 <p>After reading the data into R, you can view all or some of the contents of the newly created data frame. The rule is that to view the contents of any R object, of which there are many types, enter the name of the object at the console, in response to the command prompt <code>&gt;</code>.</p>
-<p><a href="https://media.pdx.edu/media/display/1_py9v24jw" target="_blank" rel="noopener noreferrer">video: Display the Data</a> [1:49]</p>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/display/1_py9v24jw" target="_blank" rel="noopener noreferrer">Display the Data</a> [1:49]</p>
 <div id="exm-dlist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.3 </strong></span>&nbsp;</p>
 </div>
@@ -432,11 +432,11 @@ View your data
 6   Afshari, Anbar     6      W ADMN  69441.93   high    2 100  100</code></pre>
 </div>
 </div>
-<p>Compare this output, the representation of the data within R, to the data table in Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> as an Excel file. Same data, different locations. Note the representation of missing data.</p>
+<p>Compare this output, the representation of the data within R, to the data table in <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> as an Excel file. Same data, different locations. Note the representation of missing data.</p>
 <blockquote class="blockquote">
 <p><dfn>R missing data code</dfn>: <code>NA</code> and <code>&lt;NA&gt;</code>for <em>not available</em> indicates missing data for numerical and non-numerical variables, respectively.</p>
 </blockquote>
-<p>The blank cells in the Excel file, Figure <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a>, are replaced with either <code>NA</code> for the numerical variable Years, and <code>&lt;NA&gt;</code> for the variable Dept with non-numerical values.</p>
+<p>The blank cells in the Excel file, <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a>, are replaced with either <code>NA</code> for the numerical variable Years, and <code>&lt;NA&gt;</code> for the variable Dept with non-numerical values.</p>
 <p>R also provides a corresponding function <code>tail()</code> that lists the data values at the end of the file.</p>
 </section>
 <section id="two-types-of-variables" class="level2" data-number="2.4">

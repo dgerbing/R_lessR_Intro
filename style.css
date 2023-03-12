@@ -18,8 +18,9 @@ p.caption {
   color: #777;
   margin-top: 10px;
 }
-p code {
+code {
   white-space: inherit;
+  font-size: .85em;
 }
 pre {
   word-break: normal;
@@ -60,4 +61,9 @@ blockquote footer {
 span.math.display {
   font-family: "Lucida Console", Courier, monospace;
   font-size:1.1em;
+}
+
+.vid {
+  color: rgb(74,87,165);
+  background-color: rgb(236,242,254);
 }
