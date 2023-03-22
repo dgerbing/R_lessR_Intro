@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -471,7 +471,7 @@ Separate your data from the code
 </section>
 <section id="upload-data-to-the-cloud" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.2.3</span> Upload data to the cloud</h4>
-<p>The home directory is in your cloud account, with no direct access to files on your computer. This directory location makes no difference if reading a file from the web. However, if you enter your function calls directly into the R console, to access a data file that resides on your own computer, first upload the data file to your cloud account. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload">Figure&nbsp;<span>1.6</span></a>.</p>
+<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload">Figure&nbsp;<span>1.6</span></a>.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-upload" class="quarto-figure quarto-figure-center anchored">
@@ -551,7 +551,7 @@ Always begin with library(“lessR”)
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.2.6                         feedback: gerbing@pdx.edu 
+<pre><code>lessR 4.2.8                         feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")   Read text, Excel, SPSS, SAS, or R data file
   d is default data frame, data= in analysis routines optional
@@ -564,7 +564,7 @@ customization, and descriptive statistics from pivot tables.
 View changes in this and recent versions of lessR.
   Enter: news(package="lessR")
 
-**Newly Revised**: Interactive data analysis.
+Interactive data analysis.
   Enter: interact()</code></pre>
 <p>If this information does not appear when you enter <code>library("lessR")</code>, then the <code>lessR</code> package is not installed in your R library. Consider running R/RStudio with the free plan in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a> instead of on your computer.</p>
 <p>Occasionally update your R packages. To update, enter:</p>
