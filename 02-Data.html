@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds. To use any data analysis system such as R, <em>organize the data values into a table</em>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Data/0_ntiet07l" target="_blank" rel="noopener">Data Table</a> [4:05]</p>
 <blockquote class="blockquote">
-<p><dfn>Data table</dfn>: Organize data values into a rectangular data table with the data values for each variable in a column, and the name of the variable at the top of the column.</p>
+<p><dfn>Data table</dfn>: Organize data values into a rectangular data table with the name of each variable at the top of a column followed by its data values in the remainder of the column.</p>
 </blockquote>
 <p>Store the structured data values within a computer file located on your computer, an accessible local network, or the world wide web. Encode the data table in one of a variety of computer file formats. The formats we encounter are Excel files, indicated by a file type of <code>.xlsx</code>, and text files in the form of comma-separated value files (csv). Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
 <p>The data table in <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a>, formatted as an Excel file, contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em> plus an ID field called <em>Name</em> for a total of five columns. <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> displays data values for these variables for just the first six employees.</p>
@@ -287,21 +287,21 @@ Analyze variables
 </section>
 <section id="read" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="read"><span class="header-section-number">2.2</span> Read Data into R</h2>
-<p><span class="newthought">To begin an analysis, read the data stored within a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored on a computer system, on your computer or a network, including the web.</p>
+<p><span class="newthought">To begin an analysis, read your data stored as a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored somewhere on a computer system, your computer or a network, including the web.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Read the data into R, then analyze
+Read your data into R, then analyze
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Read the data table into an R data frame (table) with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
 </div>
 </div>
-<p>The data table may be stored in one of many different formats, including Excel. <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
+<p>The data table can exist in one of many different formats, including Excel. <a href="#fig-file">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-file" class="quarto-figure quarto-figure-center anchored">
@@ -312,23 +312,23 @@ Read the data into R, then analyze
 </div>
 </div>
 </div>
-<p>The data table is stored in a computer file. To analyze, read the data table from the computer file into a corresponding data table within a running R session.</p>
+<p>The data table is stored as a computer file. To analyze your data, read the data table from the computer file, which copies the data into a corresponding data table within a running R session.</p>
 <blockquote class="blockquote">
-<p><dfn>Data frame</dfn>: A data table stored <i>within</i> an R session, referenced by its name.</p>
+<p><dfn>Data frame</dfn>: A data table stored <i>within</i> an active R session, referenced by its name.</p>
 </blockquote>
-<p>Reference the data table stored on a computer system, including the web, by its file name and location. Each variable in a data table has a name, and so does the data table itself. When read into R, name the data table, the R data frame, with a name of your choice. Regardless of the file name of your data on your computer system, typically name the data table <em>within</em> the active R session, the data frame, as simply <em>d</em> for data. Not only is <em>d</em> easy to type, but it is also the <code>lessR</code> default data frame name for the data processed by its various analysis functions.</p>
-<p>When analyzing data read into R, the same data exists in two locations: a computer file on your computer system and an R data frame within a running R app. Different locations, different names: <em>same</em> data. On your computer system, identify the data table by its file name and location. A running R app identifies the same data from the data file by its data frame name, such as <em>d</em>.</p>
+<p>In the function call to read the data, reference the data table stored on a computer system, including the web, by its file name and location. Each variable in a data table has a name, and so does the data table itself. When read into R, name the data table, the R data frame, with a name of your choice. Regardless of the file name of your data on your computer system, typically name the data table <em>within</em> the active R session, the data frame, as simply <em>d</em> for data. Not only is <em>d</em> easy to type, but it is also the <code>lessR</code> default data frame name for the data processed by its various analysis functions.</p>
+<p>When analyzing data read into R, the same data exists in two locations: a computer file on your computer system and an R data frame within a running R app. Different locations, different names: <em>same</em> data. On your computer system, identify the data table by its file name and location. A running R app identifies the same data from the data file by its data frame name as read into R, such as <em>d</em>.</p>
 <p>Do a function call to read the data from a file into a data frame of a running R application. Analogous to multiple Excel worksheets in a single Excel file, a running R session can contain multiple data frames, though we usually work with only one, usually with the name of <em>d</em> for data. Multiple read functions are available from R as downloaded and from functions in different packages. We use the <code>lessR</code> function <code>Read()</code> for its simplicity and helpful output to better understand the data that R reads into a data frame.</p>
 <section id="browse" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="browse"><span class="header-section-number">2.2.1</span> Browse for the Data Table File</h3>
-<p><span class="newthought">To read the data, direct R to the location of the data file.</span> R cannot read the data file until it knows where the data is stored. One option locates the data file on your computer system by browsing for it. You navigate your file system until you locate the file.</p>
+<p><span class="newthought">To read the data, direct R to the location of the data file.</span> R cannot read the data file until it knows where the data is stored. One option is to browse for the location of the data file on your computer system. You navigate your file system until you locate the file.</p>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Browse to locate your data to read
+Browse to locate your data file to read
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -425,7 +425,7 @@ View your data
 <p>When doing data analysis with R, frequently access the <code>head()</code> function so you can view some of the data you are analyzing.</p>
 </div>
 </div>
-<p>When something does not work the way you expected it to work, look at your data! Often the problem can be fixed because the computer stored your data differently than the way you thought the data would be stored. <em>Instead of trying to fix a problem by guessing, first take a look at your data</em>.</p>
+<p>When something does not work the way you expected it to work, look at your data! Often the problem can be fixed because the computer stored your data differently than the way you thought the data would be stored. <em>Instead of trying to fix a problem by guessing, first look at your data</em>.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>              Name Years Gender Dept    Salary JobSat Plan Pre Post
