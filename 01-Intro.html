@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="David Gerbing">
 
 <title>Introduction to Data Analysis - 1&nbsp; Introduction to R</title>
 <style>
@@ -17,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +48,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +74,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -141,7 +113,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -153,111 +126,134 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><span id="sec-R-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>David Gerbing </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">Jan 9, 2024 10:16 am</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Data Analysis</a> 
         <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a>
+  <a href="./01-Intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-Data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></a>
+  <a href="./02-Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-Visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualize the Data</span></a>
+  <a href="./03-Visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualize the Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-MoreStuff.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">More Stuff</span></a>
+  <a href="./04-MoreStuff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">More Stuff</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="toc-section-number">1.1</span>  Overview</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1.1</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#RvsExcel" id="toc-RvsExcel" class="nav-link" data-scroll-target="#RvsExcel"><span class="toc-section-number">1.1.1</span>  R vs.&nbsp;Excel</a></li>
-  <li><a href="#advantages-of-r" id="toc-advantages-of-r" class="nav-link" data-scroll-target="#advantages-of-r"><span class="toc-section-number">1.1.2</span>  Advantages of R</a></li>
-  <li><a href="#getRStudio" id="toc-getRStudio" class="nav-link" data-scroll-target="#getRStudio"><span class="toc-section-number">1.1.3</span>  RStudio</a></li>
+  <li><a href="#RvsExcel" id="toc-RvsExcel" class="nav-link" data-scroll-target="#RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</a></li>
+  <li><a href="#advantages-of-r" id="toc-advantages-of-r" class="nav-link" data-scroll-target="#advantages-of-r"><span class="header-section-number">1.1.2</span> Advantages of R</a></li>
+  <li><a href="#getRStudio" id="toc-getRStudio" class="nav-link" data-scroll-target="#getRStudio"><span class="header-section-number">1.1.3</span> RStudio</a></li>
   </ul></li>
-  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start"><span class="toc-section-number">1.2</span>  Getting Started</a>
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start"><span class="header-section-number">1.2</span> Getting Started</a>
   <ul class="collapse">
-  <li><a href="#oncomp" id="toc-oncomp" class="nav-link" data-scroll-target="#oncomp"><span class="toc-section-number">1.2.1</span>  On Your Computer</a></li>
-  <li><a href="#incloud" id="toc-incloud" class="nav-link" data-scroll-target="#incloud"><span class="toc-section-number">1.2.2</span>  In the Cloud</a></li>
-  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="toc-section-number">1.2.3</span>  <code>lessR</code> Enhancements</a></li>
+  <li><a href="#oncomp" id="toc-oncomp" class="nav-link" data-scroll-target="#oncomp"><span class="header-section-number">1.2.1</span> On Your Computer</a></li>
+  <li><a href="#incloud" id="toc-incloud" class="nav-link" data-scroll-target="#incloud"><span class="header-section-number">1.2.2</span> In the Cloud</a></li>
+  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="header-section-number">1.2.3</span> <code>lessR</code> Enhancements</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-R-intro" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<div class="cell">
-
-</div>
 <p><span class="newthought">Data analytics is a fast developing, exciting topic of research and application that impacts many areas of our lives.</span> We are today experiencing an authentic knowledge revolution that integrates the statistical analysis of data using computers. Here you are introduced to data analytics. After you spend a few hours learning the basics of the R software system for analytics, the rest is straightforward. From a small investment in learning how the system works, you gain access to much data analytic prowess using one of the primary languages of modern data science.</p>
 <section id="overview" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
@@ -274,12 +270,12 @@ div.csl-indent {
 </ul>
 <p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
 <p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Practice as you go
 </div>
 </div>
@@ -312,12 +308,12 @@ Practice as you go
 <p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data values.</p>
 <p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
 <p><em>R function call</em>. R works differently than a worksheet app. R processes the analysis instructions line-by-line in an area separate from the data, called the <em>R console</em>. Each line is called a <em>command line</em>, which contains a prompt, a <code>&gt;</code>, for entering a command, that is, an R instruction.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 R prompt
 </div>
 </div>
@@ -331,7 +327,7 @@ R prompt
 <div id="fig-cmnd" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="images/RCommandPrompt.png" class="img-fluid figure-img" style="width:32.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: R command line prompt.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: R command line prompt.</figcaption>
 </figure>
 </div>
 </div>
@@ -343,7 +339,7 @@ R prompt
 <div id="fig-hprmt" class="quarto-figure quarto-figure-left anchored">
 <figure class="figure">
 <p><img src="images/R_HistogramPrompt.png" class="img-fluid figure-img" style="width:30.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Function call entered at the command prompt.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.2: Function call entered at the command prompt.</figcaption>
 </figure>
 </div>
 </div>
@@ -380,12 +376,12 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </blockquote>
 <p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
 <p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Separate your data from the code
 </div>
 </div>
@@ -398,14 +394,14 @@ Separate your data from the code
 </section>
 <section id="getRStudio" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
-<p><span class="newthought">Most analysts run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment. The RStudio environment built around the R console provides the additional features.</p>
+<p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment. The RStudio environment built around the R console provides the additional features.</p>
 <p>As shown in <a href="#fig-RStudio">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
 <div class="cell" data-layout-align="center" data-fig.asp="0.7">
 <div class="cell-output-display">
 <div id="fig-RStudio" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/RStudio.png" class="img-fluid figure-img" style="width:98.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.3: RStudio window panes.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.3: RStudio window panes.</figcaption>
 </figure>
 </div>
 </div>
@@ -456,7 +452,7 @@ Separate your data from the code
 <div id="fig-newproj" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudNewProj.png" class="img-fluid figure-img" style="width:84.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.4: Create a new project.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.4: Create a new project.</figcaption>
 </figure>
 </div>
 </div>
@@ -467,7 +463,7 @@ Separate your data from the code
 <div id="fig-name" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudUntitled.png" class="img-fluid figure-img" style="width:64.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.5: Name your project.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.5: Name your project.</figcaption>
 </figure>
 </div>
 </div>
@@ -482,7 +478,7 @@ Separate your data from the code
 <div id="fig-upload" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudUpload.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.6: Upload a data file to the cloud.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.6: Upload a data file to the cloud.</figcaption>
 </figure>
 </div>
 </div>
@@ -497,7 +493,7 @@ Separate your data from the code
 <div id="fig-logout" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/CloudLogout.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.7: Logout of your cloud account.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1.7: Logout of your cloud account.</figcaption>
 </figure>
 </div>
 </div>
@@ -507,13 +503,15 @@ Separate your data from the code
 </section>
 <section id="lessR" class="level3" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.3</span> <code>lessR</code> Enhancements</h3>
+<section id="ungeek" class="level4" data-number="1.2.3.1">
+<h4 data-number="1.2.3.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">1.2.3.1</span> Ungeek</h4>
 <p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Histogram()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 No programming involved
 </div>
 </div>
@@ -521,6 +519,9 @@ No programming involved
 <p><code>lessR</code> function calls are straightforward – only function calls, no programming required to obtain comprehensive results.</p>
 </div>
 </div>
+</section>
+<section id="download-and-install" class="level4" data-number="1.2.3.2">
+<h4 data-number="1.2.3.2" class="anchored" data-anchor-id="download-and-install"><span class="header-section-number">1.2.3.2</span> Download and Install</h4>
 <p><code>lessR</code> organizes functions into what the R ecosystem refers to as a package. The full R ecosystem, available on servers worldwide, consists of the hundreds of base (standard) R functions included with the installation of R, plus the functions found in additional packages that fulfill a strict set of requirements before published on the R servers. Downloading R installs all the base R functions. Separately download packages such as <code>lessR</code> to access additional functions, all accessed via the standard R environment.</p>
 <p>Running R, within RStudio or by itself, on either your computer or in the cloud, one time only, download the <code>lessR</code> package of functions (and associated dependent packages) from the worldwide network of R servers. At the R console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R console, then press Enter/Return.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_as8dy1xh" target="_blank" rel="noopener noreferrer">install lessR</a> [1:28]</p>
@@ -530,18 +531,34 @@ No programming involved
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If asked the following question about compilation, answer <code>no</code>.</p>
+<p>This installation process involves not only downloading the <code>lessR</code> functions, but also many packages on which <code>lessR</code> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
+</section>
+<section id="what-to-avoid" class="level4" data-number="1.2.3.3">
+<h4 data-number="1.2.3.3" class="anchored" data-anchor-id="what-to-avoid"><span class="header-section-number">1.2.3.3</span> What to Avoid</h4>
+<p style="padding: 0;">
+</p><p><span style="font-size: 1.25em;">➝</span> If asked the following question about compilation, answer <code>no</code>.</p>
 <pre><code>Do you want to install from sources the package which
    needs compilation? (Yes/no/cancel)</code></pre>
-<p>This installation process involves not only downloading the <code>lessR</code> functions, but also many packages on which <code>lessR</code> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
+<p style="padding: 0;">
+</p><p><span style="font-size: 1.25em;">➝</span> When you install lessR you may get the following warning, which will be misleading for most people who use R.</p>
+<pre><code>&gt; install.packages("lessR")
+WARNING: Rtools is required to build R packages but is not currently 
+installed. Please download and install the appropriate version of Rtools
+before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
+<p>That message is for people who want to work with R at a much deeper level than the typical user. You likely have no desire to ever “build” an R package, which means compile from source R code to a ready-to-run binary Windows, Mac, or Linux/Unix binary. Feel free to ignore the warning as <code>lessR</code> and its dependent packages have already been built for you.</p>
+</section>
+<section id="access-lessr" class="level4" data-number="1.2.3.4">
+<h4 data-number="1.2.3.4" class="anchored" data-anchor-id="access-lessr"><span class="header-section-number">1.2.3.4</span> Access <code>lessR</code></h4>
 <p>Once downloaded, R stores the <code>lessR</code> functions in your R library created for you during the installation process. To access these functions for a specific R session, retrieve them from the library.</p>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Always begin with library(“lessR”)
+<div class="callout-title-container flex-fill">
+Begin each session with library(“lessR”)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -553,10 +570,10 @@ Always begin with library(“lessR”)
 <p><span class="theorem-title"><strong>Example 1.2 </strong></span>&nbsp;&nbsp;</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.2.8                         feedback: gerbing@pdx.edu 
+<pre><code>lessR 4.3.0                         feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")   Read text, Excel, SPSS, SAS, or R data file
   d is default data frame, data= in analysis routines optional
@@ -577,17 +594,18 @@ Interactive data analysis.
 <p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-GerbR" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-GerbR" class="csl-entry" role="listitem">
 Gerbing, David. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
 </div>
-<div id="ref-gerbing23" class="csl-entry" role="doc-biblioentry">
+<div id="ref-gerbing23" class="csl-entry" role="listitem">
 ———. 2023. <em>R Data Analysis Without Programming: Explanation and Interpretation</em>. 2nd ed. Routledge Publishing.
 </div>
-<div id="ref-R" class="csl-entry" role="doc-biblioentry">
+<div id="ref-R" class="csl-entry" role="listitem">
 R Core Team. 2022. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -734,9 +752,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -801,6 +833,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -838,6 +956,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 <nav class="page-navigation">
