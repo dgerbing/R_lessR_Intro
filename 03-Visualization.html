@@ -198,7 +198,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Feb 1, 2024 08:24 am</p>
+        <p class="date">Feb 3, 2024 09:36 am</p>
       </div>
     </div>
     
@@ -410,11 +410,11 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 <p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="02-Data.html#dt">raw data</a>, the original data values collected for each person represented in the data table. The <code>BarChart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data. From this tabulation it constructed the summary table of two columns, pairing each level of the categorical variable with its corresponding computed frequency of occurrence, the count.</p>
 <p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number, which is then translated into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each team in a basketball league. The table would be a list of all the teams in the league, each team paired with a number such as 83, for 83 inches tall.</p>
 <p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
-<p>In this instance, read the summary table into R for analysis, the values that <code>BarChart()</code> implicitly computed in the previous example. Or, easily compute the summary table, the category and counts, in Excel directly, as a pivot table, or with the <code>lessR</code> function <code>pivot()</code>. Or, if available from another source, enter the summary table directly into Excel. In the following example, locate the already constructed summary table as an Excel file on the web.</p>
+<p>If available from another source, enter the summary table directly into a worksheet app such as Excel. In the following example, locate the already constructed summary table as an Excel file on the web. Then, read the summary table into R for analysis, the values that <code>BarChart()</code> implicitly computed in the previous example.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After reading the data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
+<p>After reading the summary data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

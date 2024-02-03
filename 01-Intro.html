@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -103,7 +104,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -112,6 +119,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -125,15 +133,15 @@ div.csl-indent {
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -161,7 +169,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Jan 9, 2024 10:16 am</p>
+        <p class="date">Feb 3, 2024 09:27 am</p>
       </div>
     </div>
     
@@ -171,7 +179,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Data Analysis</a> 
@@ -226,7 +234,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -250,6 +258,7 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -321,25 +330,33 @@ R prompt
 <p>At the <code>&gt;</code> prompt in the R console, enter the name of the function designed to accomplish that analysis with the variable(s) to be analyzed, followed by Enter/Return.</p>
 </div>
 </div>
-<p><a href="#fig-cmnd">Figure&nbsp;<span>1.1</span></a> shows the R prompt for one line in the R console.</p>
-<div class="cell" data-layout-align="left" data-fig.asp="0.7">
+<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows the R prompt for one line in the R console.</p>
+<div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-cmnd" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/RCommandPrompt.png" class="img-fluid figure-img" style="width:32.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.1: R command line prompt.</figcaption>
+<div id="fig-cmnd" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/RCommandPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:32.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: R command line prompt.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Each function has a name, such as <code>Histogram()</code> to display a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values such as a variable name are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
-<p>The example in <a href="#fig-hprmt">Figure&nbsp;<span>1.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>Histogram()</code> function for the variable <em>Salary</em>.</p>
-<div class="cell" data-layout-align="left" data-fig.asp="0.7">
+<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>Histogram()</code> function for the variable <em>Salary</em>.</p>
+<div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-hprmt" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure">
-<p><img src="images/R_HistogramPrompt.png" class="img-fluid figure-img" style="width:30.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.2: Function call entered at the command prompt.</figcaption>
+<div id="fig-hprmt" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/R_HistogramPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Function call entered at the command prompt.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -394,19 +411,23 @@ Separate your data from the code
 </section>
 <section id="getRStudio" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
-<p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment. The RStudio environment built around the R console provides the additional features.</p>
-<p>As shown in <a href="#fig-RStudio">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<p><span class="newthought">Most analysts who use R run R from within an eb called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
+<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-RStudio" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/RStudio.png" class="img-fluid figure-img" style="width:98.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.3: RStudio window panes.</figcaption>
+<div id="fig-RStudio" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/RStudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:98.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: RStudio window panes.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio">Figure&nbsp;<span>1.3</span></a>. Create a new R script file with the following menu sequence:</p>
+<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. Create a new R script file with the following menu sequence:</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
 <p>Enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console. Save the file of R script so that you to provide for reproducing or extending the analysis without having to re-type everything.</p>
 </section>
@@ -446,24 +467,32 @@ Separate your data from the code
 </section>
 <section id="new-project" class="level4" data-number="1.2.2.2">
 <h4 data-number="1.2.2.2" class="anchored" data-anchor-id="new-project"><span class="header-section-number">1.2.2.2</span> New project</h4>
-<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj">Figure&nbsp;<span>1.4</span></a>.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-newproj" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/CloudNewProj.png" class="img-fluid figure-img" style="width:84.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.4: Create a new project.</figcaption>
+<div id="fig-newproj" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-newproj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/CloudNewProj.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:84.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-newproj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Create a new project.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name">Figure&nbsp;<span>1.5</span></a> toward the top of the window and type in a new name, HW or something.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name" class="quarto-xref">Figure&nbsp;<span>1.5</span></a> toward the top of the window and type in a new name, HW or something.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-name" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/CloudUntitled.png" class="img-fluid figure-img" style="width:64.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.5: Name your project.</figcaption>
+<div id="fig-name" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/CloudUntitled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:64.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: Name your project.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -472,13 +501,17 @@ Separate your data from the code
 </section>
 <section id="upload-data-to-the-cloud" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.2.3</span> Upload data to the cloud</h4>
-<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload">Figure&nbsp;<span>1.6</span></a>.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload" class="quarto-xref">Figure&nbsp;<span>1.6</span></a>.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-upload" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/CloudUpload.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.6: Upload a data file to the cloud.</figcaption>
+<div id="fig-upload" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-upload-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/CloudUpload.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-upload-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: Upload a data file to the cloud.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -487,13 +520,17 @@ Separate your data from the code
 </section>
 <section id="logout-and-login" class="level4" data-number="1.2.2.4">
 <h4 data-number="1.2.2.4" class="anchored" data-anchor-id="logout-and-login"><span class="header-section-number">1.2.2.4</span> Logout and login</h4>
-<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout">Figure&nbsp;<span>1.7</span></a>.</p>
-<div class="cell" data-layout-align="center" data-fig.asp="0.7">
+<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-logout" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/CloudLogout.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.7: Logout of your cloud account.</figcaption>
+<div id="fig-logout" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-logout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/CloudLogout.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.7: Logout of your cloud account.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -526,15 +563,15 @@ No programming involved
 <p>Running R, within RStudio or by itself, on either your computer or in the cloud, one time only, download the <code>lessR</code> package of functions (and associated dependent packages) from the worldwide network of R servers. At the R console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R console, then press Enter/Return.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_as8dy1xh" target="_blank" rel="noopener noreferrer">install lessR</a> [1:28]</p>
 <div id="exm-install" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.1 </strong></span>&nbsp;&nbsp;</p>
+<p><span class="theorem-title"><strong>Example 1.1</strong></span> &nbsp;&nbsp;</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This installation process involves not only downloading the <code>lessR</code> functions, but also many packages on which <code>lessR</code> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
 </section>
-<section id="what-to-avoid" class="level4" data-number="1.2.3.3">
-<h4 data-number="1.2.3.3" class="anchored" data-anchor-id="what-to-avoid"><span class="header-section-number">1.2.3.3</span> What to Avoid</h4>
+<section id="potential-issues" class="level4" data-number="1.2.3.3">
+<h4 data-number="1.2.3.3" class="anchored" data-anchor-id="potential-issues"><span class="header-section-number">1.2.3.3</span> Potential Issues</h4>
 <p style="padding: 0;">
 </p><p><span style="font-size: 1.25em;">➝</span> If asked the following question about compilation, answer <code>no</code>.</p>
 <pre><code>Do you want to install from sources the package which
@@ -548,6 +585,9 @@ before proceeding:
 
 https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <p>That message is for people who want to work with R at a much deeper level than the typical user. You likely have no desire to ever “build” an R package, which means compile from source R code to a ready-to-run binary Windows, Mac, or Linux/Unix binary. Feel free to ignore the warning as <code>lessR</code> and its dependent packages have already been built for you.</p>
+<p style="padding: 0;">
+</p><p><span style="font-size: 1.25em;">➝</span> On some occasions, one of the additional packages upon which <code>lessR</code> depends does not get downloaded. Then, when you try to access <code>lessR</code> as shown below, you get a message that <code>lessR</code> cannot be accessed because of a missing package.</p>
+<p>The response to that system error is to install the missing package using the same <code>install.packages()</code> function you used to install <code>lessR</code>.</p>
 </section>
 <section id="access-lessr" class="level4" data-number="1.2.3.4">
 <h4 data-number="1.2.3.4" class="anchored" data-anchor-id="access-lessr"><span class="header-section-number">1.2.3.4</span> Access <code>lessR</code></h4>
@@ -567,7 +607,7 @@ Begin each session with library(“lessR”)
 </div>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_jom6shh9" target="_blank" rel="noopener noreferrer">library(“lessR”)</a> [1:04]</p>
 <div id="exm-library" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.2 </strong></span>&nbsp;&nbsp;</p>
+<p><span class="theorem-title"><strong>Example 1.2</strong></span> &nbsp;&nbsp;</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -588,13 +628,13 @@ View changes in this and recent versions of lessR.
 
 Interactive data analysis.
   Enter: interact()</code></pre>
-<p>If this information does not appear when you enter <code>library("lessR")</code>, then the <code>lessR</code> package is not installed in your R library. Consider running R/RStudio with the free plan in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a> instead of on your computer.</p>
+<p>If this information does not appear when you enter <code>library("lessR")</code>, then the <code>lessR</code> package is not properly installed in your R library. Consider running R/RStudio with the free plan in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a> instead of on your computer.</p>
 <p>Occasionally update your R packages. To update, enter:</p>
 <p><code>update.packages(ask=FALSE)</code></p>
 <p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-GerbR" class="csl-entry" role="listitem">
 Gerbing, David. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
 </div>
@@ -651,6 +691,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -719,13 +786,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -804,10 +873,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -817,8 +903,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -831,6 +926,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -874,6 +1088,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -899,6 +1114,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -956,35 +1197,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link  aria-label=" preface"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Data.html" class="pagination-link">
+      <a href="./02-Data.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Data</span>">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
