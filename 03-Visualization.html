@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -198,7 +198,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Feb 3, 2024 09:36 am</p>
+        <p class="date">Apr 2, 2024 08:06 pm</p>
       </div>
     </div>
     
@@ -305,7 +305,7 @@ window.Quarto = {
 </blockquote>
 <p>A bar chart requires <em>two</em> variables to plot, the categorical variable of interest and the values of the corresponding numerical variable. The number associated with each level (category) could be any number. Construct the bar chart from the values of the two variables expressed as a table with two columns. One column contains the name of each category of the categorical variable. In the second column of this simple table is the number associated with each category.</p>
 <p>An example is the summary table that shows the number of employees in each department. This summary table is called a <em>pivot table</em> in Excel language.</p>
-<pre><code>Dept Freq
+<pre><code>Dept    n
 ACCT    5
 ADMN    6
 FINC    4
@@ -355,7 +355,7 @@ Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each categor
 </div>
 <p>A call to a function to create a bar chart necessarily contains the name of the variable with values that are the categories to plot. The names of other variables are <em>not</em> required when counting the values of a single categorical variable. For example, for categorical variable <em>Gender</em>, count the values of Woman, Man, and Other.</p>
 <p>With the <code>BarChart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If the data frame is named <em>d</em>, then you do not need to specify the <code>data</code> parameter.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Counts for each category">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -418,15 +418,15 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Dept Freq
-1 ACCT    5
-2 ADMN    6
-3 FINC    4
-4 MKTG    6
-5 SALE   15</code></pre>
+<pre><code>  Dept  n
+1 ACCT  5
+2 ADMN  6
+3 FINC  4
+4 MKTG  6
+5 SALE 15</code></pre>
 </div>
 </div>
-<p>This summary (pivot) table contains the two variables relevant to the analysis, categorical variable Dept, and numerical variable Freq. The summary table contains only one row for each value (category) of Dept. The values of the numerical variable specify the scaled height of the bar for the corresponding category.</p>
+<p>This summary (pivot) table contains the two variables relevant to the analysis, categorical variable Dept, and numerical variable <em>n</em>. The summary table contains only one row for each value (category) of Dept. The values of the numerical variable specify the scaled height of the bar for the corresponding category.</p>
 <p>The analysis of this summary table is the analysis of two variables. To create the bar chart from the summary table, specify the categorical variable as before, and then additionally specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>BarChart()</code> that reads data from a summary table.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -442,8 +442,8 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </div>
 </div>
 </div>
-<p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named Freq. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>BarChart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named <em>n</em>. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>BarChart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="A bar chart from a summary table">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -456,12 +456,12 @@ A bar chart from a summary table
 <p>If the numerical variable <span class="math inline">\(y\)</span> is explicitly specified without additional information, <code>BarChart()</code> identifies the data in summary (pivot) table form instead of the original data values.</p>
 </div>
 </div>
-<p>When the data are a summary table, <code>BarChart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here Freq, directly instead of computing its values.</p>
+<p>When the data are a summary table, <code>BarChart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here <em>n</em>, directly instead of computing its values.</p>
 <div id="exm-bcsummary" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, Freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-bcXYdirect" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1256,12 +1256,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Data.html" class="pagination-link  aria-label=" &lt;span="">
+      <a href="./02-Data.html" class="pagination-link" aria-label="Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-MoreStuff.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>More Stuff</span>">
+      <a href="./04-MoreStuff.html" class="pagination-link" aria-label="More Stuff">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">More Stuff</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
