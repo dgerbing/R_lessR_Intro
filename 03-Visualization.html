@@ -198,7 +198,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Apr 6, 2024 03:51 pm</p>
+        <p class="date">Apr 6, 2024 04:24 pm</p>
       </div>
     </div>
     
@@ -467,20 +467,20 @@ A bar chart from a summary table
 <div id="exm-bcsummary" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2</strong></span> &nbsp;</p>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-bcXYdirect" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bcXYdirect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-bcXYdirect-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
+<div class="cell">
+<style type="text/css">
+.setoff {
+  background-color: rgb(245,245,245);
+  border: 1px none rgb(100,100,100);
+  border-radius: .25em;
+  padding-top: .5em;
+  padding-left: .5em;
+  padding-bottom: -.5em;
+}
+</style>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcXYdirect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Barchart from summary table data.
-</figcaption>
-</figure>
-</div>
-</div>
+<div class="setoff">
+<pre><code>BarChart(Dept, n)</code></pre>
 </div>
 <p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>BarChart()</code> implicitly calculate the summary table of departments and counts, <code>BarChart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>BarChart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </section>
@@ -506,13 +506,13 @@ Figure&nbsp;3.4: Barchart from summary table data.
 <img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:32.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
+Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As with the bar chart, in <code>lessR</code> create the pie chart interactively by entering <code>interact("PieChart")</code> into the R console. <a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span>3.6</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
+<p>As with the bar chart, in <code>lessR</code> create the pie chart interactively by entering <code>interact("PieChart")</code> into the R console. <a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_y7g58dxa" target="_blank" rel="noopener noreferrer">Pie Chart of Counts</a> [1:23]</p>
 <div id="exm-ring" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.3</strong></span> &nbsp;</p>
@@ -526,7 +526,7 @@ Figure&nbsp;3.5: Instruction to generate a pie (ring) chart of the counts of eac
 <img src="03-Visualization_files/figure-html/fig-ring-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.6: Ring chart version of a pie chart for variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
+Figure&nbsp;3.5: Ring chart version of a pie chart for variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
@@ -545,7 +545,7 @@ Figure&nbsp;3.6: Ring chart version of a pie chart for variable <em>Dept</em> in
 <img src="03-Visualization_files/figure-html/fig-hole0-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hole0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.7: Standard pie chart of variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
+Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
@@ -572,13 +572,13 @@ Figure&nbsp;3.7: Standard pie chart of variable <em>Dept</em> in the <span class
 <img src="images/hsExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:32.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.8: Instruction to generate a histogram of the counts for each bin for the generically named continuous variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
+Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin for the generically named continuous variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>.</p>
+<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Histogram/1_sa3nq4zo" target="_blank" rel="noopener noreferrer">Histogram</a> [2:39]</p>
 <div id="exm-hs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.5</strong></span> &nbsp;</p>
@@ -592,7 +592,7 @@ Figure&nbsp;3.8: Instruction to generate a histogram of the counts for each bin 
 <img src="03-Visualization_files/figure-html/fig-hs1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hs1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: Histogram of Salary.
+Figure&nbsp;3.8: Histogram of Salary.
 </figcaption>
 </figure>
 </div>
@@ -600,7 +600,7 @@ Figure&nbsp;3.9: Histogram of Salary.
 </div>
 <p>We get not only the histogram, but the corresponding frequency distribution from which the histogram is constructed, as well as summary statistics and an outlier analysis. The frequency distribution shows the sequence of bins and how many values are located within each bin.</p>
 <p>Choosing the best size for the bins is not a task that a computer algorithm can solve. Usually better to experiment with different bin sizes. For an <em>undersmoothed</em> histogram, bin width is too small. For an <em>oversmoothed</em> histogram, bin width is too large.</p>
-<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>Histogram()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
+<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>Histogram()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span>3.9</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
 <div id="exm-binwidth" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.6</strong></span> &nbsp;</p>
 </div>
@@ -613,7 +613,7 @@ Figure&nbsp;3.9: Histogram of Salary.
 <img src="03-Visualization_files/figure-html/fig-binwidth-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binwidth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.10: Histogram of Salaries with a specified bin width of 13000.
+Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 </figcaption>
 </figure>
 </div>
@@ -633,7 +633,7 @@ Figure&nbsp;3.10: Histogram of Salaries with a specified bin width of 13000.
 <blockquote class="blockquote">
 <p><dfn>Default parameter value</dfn>: A preset value of a parameter that is invoked unless explicitly changed when invoking the function.</p>
 </blockquote>
-<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>BarChart()</code> and <code>Histogram()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>BarChart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span>3.11</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
+<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>BarChart()</code> and <code>Histogram()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>BarChart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
 <div id="exm-bcblue" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.7</strong></span> &nbsp;</p>
 </div>
@@ -646,7 +646,7 @@ Figure&nbsp;3.10: Histogram of Salaries with a specified bin width of 13000.
 <img src="03-Visualization_files/figure-html/fig-bcblue-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcblue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.11: Bar chart with bars filled a shade of blue.
+Figure&nbsp;3.10: Bar chart with bars filled a shade of blue.
 </figcaption>
 </figure>
 </div>
@@ -655,7 +655,7 @@ Figure&nbsp;3.11: Bar chart with bars filled a shade of blue.
 <p>Explore these parameter values and their effect on the resulting visualization interactively with the <code>lessR</code> function <code>interact()</code>. To use, provide the name of the visualization contained in quotes, such as <code>interact("BarChart")</code> or <code>interact("Histogram")</code>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">Examine the code created for <code>BarChart()</code></a> from the interactive session. [3:26]</p>
 <p>Parameter values can be numeric or a character string such as a word or a letter. As is true of all computer analysis systems such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as 1300 in the previous example of setting the bin width of a histogram.</p>
-<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
+<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-parameters" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -664,7 +664,7 @@ Figure&nbsp;3.11: Bar chart with bars filled a shade of blue.
 <img src="images/Parameters.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.12: A parameter and its value in a function call.
+Figure&nbsp;3.11: A parameter and its value in a function call.
 </figcaption>
 </figure>
 </div>
