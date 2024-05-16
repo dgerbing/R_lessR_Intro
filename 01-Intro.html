@@ -169,7 +169,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Apr 2, 2024 08:00 pm</p>
+        <p class="date">May 16, 2024 04:36 pm</p>
       </div>
     </div>
     
@@ -279,10 +279,10 @@ div.csl-indent {
 </ul>
 <p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
 <p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Practice as you go">
+<div class="callout callout-style-default callout-tip callout-titled" title="Practice as you go">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Practice as you go
@@ -296,9 +296,19 @@ Practice as you go
 <section id="RvsExcel" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</h3>
 <p><span class="newthought">Excel and R analyze data with functions.</span> You already know more about using R than you thought you did. Excel implements many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
-<blockquote class="blockquote">
-<p><dfn>Function</dfn>: Set of instructions to perform the computations that transform data values into results, the output of the analysis.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Function">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Set of instructions to perform the computations that transform data values into results, the output of the analysis.</p>
+</div>
+</div>
 <p>The input into a data analysis function is data. The output of a function can assume several forms:</p>
 <ul>
 <li>text in the form of writing and tables</li>
@@ -311,16 +321,26 @@ Practice as you go
 <p><img src="images/ExcelFunction.png" style="float:right; margin-top:2.5em; padding-left:1.5em;" width="140"></p>
 <p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values, the annual salaries of six employees at a company. According to the standard organization of data, find the variable name <em>Salary</em> in the first row of the Excel worksheet. The data values follow in the same column under the variable name.</p>
 <p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
-<blockquote class="blockquote">
-<p><dfn>Function call</dfn>: Computer instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Function call">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Function call
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Computer instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
+</div>
+</div>
 <p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data values.</p>
 <p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
 <p><em>R function call</em>. R works differently than a worksheet app. R processes the analysis instructions line-by-line in an area separate from the data, called the <em>R console</em>. Each line is called a <em>command line</em>, which contains a prompt, a <code>&gt;</code>, for entering a command, that is, an R instruction.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="R prompt">
+<div class="callout callout-style-default callout-tip callout-titled" title="R prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 R prompt
@@ -388,15 +408,25 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </li>
 </ul>
 <p>The multiple instructions to perform an R analysis precisely document how to conduct the analysis. As shown later, save these instructions in a file for later use to repeat the analysis.</p>
-<blockquote class="blockquote">
-<p><dfn>Reproducibility</dfn>: Analyses can be re-run in the future to reproduce previously obtained results.</p>
-</blockquote>
-<p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
-<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Separate your data from the code">
+<div class="callout callout-style-default callout-note callout-titled" title="Reproducibility">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reproducibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyses can be re-run in the future to reproduce previously obtained results.</p>
+</div>
+</div>
+<p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
+<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Separate your data from the code">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Separate your data from the code
@@ -456,9 +486,19 @@ Figure&nbsp;1.3: RStudio window panes.
 <section id="the-cloud" class="level4" data-number="1.2.2.1">
 <h4 data-number="1.2.2.1" class="anchored" data-anchor-id="the-cloud"><span class="header-section-number">1.2.2.1</span> The Cloud</h4>
 <p>The cloud refers to a computer but not the one on your desk or your lap.</p>
-<blockquote class="blockquote">
-<p><dfn>The cloud</dfn>: One or more computer servers, usually in locations unknown to the users, that run applications accessed via a standard web browser.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="The cloud">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The cloud
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One or more computer servers, usually in locations unknown to the users, that run applications accessed via a standard web browser.</p>
+</div>
+</div>
 <p>An important company in the R ecosystem, Posit (formerly RStudio, Inc.), provides a free, though limited, cloud account for running R within the app called RStudio. Access an R cloud account at:</p>
 <pre><code>https://posit.cloud/</code></pre>
 <p>In general, running R in the cloud is the same as running R on your computer, with R and RStudio already pre-installed.</p>
@@ -543,10 +583,10 @@ Figure&nbsp;1.7: Logout of your cloud account.
 <section id="ungeek" class="level4" data-number="1.2.3.1">
 <h4 data-number="1.2.3.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">1.2.3.1</span> Ungeek</h4>
 <p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Histogram()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="No programming involved">
+<div class="callout callout-style-default callout-tip callout-titled" title="No programming involved">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 No programming involved
@@ -579,9 +619,9 @@ No programming involved
 <p style="padding: 0;">
 </p><p><span style="font-size: 1.25em;">➝</span> When you install lessR you may get the following warning, which will be misleading for most people who use R.</p>
 <pre><code>&gt; install.packages("lessR")
-WARNING: Rtools is required to build R packages but is not currently 
-installed. Please download and install the appropriate version of Rtools
-before proceeding:
+WARNING: Rtools is required to build R packages but is not
+currently installed. Please download and install the
+appropriate version of Rtools before proceeding:
 
 https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <p>That message is for people who want to work with R at a much deeper level than the typical user. You likely have no desire to ever “build” an R package, which means compile from source R code to a ready-to-run binary Windows, Mac, or Linux/Unix binary. Feel free to ignore the warning as <code>lessR</code> and its dependent packages have already been built for you.</p>
@@ -601,7 +641,7 @@ https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.3.1                         feedback: gerbing@pdx.edu 
+<pre><code>lessR 4.3.3                         feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")   Read text, Excel, SPSS, SAS, or R data file
   d is default data frame, data= in analysis routines optional

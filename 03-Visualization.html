@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -198,7 +198,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Apr 6, 2024 04:24 pm</p>
+        <p class="date">May 16, 2024 05:02 pm</p>
       </div>
     </div>
     
@@ -300,9 +300,19 @@ window.Quarto = {
 <section id="the-summary-table" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="the-summary-table"><span class="header-section-number">3.1.1</span> The Summary Table</h3>
 <p>First, the bar chart.</p>
-<blockquote class="blockquote">
-<p><dfn>Bar Chart</dfn>: Plot a bar for each level of a categorical variable with its height scaled according to the value of the associated numerical variable.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Bar chart">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bar chart
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot a bar for each level of a categorical variable with its height scaled according to the value of the associated numerical variable.</p>
+</div>
+</div>
 <p>A bar chart requires <em>two</em> variables to plot, the categorical variable of interest and the values of the corresponding numerical variable. The number associated with each level (category) could be any number. Construct the bar chart from the values of the two variables expressed as a table with two columns. One column contains the name of each category of the categorical variable. In the second column of this simple table is the number associated with each category.</p>
 <p>An example is the summary table that shows the number of employees in each department. This summary table is called a <em>pivot table</em> in Excel language.</p>
 <pre><code>Dept    n
@@ -312,9 +322,19 @@ FINC    4
 MKTG    6
 SALE   15</code></pre>
 <p>From this table, construct the bars on the bar chart. The height of each bar is proportional to the number associated with the corresponding level.</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-tip callout-titled" title="Data for a bar or pie chart">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data for a bar or pie chart
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>By definition, a bar chart (and pie chart) of a single variable is constructed from a simple summary table such as shown above.</p>
-</blockquote>
+</div>
+</div>
 <p>The list of categories, or levels, is provided by the chosen categorical variable from which to construct the chart. What is the source of the numbers in the table, a numerical variable, that is associated with each category? There are three possibilities.</p>
 <ol type="1">
 <li>As indicated, an essential data analysis is the count of how many times each category or level of a categorical variable appeared in the data. For example, from the class grade book, how many students in the class received an A for their course grade? An A-? … and so on. From the original data, in this example the class grade book, the bar chart function computes the summary table, which associates the count for each level with the corresponding level, such as the above example.<br>
@@ -327,13 +347,33 @@ SALE   15</code></pre>
 <section id="bcMeas" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="bcMeas"><span class="header-section-number">3.1.2</span> Bar Chart of Counts</h3>
 <p><span class="newthought">One possibility creates the bar chart from the original data table.</span> Data analysis ultimately begins with the data values obtained for each unit in the analysis, such as each person or each company. To plot a bar chart, first <a href="02-Data.html#read">read</a> the data table from a computer file into the R data frame named <em>d</em>.</p>
-<blockquote class="blockquote">
-<p><dfn>Raw data</dfn>: The original, data values recorded for each unit of analysis or example before any summarization or transformation.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Raw data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Raw data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The original, data values recorded for each unit of analysis or example before any summarization or transformation..</p>
+</div>
+</div>
 <p>An example of <a href="02-Data.html#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. The data values for each employee are the original data values from which the analysis begins. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <span class="math inline">\(d\)</span>. Then the bar chart function implicitly computes the summary table of counts.</p>
-<blockquote class="blockquote">
-<p><dfn>Frequency distribution</dfn>: A summary (pivot) table constructed by counting the number of times each categorical value (level) occurred in the data for a variable.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Frequency distribution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Frequency distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A summary (pivot) table constructed by counting the number of times each categorical value (level) occurred in the data for a variable.</p>
+</div>
+</div>
 <p>The frequency distribution serves as the summary table from the bar chart of counts is constructed.</p>
 <section id="from-the-r-console" class="level4" data-number="3.1.2.1">
 <h4 data-number="3.1.2.1" class="anchored" data-anchor-id="from-the-r-console"><span class="header-section-number">3.1.2.1</span> From the R Console</h4>
@@ -344,7 +384,7 @@ SALE   15</code></pre>
 <div id="fig-bcExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/bcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%">
+<img src="images/bcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the default <span class="math inline">\(d\)</span> data frame.
@@ -355,10 +395,10 @@ Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each categor
 </div>
 <p>A call to a function to create a bar chart necessarily contains the name of the variable with values that are the categories to plot. The names of other variables are <em>not</em> required when counting the values of a single categorical variable. For example, for categorical variable <em>Gender</em>, count the values of Woman, Man, and Other.</p>
 <p>With the <code>BarChart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If the data frame is named <em>d</em>, then you do not need to specify the <code>data</code> parameter.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Counts for each category">
+<div class="callout callout-style-default callout-note callout-titled" title="Counts for each category">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Counts for each category
@@ -374,12 +414,12 @@ Counts for each category
 <p><span class="theorem-title"><strong>Example 3.1</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">BarChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-bc1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-bc1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+<img src="03-Visualization_files/figure-html/fig-bc1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart of tabulated counts of employees in each department.
@@ -389,7 +429,9 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 </div>
 </div>
 <p>Obtain the same analysis by explicitly including the <code>data</code> parameter to identify the name of the data frame, here the default value <em>d</em>.</p>
+<div class="setoff">
 <pre><code>BarChart(Dept, data=d)</code></pre>
+</div>
 <p>Again, if the data frame that contains the variable of interest is named <em>d</em>, the <code>data</code> parameter need not be specified. If the data frame name is something other than <em>d</em>, then include the parameter to identify the data table that contains the variable of interest. When doing R analyses you can have as many data tables as your computer memory will allow.</p>
 <p>The <code>BarChart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category.</p>
 </section>
@@ -440,7 +482,7 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 <div id="fig-bcXYExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/bcXYExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
+<img src="images/bcXYExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable <span class="math inline">\(x\)</span> given the numerical value of variable <span class="math inline">\(y\)</span> for each category, both variables in the <span class="math inline">\(d\)</span> data frame, here a summary table.
@@ -450,10 +492,10 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </div>
 </div>
 <p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named <em>n</em>. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>BarChart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="A bar chart from a summary table">
+<div class="callout callout-style-default callout-note callout-titled" title="A bar chart from a summary table">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 A bar chart from a summary table
@@ -472,7 +514,7 @@ A bar chart from a summary table
 .setoff {
   background-color: rgb(245,245,245);
   border: 1px none rgb(100,100,100);
-  border-radius: .25em;
+  border-radius: .45em;
   padding-top: .5em;
   padding-left: .5em;
   padding-bottom: -.5em;
@@ -492,9 +534,19 @@ A bar chart from a summary table
 <section id="pc" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="pc"><span class="header-section-number">3.1.5</span> Pie Chart of Counts</h3>
 <p><span class="newthought">An alternative to the bar chart is the pie chart.</span> Data visualized as a bar chart for a single variable can also be represented with a pie chart.</p>
-<blockquote class="blockquote">
-<p><dfn>Pie Chart</dfn>: Relate each level of a categorical variable to the area of a circle (pie) scaled according to the value of an associated numerical variable.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Pie Chart">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pie Chart
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Relate each level of a categorical variable to the area of a circle (pie) scaled according to the value of an associated numerical variable.</p>
+</div>
+</div>
 <p style="margin-top: 1em; margin-bottom: 1em;">
 </p><p>As with the bar chart, obtain the pie chart of the frequencies of a categorical variable, generically named <span class="math inline">\(x\)</span>. Of course, replace the generic name with the actual variable name for any one analysis. After reading the data, create the ring chart version of the pie chart by default.</p>
 <p></p>
@@ -503,7 +555,7 @@ A bar chart from a summary table
 <div id="fig-pcExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:32.0%">
+<img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
@@ -523,7 +575,7 @@ Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of eac
 <div id="fig-ring" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-ring-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+<img src="03-Visualization_files/figure-html/fig-ring-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.5: Ring chart version of a pie chart for variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
@@ -542,7 +594,7 @@ Figure&nbsp;3.5: Ring chart version of a pie chart for variable <em>Dept</em> in
 <div id="fig-hole0" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hole0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-hole0-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+<img src="03-Visualization_files/figure-html/fig-hole0-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hole0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
@@ -557,19 +609,39 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 <section id="hist" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="hist"><span class="header-section-number">3.2</span> Histogram</h2>
 <p><span class="newthought">For a continuous variable, can plot the counts with a histogram.</span> Unlike a categorical variable, a continuous variable presents many different, numeric values. The underlying continuity requires a different approach than for the bar chart, the binning of the data. The resulting visualization of how the values of a continuous variable are distributed is a <em>histogram</em>.</p>
-<blockquote class="blockquote">
-<p><dfn>Bins</dfn>: A sequence of adjacent, non-overlapping intervals, each generally of the same size.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p><dfn>Histogram</dfn>: Group similar data values from a continuous variable together into a bin, then assign a single count to each bin.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Bins">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A sequence of adjacent, non-overlapping intervals, each generally of the same size.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Histogram">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Histogram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Group similar data values from a continuous variable together into a bin, then assign a single count to each bin.</p>
+</div>
+</div>
 <p>One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("Histogram")</code> into the R console. Or, directly call the <code>lessR</code> function <code>Histogram()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-hsExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/hsExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:32.0%">
+<img src="images/hsExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin for the generically named continuous variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
@@ -589,7 +661,7 @@ Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin 
 <div id="fig-hs1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hs1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-hs1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<img src="03-Visualization_files/figure-html/fig-hs1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hs1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.8: Histogram of Salary.
@@ -610,7 +682,7 @@ Figure&nbsp;3.8: Histogram of Salary.
 <div id="fig-binwidth" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-binwidth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-binwidth-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<img src="03-Visualization_files/figure-html/fig-binwidth-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binwidth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
@@ -625,14 +697,34 @@ Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 <h2 data-number="3.3" class="anchored" data-anchor-id="params"><span class="header-section-number">3.3</span> Parameter Values</h2>
 <p><span class="newthought">A variety of conditions control the output of each analysis, text or visualization.</span> A bar chart or a histogram, for example, requires colors for the bars, colors for the bar edges, labels for the axes, and many other characteristics. In terms of text output, for example, the maximum width of each line must be pre-set before analysis begins.</p>
 <p>Characteristics such as bar color and maximum line width are not hard-coded into the function but instead can be customized. This logic applies to any analysis system, such as Excel or R.</p>
-<blockquote class="blockquote">
-<p><dfn>Parameter</dfn>: A user-controlled value of a function’s code, a placeholder, that specifies some characteristic of the way the data is processed or the output of the function is displayed.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Parameter">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Parameter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A user-controlled value of a function’s code, a placeholder, that specifies some characteristic of the way the data is processed or the output of the function is displayed.</p>
+</div>
+</div>
 <p>Each function includes parameters to customize input or output. For any bar chart or histogram function from any analysis system, such as Excel or R, one parameter sets the color of the bars, and another parameter sets the color of the bar edges.</p>
 <p>To use a function and have to manually select all the parameter values manually would be much too tedious.</p>
-<blockquote class="blockquote">
-<p><dfn>Default parameter value</dfn>: A preset value of a parameter that is invoked unless explicitly changed when invoking the function.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Default parameter value">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Default parameter value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A preset value of a parameter that is invoked unless explicitly changed when invoking the function.</p>
+</div>
+</div>
 <p>Each function consists of several or even many different parameter values set at default values. For example, the <code>BarChart()</code> and <code>Histogram()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>BarChart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
 <div id="exm-bcblue" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.7</strong></span> &nbsp;</p>
@@ -643,7 +735,7 @@ Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 <div id="fig-bcblue" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcblue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-bcblue-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<img src="03-Visualization_files/figure-html/fig-bcblue-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcblue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.10: Bar chart with bars filled a shade of blue.
@@ -1263,12 +1355,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-Data.html" class="pagination-link  aria-label=" &lt;span="">
+      <a href="./02-Data.html" class="pagination-link" aria-label="Data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-MoreStuff.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>More Stuff</span>">
+      <a href="./04-MoreStuff.html" class="pagination-link" aria-label="More Stuff">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">More Stuff</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
