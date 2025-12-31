@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="David Gerbing">
 
-<title>Introduction to Data Analysis - 3&nbsp; Visualize the Data</title>
+<title>3&nbsp; Visualize the Data – Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -87,17 +88,21 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./04-MoreStuff.html" rel="next">
 <link href="./02-Data.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4f244edcb1b0a79f86219273b1199b1b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +131,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -140,7 +145,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -159,19 +164,181 @@ window.Quarto = {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-Visualization.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualize the Data</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -198,7 +365,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 16, 2024 05:02 pm</p>
+        <p class="date">Dec 31, 2025 11:53 am</p>
       </div>
     </div>
     
@@ -291,6 +458,7 @@ window.Quarto = {
 
 
 
+
 <p><span class="newthought">The most fundamental analysis of data is counting</span> the occurrence of each data value, or group of similar data values. First read the data into R, then run the functions that count the number of times different data values occurred.</p>
 <p>All data analysis in R follows from the names of the relevant variables as stored within the relevant data table. In the function call for a data analysis, include the variable name, such as <em>Salary</em>, a continuous variable, or <em>Gender</em>, a categorical variable. The <code>lessR</code> <code>Read()</code> function lists the variable names as part of its output. Each analysis is of one or more variables, <em>not</em> the entire data table. Distinguish between the name of the data table, and the name of the variable(s) that exist within the data table.</p>
 <p>Effectively communicate the results with data visualizations. The type of visualization for counting data values, as with most analyses, depends on the type of variable, categorical or continuous.</p>
@@ -300,13 +468,13 @@ window.Quarto = {
 <section id="the-summary-table" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="the-summary-table"><span class="header-section-number">3.1.1</span> The Summary Table</h3>
 <p>First, the bar chart.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Bar chart">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Bar chart">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Bar chart
+<span class="screen-reader-only">Note</span>Bar chart
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -322,13 +490,13 @@ FINC    4
 MKTG    6
 SALE   15</code></pre>
 <p>From this table, construct the bars on the bar chart. The height of each bar is proportional to the number associated with the corresponding level.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Data for a bar or pie chart">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Data for a bar or pie chart">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data for a bar or pie chart
+<span class="screen-reader-only">Tip</span>Data for a bar or pie chart
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -342,32 +510,32 @@ Data for a bar or pie chart
 <li>Provide the summary table directly to the bar chart function. The numbers could be anything, including counts. A common application is reading this table from some publication and then creating the bar chart without access to the original data. For example, from a table of the amount of wine grapes produced in tons for different varietals (types of grapes) during a given year in Oregon, visualize the production number for each varietal with a bar chart.</li>
 <li>The computer constructs the summary (pivot) table from the original data as a statistic computed for an additional, specified variable, a continuous variable. The statistic is computed separately for each level of the categorical variable. One example is average salary computed for each department in a company, and then plotted as a bar chart.</li>
 </ol>
-<p>The <code>lessR</code> bar chart function, <code>BarChart()</code>, provides both the bar chart and the summary table from which the bar chart is constructed. The function applies to each of the three logical possibilities for obtaining the summary table from which the bar chart is constructed.</p>
+<p>The <code>lessR</code> chart function, <code>Chart()</code>, provides both the bar chart by default and the summary table from which the bar chart is constructed. The function applies to each of the three logical possibilities for obtaining the summary table from which the bar chart is constructed.</p>
 </section>
 <section id="bcMeas" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="bcMeas"><span class="header-section-number">3.1.2</span> Bar Chart of Counts</h3>
-<p><span class="newthought">One possibility creates the bar chart from the original data table.</span> Data analysis ultimately begins with the data values obtained for each unit in the analysis, such as each person or each company. To plot a bar chart, first <a href="02-Data.html#read">read</a> the data table from a computer file into the R data frame named <em>d</em>.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Raw data">
+<p><span class="newthought">One possibility creates the bar chart from the original data table.</span> Data analysis ultimately begins with the data values obtained for each unit in the analysis, such as each person or each company. To plot a bar chart, first <a href="#read">read</a> the data table from a computer file into the R data frame named <em>d</em>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Raw data">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Raw data
+<span class="screen-reader-only">Note</span>Raw data
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The original, data values recorded for each unit of analysis or example before any summarization or transformation..</p>
 </div>
 </div>
-<p>An example of <a href="02-Data.html#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. The data values for each employee are the original data values from which the analysis begins. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <span class="math inline">\(d\)</span>. Then the bar chart function implicitly computes the summary table of counts.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Frequency distribution">
+<p>An example of <a href="#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. The data values for each employee are the original data values from which the analysis begins. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <span class="math inline">\(d\)</span>. Then the bar chart function implicitly computes the summary table of counts.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Frequency distribution">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Frequency distribution
+<span class="screen-reader-only">Note</span>Frequency distribution
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -378,10 +546,10 @@ Frequency distribution
 <section id="from-the-r-console" class="level4" data-number="3.1.2.1">
 <h4 data-number="3.1.2.1" class="anchored" data-anchor-id="from-the-r-console"><span class="header-section-number">3.1.2.1</span> From the R Console</h4>
 <p>Consider a data frame of the raw data that contains a categorical variable, here with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific name, such as <em>Gender</em> or <em>Dept</em>.</p>
-<p>Enter the function call to create a bar chart directly into the R console. The instruction in <a href="#fig-bcExplain" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> creates the bar chart of the count of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
+<p>Enter the function call to create a bar chart directly into the R console. The instruction in <a href="#fig-bcExplain" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bcExplain</span></a> creates the bar chart of the count of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-bcExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bcExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/bcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
@@ -394,29 +562,29 @@ Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each categor
 </div>
 </div>
 <p>A call to a function to create a bar chart necessarily contains the name of the variable with values that are the categories to plot. The names of other variables are <em>not</em> required when counting the values of a single categorical variable. For example, for categorical variable <em>Gender</em>, count the values of Woman, Man, and Other.</p>
-<p>With the <code>BarChart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If the data frame is named <em>d</em>, then you do not need to specify the <code>data</code> parameter.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Counts for each category">
+<p>With the <code>Chart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If the data frame is named <em>d</em>, then you do not need to specify the <code>data</code> parameter.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Counts for each category">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Counts for each category
+<span class="screen-reader-only">Note</span>Counts for each category
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When only the name of one categorical variable name is passed to <code>BarChart()</code>, the visualization is of the variable’s distribution, the height of the bar for each category as the corresponding count of the number of occurrences.</p>
+<p>When only the name of one categorical variable name is passed to <code>Chart()</code>, the visualization is of the variable’s distribution, the height of the bar for each category as the corresponding count of the number of occurrences.</p>
 </div>
 </div>
-<p>To illustrate, return to the <a href="02-Data.html#dt">data</a> in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. First, <a href="02-Data.html#location">read</a> the data into R as the <em>d</em> data frame. Given the data, <code>BarChart(Dept)</code> tabulates and displays the number of employees in each department, according to the variable named Dept. The values of <em>Dept</em> are in the default data frame (table) named <em>d</em>. The result is the bar chart in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> for the distribution of the values of the categorical variable <em>Dept</em>.</p>
+<p>To illustrate, return to the <a href="#dt">data</a> in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. First, <a href="#location">read</a> the data into R as the <em>d</em> data frame. Given the data, tabulate and display the number of employees in each department, according to the variable named Dept. The values of <em>Dept</em> are in the default data frame (table) named <em>d</em>. The result is the bar chart in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bc1</span></a> for the distribution of the values of the categorical variable <em>Dept</em>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_2g07bs6q" target="_blank" rel="noopener noreferrer">Bar Chart of Counts</a> [3:08]</p>
 <div id="exm-bc" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.1</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-bc1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bc1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bc1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-Visualization_files/figure-html/fig-bc1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
@@ -430,20 +598,20 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 </div>
 <p>Obtain the same analysis by explicitly including the <code>data</code> parameter to identify the name of the data frame, here the default value <em>d</em>.</p>
 <div class="setoff">
-<pre><code>BarChart(Dept, data=d)</code></pre>
+<pre><code>Chart(Dept, data=d)</code></pre>
 </div>
 <p>Again, if the data frame that contains the variable of interest is named <em>d</em>, the <code>data</code> parameter need not be specified. If the data frame name is something other than <em>d</em>, then include the parameter to identify the data table that contains the variable of interest. When doing R analyses you can have as many data tables as your computer memory will allow.</p>
-<p>The <code>BarChart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category.</p>
+<p>The <code>Chart()</code> function provides a default color theme, which also labels each bar with the associated percentage of values for the corresponding category.</p>
 </section>
 <section id="interactive-analysis" class="level4" data-number="3.1.2.2">
 <h4 data-number="3.1.2.2" class="anchored" data-anchor-id="interactive-analysis"><span class="header-section-number">3.1.2.2</span> Interactive Analysis</h4>
-<p>Another way to construct the corresponding bar chart uses the <code>lessR</code> interactive analysis, called by entering <code>interact("BarChart")</code> into the R console. Then you can create a bar chart and explore different forms of the bar chart simply by clicking with your mouse.</p>
+<p>Another way to construct the corresponding bar chart uses the <code>lessR</code> interactive analysis, called by entering <code>interact("Chart")</code> into the R console. Then you can create a bar chart and explore different forms of the bar chart simply by clicking with your mouse.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_tejddk8e" target="_blank" rel="noopener noreferrer">Create a bar chart interactively</a> [before 4:04 does interactive bar charts on your computer, after 4:04 does bar charts with a cloud account.]</p>
 <p><em>If</em> you do interactive plots in a cloud account and <em>if</em> you save the interactive plot (instead of taking a screen shot), RStudio will save the plot in your cloud <code>home</code> directory (folder). Navigate to this directory by clicking on the <code>Cloud</code> icon in the <code>Files</code> tab in the bottom-right window pane, then click in the corresponding folder that contains the pdf file, as shown in the second half of the video linked above.</p>
 </section>
 <section id="statistical-output" class="level4" data-number="3.1.2.3">
 <h4 data-number="3.1.2.3" class="anchored" data-anchor-id="statistical-output"><span class="header-section-number">3.1.2.3</span> Statistical Output</h4>
-<p>The <code>BarChart()</code> function provides the tabular form of the frequency distribution, an example of a pivot table, as part of its text output to the R console. The output from the previous examples is shown below. The counts appear in the row labeled Frequencies, with the categories in the previous row.</p>
+<p>The <code>Chart()</code> function provides the tabular form of the frequency distribution, an example of a pivot table, as part of its text output to the R console. The output from the previous examples is shown below. The counts appear in the row labeled Frequencies, with the categories in the previous row.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]                 ACCT   ADMN   FINC   MKTG   SALE    Total
@@ -451,21 +619,21 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 [3] Proportions:   0.139  0.167  0.111  0.167  0.417    1.000</code></pre>
 </div>
 </div>
-<p>From the frequency distribution that pairs a number with each category or level of the variable of interest, <code>BarChart()</code> visualizes that pairing with the bar chart. In this example, the frequency distribution reveals that there are five accountants (ACCT), six administrators (ADMN), four financial analysts (FINC), six marketers (MKTG), and 15 people working in sales (SALE). From this information, a bar chart function defines the bars and their associated heights.</p>
+<p>From the frequency distribution that pairs a number with each category or level of the variable of interest, <code>Chart()</code> visualizes that pairing with the bar chart. In this example, the frequency distribution reveals that there are five accountants (ACCT), six administrators (ADMN), four financial analysts (FINC), six marketers (MKTG), and 15 people working in sales (SALE). From this information, a bar chart function defines the bars and their associated heights.</p>
 </section>
 </section>
 <section id="bcSummary" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="bcSummary"><span class="header-section-number">3.1.3</span> Bar Chart from Summary Table</h3>
-<p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="02-Data.html#dt">raw data</a>, the original data values collected for each person represented in the data table. The <code>BarChart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data. From this tabulation it constructed the summary table of two columns, pairing each level of the categorical variable with its corresponding computed frequency of occurrence, the count.</p>
+<p><span class="newthought">A bar chart visualizes the number associated with each category.</span> In the previous example, the data entered into the analysis consisted of the <a href="#dt">raw data</a>, the original data values collected for each person represented in the data table. The <code>Chart()</code> function then automatically proceeded to tabulate how many times each level of the categorical variable occurred in the data. From this tabulation it constructed the summary table of two columns, pairing each level of the categorical variable with its corresponding computed frequency of occurrence, the count.</p>
 <p>In general, construct a bar chart from <em>any</em> table that lists the pairing of each category with some number, which is then translated into the height of the bar for that category. The summary table need not be a frequency distribution, a count of how many times each value occurred. Indeed, the table of categories and corresponding numbers could be completely nonsensical. To apply in the real world, of course, the table usually provides meaningful information, even if not counts. One example is the height of the starting center for each team in a basketball league. The table would be a list of all the teams in the league, each team paired with a number such as 83, for 83 inches tall.</p>
 <p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
-<p>If available from another source, enter the summary table directly into a worksheet app such as Excel. In the following example, locate the already constructed summary table as an Excel file on the web. Then, read the summary table into R for analysis, the values that <code>BarChart()</code> implicitly computed in the previous example.</p>
+<p>If available from another source, enter the summary table directly into a worksheet app such as Excel. In the following example, locate the already constructed summary table as an Excel file on the web. Then, read the summary table into R for analysis, the values that <code>Chart()</code> implicitly computed in the previous example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>After reading the summary data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept  n
 1 ACCT  5
@@ -476,13 +644,13 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 </div>
 </div>
 <p>This summary (pivot) table contains the two variables relevant to the analysis, categorical variable Dept, and numerical variable <em>n</em>. The summary table contains only one row for each value (category) of Dept. The values of the numerical variable specify the scaled height of the bar for the corresponding category.</p>
-<p>The analysis of this summary table is the analysis of two variables. To create the bar chart from the summary table, specify the categorical variable as before, and then additionally specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>BarChart()</code> that reads data from a summary table.</p>
+<p>The analysis of this summary table is the analysis of two variables. To create the bar chart from the summary table, specify the categorical variable as before, and then additionally specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>Chart()</code> that reads data from a summary table.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-bcXYExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bcXYExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/bcXYExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%">
+<img src="images/bcXYExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:46.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable <span class="math inline">\(x\)</span> given the numerical value of variable <span class="math inline">\(y\)</span> for each category, both variables in the <span class="math inline">\(d\)</span> data frame, here a summary table.
@@ -491,21 +659,21 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </div>
 </div>
 </div>
-<p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named <em>n</em>. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>BarChart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="A bar chart from a summary table">
+<p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named <em>n</em>. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>Chart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="A bar chart from a summary table">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-A bar chart from a summary table
+<span class="screen-reader-only">Note</span>A bar chart from a summary table
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If the numerical variable <span class="math inline">\(y\)</span> is explicitly specified without additional information, <code>BarChart()</code> identifies the data in summary (pivot) table form instead of the original data values.</p>
+<p>If the numerical variable <span class="math inline">\(y\)</span> is explicitly specified without additional information, <code>Chart()</code> identifies the data in summary (pivot) table form instead of the original data values.</p>
 </div>
 </div>
-<p>When the data are a summary table, <code>BarChart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here <em>n</em>, directly instead of computing its values.</p>
+<p>When the data are a summary table, <code>Chart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here <em>n</em>, directly instead of computing its values.</p>
 <div id="exm-bcsummary" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2</strong></span> &nbsp;</p>
 </div>
@@ -522,25 +690,25 @@ A bar chart from a summary table
 </style>
 </div>
 <div class="setoff">
-<pre><code>BarChart(Dept, n)</code></pre>
+<pre><code>Chart(Dept, n)</code></pre>
 </div>
-<p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>BarChart()</code> implicitly calculate the summary table of departments and counts, <code>BarChart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>BarChart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
+<p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bc1</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>Chart()</code> implicitly calculate the summary table of departments and counts, <code>Chart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>Chart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </section>
 <section id="more-bar-charts-and-beyond" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="more-bar-charts-and-beyond"><span class="header-section-number">3.1.4</span> More Bar Charts and Beyond</h3>
-<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts, I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation" data-cites="medium_bc">(<a href="references.html#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access. For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation" data-cites="rdv">(<a href="references.html#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>.</p>
+<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts, I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation" data-cites="medium_bc">(<a href="#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access. For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation" data-cites="rdv">(<a href="#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>.</p>
 <p>For example, the above discussion indicated three ways the summary table is obtained upon which the bar chart is constructed: compute the count of each category from the original data table, provide the summary table directly, and compute a statistic for a numerical variable for each category. The previous illustrations were limited to the first two methods as applied to the counts. An example of the third method is the bar chart of the mean salary for each department computed from the original data. To obtain this bar chart, specify the categorical variable, <span class="math inline">\(x\)</span>, the numerical variable, <span class="math inline">\(y\)</span>, and then specify the statistic to compute with the <a href="#params">parameter</a> <code>stat</code>, such as <code>stat="mean"</code>.</p>
 </section>
 <section id="pc" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="pc"><span class="header-section-number">3.1.5</span> Pie Chart of Counts</h3>
-<p><span class="newthought">An alternative to the bar chart is the pie chart.</span> Data visualized as a bar chart for a single variable can also be represented with a pie chart.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Pie Chart">
+<p><span class="newthought">The Chart() function provides multiple alternatives to the bar chart.</span> Data visualized as a bar chart for a single variable can also be represented with a <code>"pie"</code> chart, a <code>"radar"</code> chart, a <code>"bubble"</code> chart, a <code>"treemap"</code>, and an <code>"icicle"</code> chart. Specify the type of chart with the parameter <code>type</code>, where <code>"bar"</code> is the default choice. Here, we consider the most common alternative to the bar chart, the pie chart.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Pie Chart">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pie Chart
+<span class="screen-reader-only">Note</span>Pie Chart
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -552,10 +720,10 @@ Pie Chart
 <p></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-pcExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-pcExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
+<img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:38.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
@@ -564,37 +732,61 @@ Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of eac
 </div>
 </div>
 </div>
-<p>As with the bar chart, in <code>lessR</code> create the pie chart interactively by entering <code>interact("PieChart")</code> into the R console. <a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
+<p><a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ring</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_y7g58dxa" target="_blank" rel="noopener noreferrer">Pie Chart of Counts</a> [1:23]</p>
 <div id="exm-ring" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.3</strong></span> &nbsp;</p>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">type=</span><span class="st">"pie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--- Dept --- 
+
+                ACCT   ADMN   FINC   MKTG   SALE    Total 
+Frequencies:       5      6      4      6     15       36 
+Proportions:   0.139  0.167  0.111  0.167  0.417    1.000 
+
+Chi-squared test of null hypothesis of equal probabilities 
+  Chisq = 10.944, df = 4, p-value = 0.027 </code></pre>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-ring" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-ring" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-ring-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+<img src="images/pc_ring.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ring-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Ring chart version of a pie chart for variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
+Figure&nbsp;3.5: Ring chart version of a pie chart for variable Dept in the d data frame.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The doughnut or ring chart is a reasonable alternative to the standard bar chart. The <code>lessR</code> function <code>PieChart()</code> also can create the “old-fashioned” pie chart. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> <a href="#params">parameter</a>. Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole.</p>
+<p>The doughnut or ring chart is a reasonable alternative to the standard bar chart. The <code>lessR</code> function <code>Chart()</code> also can create the “old-fashioned” pie chart. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> <a href="#params">parameter</a>. Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole.</p>
 <div id="exm-hole0" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.4</strong></span> &nbsp;</p>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">"pie"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--- Dept --- 
+
+                ACCT   ADMN   FINC   MKTG   SALE    Total 
+Frequencies:       5      6      4      6     15       36 
+Proportions:   0.139  0.167  0.111  0.167  0.417    1.000 
+
+Chi-squared test of null hypothesis of equal probabilities 
+  Chisq = 10.944, df = 4, p-value = 0.027 </code></pre>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">PieChart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-hole0" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-hole0" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hole0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-Visualization_files/figure-html/fig-hole0-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+<img src="images/pc_full.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hole0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class="math inline">\(d\)</span> data frame.
@@ -608,37 +800,37 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 </section>
 <section id="hist" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="hist"><span class="header-section-number">3.2</span> Histogram</h2>
-<p><span class="newthought">For a continuous variable, can plot the counts with a histogram.</span> Unlike a categorical variable, a continuous variable presents many different, numeric values. The underlying continuity requires a different approach than for the bar chart, the binning of the data. The resulting visualization of how the values of a continuous variable are distributed is a <em>histogram</em>.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Bins">
+<p><span class="newthought">For a continuous variable, one possibility plots the counts with a histogram.</span> Unlike a categorical variable, a continuous variable presents many different, numeric values. The underlying continuity requires a different approach than for the bar chart, the binning of the data. The resulting visualization of how the values of a continuous variable are distributed is a <em>histogram</em>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Bins">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Bins
+<span class="screen-reader-only">Note</span>Bins
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A sequence of adjacent, non-overlapping intervals, each generally of the same size.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled" title="Histogram">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Histogram">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Histogram
+<span class="screen-reader-only">Note</span>Histogram
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Group similar data values from a continuous variable together into a bin, then assign a single count to each bin.</p>
 </div>
 </div>
-<p>One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("Histogram")</code> into the R console. Or, directly call the <code>lessR</code> function <code>Histogram()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
+<p>The <code>lessR</code> function for potting the distribution of a single continuous variable along the <span class="math inline">\(x\)</span>-axis is <code>X()</code>. One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("X")</code> into the R console. Or, directly call the <code>lessR</code> function <code>X()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-hsExplain" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-hsExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hsExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
@@ -650,15 +842,15 @@ Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin 
 </div>
 </div>
 </div>
-<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>.</p>
+<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hs1</span></a>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Histogram/1_sa3nq4zo" target="_blank" rel="noopener noreferrer">Histogram</a> [2:39]</p>
 <div id="exm-hs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.5</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-hs1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-hs1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hs1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-Visualization_files/figure-html/fig-hs1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
@@ -672,14 +864,14 @@ Figure&nbsp;3.8: Histogram of Salary.
 </div>
 <p>We get not only the histogram, but the corresponding frequency distribution from which the histogram is constructed, as well as summary statistics and an outlier analysis. The frequency distribution shows the sequence of bins and how many values are located within each bin.</p>
 <p>Choosing the best size for the bins is not a task that a computer algorithm can solve. Usually better to experiment with different bin sizes. For an <em>undersmoothed</em> histogram, bin width is too small. For an <em>oversmoothed</em> histogram, bin width is too large.</p>
-<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>Histogram()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span>3.9</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
+<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>X()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-binwidth</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hs1</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
 <div id="exm-binwidth" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.6</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Histogram</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-binwidth" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-binwidth" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-binwidth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-Visualization_files/figure-html/fig-binwidth-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
@@ -697,13 +889,13 @@ Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 <h2 data-number="3.3" class="anchored" data-anchor-id="params"><span class="header-section-number">3.3</span> Parameter Values</h2>
 <p><span class="newthought">A variety of conditions control the output of each analysis, text or visualization.</span> A bar chart or a histogram, for example, requires colors for the bars, colors for the bar edges, labels for the axes, and many other characteristics. In terms of text output, for example, the maximum width of each line must be pre-set before analysis begins.</p>
 <p>Characteristics such as bar color and maximum line width are not hard-coded into the function but instead can be customized. This logic applies to any analysis system, such as Excel or R.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Parameter">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Parameter">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Parameter
+<span class="screen-reader-only">Note</span>Parameter
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -712,27 +904,27 @@ Parameter
 </div>
 <p>Each function includes parameters to customize input or output. For any bar chart or histogram function from any analysis system, such as Excel or R, one parameter sets the color of the bars, and another parameter sets the color of the bar edges.</p>
 <p>To use a function and have to manually select all the parameter values manually would be much too tedious.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Default parameter value">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Default parameter value">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Default parameter value
+<span class="screen-reader-only">Note</span>Default parameter value
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A preset value of a parameter that is invoked unless explicitly changed when invoking the function.</p>
 </div>
 </div>
-<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>BarChart()</code> and <code>Histogram()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>BarChart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
+<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>Chart()</code> and <code>X()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>Chart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bcblue</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
 <div id="exm-bcblue" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.7</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BarChart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-bcblue" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-bcblue" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcblue-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="03-Visualization_files/figure-html/fig-bcblue-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%">
@@ -744,13 +936,13 @@ Figure&nbsp;3.10: Bar chart with bars filled a shade of blue.
 </div>
 </div>
 </div>
-<p>Explore these parameter values and their effect on the resulting visualization interactively with the <code>lessR</code> function <code>interact()</code>. To use, provide the name of the visualization contained in quotes, such as <code>interact("BarChart")</code> or <code>interact("Histogram")</code>.</p>
-<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">Examine the code created for <code>BarChart()</code></a> from the interactive session. [3:26]</p>
+<p>Explore these parameter values and their effect on the resulting visualization interactively with the <code>lessR</code> function <code>interact()</code>. To use, provide the name of the visualization contained in quotes, such as <code>interact("Chart")</code> or <code>interact("Histogram")</code>.</p>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">Examine the code created for <code>Chart()</code></a> from the interactive session. [3:26]</p>
 <p>Parameter values can be numeric or a character string such as a word or a letter. As is true of all computer analysis systems such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as 1300 in the previous example of setting the bin width of a histogram.</p>
-<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
+<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-parameters</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-parameters" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-parameters" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Parameters.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
@@ -762,32 +954,31 @@ Figure&nbsp;3.11: A parameter and its value in a function call.
 </div>
 </div>
 </div>
-<p>In the <code>BarChart()</code> example above, <code>fill</code> names the parameter. The value of <code>"steelblue"</code> is the specific value set for that parameter. Explicitly setting that parameter value overrides the default value of <code>BarChart()</code>, which provides a different color for each bar.</p>
+<p>In the <code>Chart()</code> example above, <code>fill</code> names the parameter. The value of <code>"steelblue"</code> is the specific value set for that parameter. Explicitly setting that parameter value overrides the default value of <code>Chart()</code>, which provides a different color for each bar.</p>
 <p>Parameters control many aspects of the way that a function processes data, far more aspects than just color. You can rely upon the default parameter values, or add more paired parameter names and values as there are parameters to add. Customize the resulting bar chart, or rely upon the default values that <code>lessR</code> provides without customizing anything. Every R function has a help file that reveals the parameters associated with that function. To see all the possibilities of applying the function, display the help file for the function. To view its contents, enter a question mark, ?, followed by the function name.</p>
-<p>As another example, there is a <em>data</em> parameter for <code>lessR</code> analysis functions such as <code>BarChart()</code> that specifies the name of the data table that contains the variable(s) to analyze. These functions default to the data table name <em>d</em>, so no need to specify the parameter if referring to the default name.</p>
-<pre><code>?BarChart</code></pre>
+<p>As another example, there is a <em>data</em> parameter for <code>lessR</code> analysis functions such as <code>Chart()</code> that specifies the name of the data table that contains the variable(s) to analyze. These functions default to the data table name <em>d</em>, so no need to specify the parameter if referring to the default name.</p>
+<pre><code>?Chart</code></pre>
 <p>Toward the beginning of the help file, find a list of all the parameters, their default values, and an explanation of each.</p>
 </section>
 <section id="summary" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.4</span> Summary</h2>
-<p><span class="newthought">To use R to do a data analysis requires at least three separate R functions.</span> Run R either on your <a href="01-Intro.html#start">computer</a> or in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a>.</p>
+<p><span class="newthought">To use R to do a data analysis requires at least three separate R functions.</span> Run R either on your <a href="#start">computer</a> or in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a>.</p>
 <ol type="1">
-<li>Retrieve the <code>lessR</code> functions from your R <a href="01-Intro.html#lessR">library</a> <code>library("lessR")</code></li>
+<li>Retrieve the <code>lessR</code> functions from your R <a href="#lessR">library</a> <code>library("lessR")</code></li>
 <li>Read the data from a file into R:<br>
-<code>d &lt;- Read("")</code> to <a href="02-Data.html#browse">browse</a> for the file,<br>
+<code>d &lt;- Read("")</code> to <a href="#browse">browse</a> for the file,<br>
 or,<br>
-<code>d &lt;- Read("path name" or "web address")</code> to specify the <a href="02-Data.html#location">location</a> of the file</li>
-<li>Analyze the data values for a specific variable, generically named <em>x</em>. Begin with the <code>lessR</code> function calls that count the data values that have occurred for variable <em>x</em>: <code>Histogram(x)</code> for a continuous variable, or <code>BarChart(x)</code> or <code>PieChart(x)</code> for a categorical variable.</li>
+<code>d &lt;- Read("path name" or "web address")</code> to specify the <a href="#location">location</a> of the file</li>
+<li>Analyze the data values for a specific variable, generically named <em>x</em>. Begin with the <code>lessR</code> function calls that count the data values that have occurred for variable <em>x</em>: <code>X(x)</code> for a continuous variable, or <code>Chart(x)</code> for a categorical variable.</li>
 </ol>
 <p>The above steps can also be done interactively using the <code>lessR</code> function <code>interact()</code>. Specifically, to interactively create a bar chart, enter at the command line:</p>
-<pre><code>interact("BarChart")</code></pre>
+<pre><code>interact("Chart")</code></pre>
 <p>To interactively create a histogram, enter at the command line:</p>
-<pre><code>interact("Histogram")</code></pre>
-<p>You can also use the abbreviations <code>"bc"</code> and <code>"hs"</code>, respectively, to trigger the interactive sessions.</p>
+<pre><code>interact("X")</code></pre>
 <p>Beyond <code>lessR</code>, find many, many analysis functions in base R as originally downloaded. Find even more functions in contributed packages such as <code>lessR</code>. <!-- <hr style="width: 30em; margin-top: 1.5em;" /> --></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-medium_bc" class="csl-entry" role="listitem">
 Gerbing, David. 2019. <span>“Easy, Engaging Bar Charts from Simple to Sophisticated.”</span> <em>Medium.com</em>. <a href="&quot;https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b&quot;">"https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b"</a>.
 </div>
@@ -805,187 +996,71 @@ Gerbing, David. 2019. <span>“Easy, Engaging Bar Charts from Simple to Sophisti
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -993,180 +1068,189 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1174,185 +1258,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./02-Data.html" class="pagination-link" aria-label="Data">

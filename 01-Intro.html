@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="David Gerbing">
 
-<title>Introduction to Data Analysis - 1&nbsp; Introduction to R</title>
+<title>1&nbsp; Introduction to R – Introduction to Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -87,17 +88,21 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./02-Data.html" rel="next">
 <link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4f244edcb1b0a79f86219273b1199b1b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,23 +131,214 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -169,7 +365,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 16, 2024 04:36 pm</p>
+        <p class="date">Dec 31, 2025 11:52 am</p>
       </div>
     </div>
     
@@ -263,29 +459,30 @@ div.csl-indent {
 
 
 
+
 <p><span class="newthought">Data analytics is a fast developing, exciting topic of research and application that impacts many areas of our lives.</span> We are today experiencing an authentic knowledge revolution that integrates the statistical analysis of data using computers. Here you are introduced to data analytics. After you spend a few hours learning the basics of the R software system for analytics, the rest is straightforward. From a small investment in learning how the system works, you gain access to much data analytic prowess using one of the primary languages of modern data science.</p>
 <section id="overview" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
-<p><span class="newthought">We begin with some basic concepts of data analytics.</span> All data analysis, as in 100%, is done on the computer. We use R <span class="citation" data-cites="R">(<a href="references.html#ref-R" role="doc-biblioref">R Core Team 2022</a>)</span> as the app for data analytics, the same analysis system many data scientists use doing real data science throughout the world.</p>
+<p><span class="newthought">We begin with some basic concepts of data analytics.</span> All data analysis, as in 100%, is done on the computer. We use R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team 2022</a>)</span> as the app for data analytics, the same analysis system many data scientists use doing real data science throughout the world.</p>
 <p>A core set of tasks form part of <em>every</em> analytics project:</p>
 <ul>
-<li><a href="02-Data.html#read">Read</a> the data from a computer file into the analysis system, here R.<br>
+<li><a href="#read">Read</a> the data from a computer file into the analysis system, here R.<br>
 </li>
-<li><a href="03-Visualization.html">Count</a> the data values recorded for each variable with either a
+<li><a href="#sec-count">Count</a> the data values recorded for each variable with either a
 <ul>
-<li><a href="03-Visualization.html#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
-<li><a href="03-Visualization.html#hist">histogram</a> for a variable with many unique values</li>
+<li><a href="#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
+<li><a href="#hist">histogram</a> for a variable with many unique values</li>
 </ul></li>
 </ul>
-<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
+<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
 <p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Practice as you go">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Practice as you go">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Practice as you go
+<span class="screen-reader-only">Tip</span>Practice as you go
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -296,13 +493,13 @@ Practice as you go
 <section id="RvsExcel" class="level3" data-number="1.1.1">
 <h3 data-number="1.1.1" class="anchored" data-anchor-id="RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</h3>
 <p><span class="newthought">Excel and R analyze data with functions.</span> You already know more about using R than you thought you did. Excel implements many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Function">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Function">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Function
+<span class="screen-reader-only">Note</span>Function
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -321,13 +518,13 @@ Function
 <p><img src="images/ExcelFunction.png" style="float:right; margin-top:2.5em; padding-left:1.5em;" width="140"></p>
 <p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values, the annual salaries of six employees at a company. According to the standard organization of data, find the variable name <em>Salary</em> in the first row of the Excel worksheet. The data values follow in the same column under the variable name.</p>
 <p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Function call">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Function call">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Function call
+<span class="screen-reader-only">Note</span>Function call
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -337,23 +534,23 @@ Function call
 <p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data values.</p>
 <p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
 <p><em>R function call</em>. R works differently than a worksheet app. R processes the analysis instructions line-by-line in an area separate from the data, called the <em>R console</em>. Each line is called a <em>command line</em>, which contains a prompt, a <code>&gt;</code>, for entering a command, that is, an R instruction.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="R prompt">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="R prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R prompt
+<span class="screen-reader-only">Tip</span>R prompt
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><code>&gt;</code> prompt in the R console, enter the name of the function designed to accomplish that analysis with the variable(s) to be analyzed, followed by Enter/Return.</p>
 </div>
 </div>
-<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows the R prompt for one line in the R console.</p>
+<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-cmnd</span></a> shows the R prompt for one line in the R console.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-cmnd" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<div id="fig-cmnd" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/RCommandPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:32.0%">
@@ -365,14 +562,14 @@ Figure&nbsp;1.1: R command line prompt.
 </div>
 </div>
 </div>
-<p>Each function has a name, such as <code>Histogram()</code> to display a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values such as a variable name are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
-<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>Histogram()</code> function for the variable <em>Salary</em>.</p>
+<p>Each function has a name, such as <code>X()</code> to display a histogram along the <span class="math inline">\(x\)</span>-axis and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values such as a variable name are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
+<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hprmt</span></a> creates the <a href="#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div id="fig-hprmt" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/R_HistogramPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:30.0%">
+<img src="images/hsPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:15.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.2: Function call entered at the command prompt.
@@ -381,8 +578,8 @@ Figure&nbsp;1.2: Function call entered at the command prompt.
 </div>
 </div>
 </div>
-<p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="02-Data.html#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
-<p>That is it. To get the histogram and mean and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case beginning the function reference with an uppercase H.</p>
+<p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
+<p>That is it. To get the histogram and mean and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>X(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case beginning the function reference with an uppercase H.</p>
 <p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done by the people who wrote the functions referenced in the analysis. Instead of potentially writing complicated computer code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Just getting the histogram with Excel involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
@@ -395,7 +592,7 @@ Figure&nbsp;1.2: Function call entered at the command prompt.
 Excel is great for data entry and viewing data as a spreadsheet app, but provides only the most basic statistical computations. Excel is <em>not</em> a serious app for data analysis.
 </li>
 <li>
-Once the concept of working with R is understood, less work is required to conduct an analysis even directly from Excel data, such as simply entering <code>Histogram(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
+Once the concept of working with R is understood, less work is required to conduct an analysis even directly from Excel data, such as simply entering <code>X(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
 </li>
 <li>
 R does Big Data, efficiently handling data sets with millions of rows of data, limited only by the computer’s available memory.
@@ -408,13 +605,13 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </li>
 </ul>
 <p>The multiple instructions to perform an R analysis precisely document how to conduct the analysis. As shown later, save these instructions in a file for later use to repeat the analysis.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Reproducibility">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Reproducibility">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Reproducibility
+<span class="screen-reader-only">Note</span>Reproducibility
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -422,14 +619,14 @@ Reproducibility
 </div>
 </div>
 <p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
-<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Separate your data from the code">
+<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Separate your data from the code">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Separate your data from the code
+<span class="screen-reader-only">Tip</span>Separate your data from the code
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -441,11 +638,11 @@ Separate your data from the code
 </section>
 <section id="getRStudio" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
-<p><span class="newthought">Most analysts who use R run R from within an eb called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
-<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
+<p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
+<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-RStudio</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-RStudio" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-RStudio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/RStudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:98.0%">
@@ -457,14 +654,14 @@ Figure&nbsp;1.3: RStudio window panes.
 </div>
 </div>
 </div>
-<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. Create a new R script file with the following menu sequence:</p>
+<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-RStudio</span></a>. Create a new R script file with the following menu sequence:</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
 <p>Enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console. Save the file of R script so that you to provide for reproducing or extending the analysis without having to re-type everything.</p>
 </section>
 </section>
 <section id="start" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="start"><span class="header-section-number">1.2</span> Getting Started</h2>
-<p><span class="newthought">Download and install R on your computer, or run via a web browser in the cloud.</span> The choice is yours. R works the same regardless of the platform. Of course, running in the cloud requires an active Internet connection. With your data and your data processing app on your own computer you maintain a level of independence and security not available with cloud processing, but to run R locally you do need a computing device with more than just a web browser.</p>
+<p><span class="newthought">Download and install R on your computer, or run via a web browser in the cloud.</span> The choice is yours. R works the same regardless of the platform. Of course, running in the cloud requires an active Internet connection. With your data and your data processing app on your own computer you maintain a level of independence and security not available with cloud processing, but to run R locally you do need a computing device that runs a Windows, Macintosh, or Linux/Unix operating system.</p>
 <p>Unless you are interested in exploring both venues, there is no need to read the local computer and cloud sections. You can switch between a local computer and the cloud if you wish, but not needed unless you leave home with an iPad or similar device and use your computer at home.</p>
 <ol type="1">
 <li>On Your <a href="#oncomp">Computer</a><br>
@@ -486,13 +683,13 @@ Figure&nbsp;1.3: RStudio window panes.
 <section id="the-cloud" class="level4" data-number="1.2.2.1">
 <h4 data-number="1.2.2.1" class="anchored" data-anchor-id="the-cloud"><span class="header-section-number">1.2.2.1</span> The Cloud</h4>
 <p>The cloud refers to a computer but not the one on your desk or your lap.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="The cloud">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The cloud">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The cloud
+<span class="screen-reader-only">Note</span>The cloud
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -507,10 +704,10 @@ The cloud
 </section>
 <section id="new-project" class="level4" data-number="1.2.2.2">
 <h4 data-number="1.2.2.2" class="anchored" data-anchor-id="new-project"><span class="header-section-number">1.2.2.2</span> New project</h4>
-<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>.</p>
+<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-newproj</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-newproj" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-newproj" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-newproj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/CloudNewProj.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:84.0%">
@@ -522,10 +719,10 @@ Figure&nbsp;1.4: Create a new project.
 </div>
 </div>
 </div>
-<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name" class="quarto-xref">Figure&nbsp;<span>1.5</span></a> toward the top of the window and type in a new name, HW or something.</p>
+<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-name</span></a> toward the top of the window and type in a new name, HW or something.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-name" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-name" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-name-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/CloudUntitled.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:64.0%">
@@ -541,10 +738,10 @@ Figure&nbsp;1.5: Name your project.
 </section>
 <section id="upload-data-to-the-cloud" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.2.3</span> Upload data to the cloud</h4>
-<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload" class="quarto-xref">Figure&nbsp;<span>1.6</span></a>.</p>
+<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-upload</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-upload" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-upload" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-upload-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/CloudUpload.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
@@ -560,10 +757,10 @@ Figure&nbsp;1.6: Upload a data file to the cloud.
 </section>
 <section id="logout-and-login" class="level4" data-number="1.2.2.4">
 <h4 data-number="1.2.2.4" class="anchored" data-anchor-id="logout-and-login"><span class="header-section-number">1.2.2.4</span> Logout and login</h4>
-<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>.</p>
+<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-logout</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-logout" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<div id="fig-logout" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-logout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/CloudLogout.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
@@ -582,14 +779,14 @@ Figure&nbsp;1.7: Logout of your cloud account.
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.3</span> <code>lessR</code> Enhancements</h3>
 <section id="ungeek" class="level4" data-number="1.2.3.1">
 <h4 data-number="1.2.3.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">1.2.3.1</span> Ungeek</h4>
-<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Histogram()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="No programming involved">
+<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>X()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="No programming involved">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-No programming involved
+<span class="screen-reader-only">Tip</span>No programming involved
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -606,7 +803,7 @@ No programming involved
 <p><span class="theorem-title"><strong>Example 1.1</strong></span> &nbsp;&nbsp;</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lessR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This installation process involves not only downloading the <code>lessR</code> functions, but also many packages on which <code>lessR</code> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
 </section>
@@ -617,7 +814,8 @@ No programming involved
 <pre><code>Do you want to install from sources the package which
    needs compilation? (Yes/no/cancel)</code></pre>
 <p style="padding: 0;">
-</p><p><span style="font-size: 1.25em;">➝</span> When you install lessR you may get the following warning, which will be misleading for most people who use R.</p>
+<span style="font-size: 1.25em;">➝</span> When you install lessR you may get the following warning, which will be misleading for most people who use R.
+</p>
 <pre><code>&gt; install.packages("lessR")
 WARNING: Rtools is required to build R packages but is not
 currently installed. Please download and install the
@@ -632,16 +830,28 @@ https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <section id="access-lessr" class="level4" data-number="1.2.3.4">
 <h4 data-number="1.2.3.4" class="anchored" data-anchor-id="access-lessr"><span class="header-section-number">1.2.3.4</span> Access <code>lessR</code></h4>
 <p>Once downloaded, R stores the <code>lessR</code> functions in your R library created for you during the installation process. To access these functions for a specific R session, retrieve them from the library.</p>
-<p>::: {.callout-tip title=“Begin each session with library(”lessR”)“} At the beginning of <i>every</i> R session, first invoke the R function call <code>library("lessR")</code> that retrieves the <b>lessR</b> functions from your library for data analysis. :::</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Begin each session with library(&quot;lessR&quot;)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Begin each session with library(“lessR”)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At the beginning of <i>every</i> R session, first invoke the R function call <code>library("lessR")</code> that retrieves the <b>lessR</b> functions from your library for data analysis.</p>
+</div>
+</div>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_jom6shh9" target="_blank" rel="noopener noreferrer">library(“lessR”)</a> [1:04]</p>
 <div id="exm-library" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.2</strong></span> &nbsp;&nbsp;</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.3.3                         feedback: gerbing@pdx.edu 
+<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="#vig">examples</a> of various analyses.</p>
+<pre><code>lessR 4.5.1                         feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")   Read text, Excel, SPSS, SAS, or R data file
   d is default data frame, data= in analysis routines optional
@@ -662,7 +872,7 @@ Interactive data analysis.
 <p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-GerbR" class="csl-entry" role="listitem">
 Gerbing, David. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
 </div>
@@ -679,187 +889,71 @@ R Core Team. 2022. <em>R: A Language and Environment for Statistical Computing</
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -867,180 +961,189 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1048,185 +1151,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="Preface">
