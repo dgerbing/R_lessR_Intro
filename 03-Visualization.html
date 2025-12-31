@@ -365,7 +365,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Dec 31, 2025 11:53 am</p>
+        <p class="date">Dec 31, 2025 05:12 pm</p>
       </div>
     </div>
     
@@ -514,7 +514,7 @@ SALE   15</code></pre>
 </section>
 <section id="bcMeas" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="bcMeas"><span class="header-section-number">3.1.2</span> Bar Chart of Counts</h3>
-<p><span class="newthought">One possibility creates the bar chart from the original data table.</span> Data analysis ultimately begins with the data values obtained for each unit in the analysis, such as each person or each company. To plot a bar chart, first <a href="#read">read</a> the data table from a computer file into the R data frame named <em>d</em>.</p>
+<p><span class="newthought">One possibility creates the bar chart from the original data table.</span> Data analysis ultimately begins with the data values obtained for each unit in the analysis, such as each person or each company. To plot a bar chart, first <a href="02-Data.html#read">read</a> the data table from a computer file into the R data frame named <em>d</em>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Raw data">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -528,7 +528,7 @@ SALE   15</code></pre>
 <p>The original, data values recorded for each unit of analysis or example before any summarization or transformation..</p>
 </div>
 </div>
-<p>An example of <a href="#dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. The data values for each employee are the original data values from which the analysis begins. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <span class="math inline">\(d\)</span>. Then the bar chart function implicitly computes the summary table of counts.</p>
+<p>An example of <a href="02-Data.html#sec-dt">raw data</a> is the data table of employees with variables such as <em>Salary</em> and <em>Gender</em> in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. The data values for each employee are the original data values from which the analysis begins. To begin the analysis, <a href="#exm:ReadURL">read</a> these data values into an R data frame, usually named <span class="math inline">\(d\)</span>. Then the bar chart function implicitly computes the summary table of counts.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Frequency distribution">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -546,20 +546,16 @@ SALE   15</code></pre>
 <section id="from-the-r-console" class="level4" data-number="3.1.2.1">
 <h4 data-number="3.1.2.1" class="anchored" data-anchor-id="from-the-r-console"><span class="header-section-number">3.1.2.1</span> From the R Console</h4>
 <p>Consider a data frame of the raw data that contains a categorical variable, here with the generic name <span class="math inline">\(x\)</span>. For a specific analysis, <span class="math inline">\(x\)</span> takes on a specific name, such as <em>Gender</em> or <em>Dept</em>.</p>
-<p>Enter the function call to create a bar chart directly into the R console. The instruction in <a href="#fig-bcExplain" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bcExplain</span></a> creates the bar chart of the count of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-bcExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>Enter the function call to create a bar chart directly into the R console. The instruction in <a href="#fig-bcExplain" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> creates the bar chart of the count of each category for a categorical variable named <span class="math inline">\(x\)</span>, and the table of counts (frequencies).</p>
+<div id="fig-bcExplain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/bcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
+<img src="images/bcExplain.png" class="img-fluid figure-img" style="width:40.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the default <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>A call to a function to create a bar chart necessarily contains the name of the variable with values that are the categories to plot. The names of other variables are <em>not</em> required when counting the values of a single categorical variable. For example, for categorical variable <em>Gender</em>, count the values of Woman, Man, and Other.</p>
 <p>With the <code>Chart()</code> function, the name of the categorical variable is the first value passed to the function, and often, as in this example, the <em>only</em> value passed to the function. If the data frame is named <em>d</em>, then you do not need to specify the <code>data</code> parameter.</p>
@@ -576,7 +572,7 @@ Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each categor
 <p>When only the name of one categorical variable name is passed to <code>Chart()</code>, the visualization is of the variable’s distribution, the height of the bar for each category as the corresponding count of the number of occurrences.</p>
 </div>
 </div>
-<p>To illustrate, return to the <a href="#dt">data</a> in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. First, <a href="#location">read</a> the data into R as the <em>d</em> data frame. Given the data, tabulate and display the number of employees in each department, according to the variable named Dept. The values of <em>Dept</em> are in the default data frame (table) named <em>d</em>. The result is the bar chart in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bc1</span></a> for the distribution of the values of the categorical variable <em>Dept</em>.</p>
+<p>To illustrate, return to the <a href="#dt">data</a> in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. First, <a href="02-Data.html#location">read</a> the data into R as the <em>d</em> data frame. Given the data, tabulate and display the number of employees in each department, according to the variable named Dept. The values of <em>Dept</em> are in the default data frame (table) named <em>d</em>. The result is the bar chart in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> for the distribution of the values of the categorical variable <em>Dept</em>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_2g07bs6q" target="_blank" rel="noopener noreferrer">Bar Chart of Counts</a> [3:08]</p>
 <div id="exm-bc" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.1</strong></span> &nbsp;</p>
@@ -644,20 +640,16 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 </div>
 </div>
 <p>This summary (pivot) table contains the two variables relevant to the analysis, categorical variable Dept, and numerical variable <em>n</em>. The summary table contains only one row for each value (category) of Dept. The values of the numerical variable specify the scaled height of the bar for the corresponding category.</p>
-<p>The analysis of this summary table is the analysis of two variables. To create the bar chart from the summary table, specify the categorical variable as before, and then additionally specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>Chart()</code> that reads data from a summary table.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-bcXYExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>The analysis of this summary table is the analysis of two variables. To create the bar chart from the summary table, specify the categorical variable as before, and then additionally specify the numerical variable that maps to each bar’s height. For a categorical variable named <span class="math inline">\(x\)</span>, and a numerical variable named <span class="math inline">\(y\)</span>, following is the general form of the call to <code>Chart()</code> in <a href="#fig-bcXYExplain" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> that reads data from a summary table.</p>
+<div id="fig-bcXYExplain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/bcXYExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:46.0%">
+<img src="images/bcXYExplain.png" class="img-fluid figure-img" style="width:40.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bcXYExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable <span class="math inline">\(x\)</span> given the numerical value of variable <span class="math inline">\(y\)</span> for each category, both variables in the <span class="math inline">\(d\)</span> data frame, here a summary table.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>For this example, the categorical <span class="math inline">\(x\)</span> variable is named Dept, and the numerical <span class="math inline">\(y\)</span> variable is named <em>n</em>. Both variables are in the <em>d</em> data frame, so no need to specify <em>data=d</em> in the call to <code>Chart()</code> because the name <em>d</em> is assumed unless otherwise specified.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="A bar chart from a summary table">
@@ -692,11 +684,11 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 <div class="setoff">
 <pre><code>Chart(Dept, n)</code></pre>
 </div>
-<p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bc1</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>Chart()</code> implicitly calculate the summary table of departments and counts, <code>Chart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>Chart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
+<p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>Chart()</code> implicitly calculate the summary table of departments and counts, <code>Chart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>Chart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </section>
 <section id="more-bar-charts-and-beyond" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="more-bar-charts-and-beyond"><span class="header-section-number">3.1.4</span> More Bar Charts and Beyond</h3>
-<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts, I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation" data-cites="medium_bc">(<a href="#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access. For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation" data-cites="rdv">(<a href="#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>.</p>
+<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts, I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation" data-cites="medium_bc">(<a href="references.html#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access. For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation" data-cites="rdv">(<a href="references.html#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>.</p>
 <p>For example, the above discussion indicated three ways the summary table is obtained upon which the bar chart is constructed: compute the count of each category from the original data table, provide the summary table directly, and compute a statistic for a numerical variable for each category. The previous illustrations were limited to the first two methods as applied to the counts. An example of the third method is the bar chart of the mean salary for each department computed from the original data. To obtain this bar chart, specify the categorical variable, <span class="math inline">\(x\)</span>, the numerical variable, <span class="math inline">\(y\)</span>, and then specify the statistic to compute with the <a href="#params">parameter</a> <code>stat</code>, such as <code>stat="mean"</code>.</p>
 </section>
 <section id="pc" class="level3" data-number="3.1.5">
@@ -716,23 +708,19 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </div>
 </div>
 <p style="margin-top: 1em; margin-bottom: 1em;">
-</p><p>As with the bar chart, obtain the pie chart of the frequencies of a categorical variable, generically named <span class="math inline">\(x\)</span>. Of course, replace the generic name with the actual variable name for any one analysis. After reading the data, create the ring chart version of the pie chart by default.</p>
+</p><p>As with the bar chart, obtain the pie chart of the frequencies of a categorical variable, generically named <span class="math inline">\(x\)</span>. Of course, replace the generic name with the actual variable name for any one analysis. After reading the data, create the ring chart version of the pie chart in <a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> by default.</p>
 <p></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-pcExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-pcExplain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/pcExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:38.0%">
+<img src="images/pcExplain.png" class="img-fluid figure-img" style="width:38.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pcExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of each category for the generically named categorical variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p><a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ring</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
+<p><a href="#fig-ring" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> displays the pie chart in the form of a doughnut or ring chart.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_y7g58dxa" target="_blank" rel="noopener noreferrer">Pie Chart of Counts</a> [1:23]</p>
 <div id="exm-ring" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.3</strong></span> &nbsp;</p>
@@ -764,7 +752,7 @@ Figure&nbsp;3.5: Ring chart version of a pie chart for variable Dept in the d da
 </div>
 </div>
 </div>
-<p>The doughnut or ring chart is a reasonable alternative to the standard bar chart. The <code>lessR</code> function <code>Chart()</code> also can create the “old-fashioned” pie chart. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> <a href="#params">parameter</a>. Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole.</p>
+<p>The doughnut or ring chart is a reasonable alternative to the standard bar chart. The <code>lessR</code> function <code>Chart()</code> also can create the “old-fashioned” pie chart, such as <a href="#fig-hole0" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>. We have seen the summary statistics several times now, so turn off the output to the R console here with the <code>quiet</code> <a href="#params">parameter</a>. Set the hole size in the doughnut or ring chart with the parameter <code>hole</code>, which specifies the proportion of the pie occupied by the hole.</p>
 <div id="exm-hole0" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.4</strong></span> &nbsp;</p>
 </div>
@@ -828,21 +816,17 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 </div>
 </div>
 <p>The <code>lessR</code> function for potting the distribution of a single continuous variable along the <span class="math inline">\(x\)</span>-axis is <code>X()</code>. One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("X")</code> into the R console. Or, directly call the <code>lessR</code> function <code>X()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-hsExplain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-hsExplain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/hsExplain.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:42.0%">
+<img src="images/hsExplain.png" class="img-fluid figure-img" style="width:42.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin for the generically named continuous variable <span class="math inline">\(x\)</span> in the <span class="math inline">\(d\)</span> data frame.
 </figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hs1</span></a>.</p>
+<p>As an example, consider the variable Salary in the <em>d</em> data frame, read from the data table illustrated in <a href="02-Data.html#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Find the histogram in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Histogram/1_sa3nq4zo" target="_blank" rel="noopener noreferrer">Histogram</a> [2:39]</p>
 <div id="exm-hs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.5</strong></span> &nbsp;</p>
@@ -864,7 +848,7 @@ Figure&nbsp;3.8: Histogram of Salary.
 </div>
 <p>We get not only the histogram, but the corresponding frequency distribution from which the histogram is constructed, as well as summary statistics and an outlier analysis. The frequency distribution shows the sequence of bins and how many values are located within each bin.</p>
 <p>Choosing the best size for the bins is not a task that a computer algorithm can solve. Usually better to experiment with different bin sizes. For an <em>undersmoothed</em> histogram, bin width is too small. For an <em>oversmoothed</em> histogram, bin width is too large.</p>
-<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>X()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-binwidth</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hs1</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
+<p>To control the width of the bins, use the <code>bin_width</code> <a href="#params">parameter</a> as part of the call to the <code>X()</code> function. To adjust bin width interactively, enter <code>interact("Histogram")</code> and click on the <code>Bins</code> section. Here explicitly set the bin width to 13,000 USD for the histogram of Salary instead of relying upon the default bin width provided by R. The resulting histogram in <a href="#fig-binwidth" class="quarto-xref">Figure&nbsp;<span>3.9</span></a> is smoother than the original in <a href="#fig-hs1" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>. Also, in this example, turn off the console output with the <code>quiet</code> parameter.</p>
 <div id="exm-binwidth" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.6</strong></span> &nbsp;</p>
 </div>
@@ -917,7 +901,7 @@ Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 <p>A preset value of a parameter that is invoked unless explicitly changed when invoking the function.</p>
 </div>
 </div>
-<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>Chart()</code> and <code>X()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>Chart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bcblue</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
+<p>Each function consists of several or even many different parameter values set at default values. For example, the <code>Chart()</code> and <code>X()</code> parameter <code>fill</code> sets the color that fills the bars. By default, <code>Chart()</code> displays each bar in a different color, but the bars can also be set at the same color. To change the color of all the bars to a blue shade, in <a href="#fig-bcblue" class="quarto-xref">Figure&nbsp;<span>3.10</span></a> set the <code>fill</code> parameter to <code>"steelblue"</code>, one of many R defined colors.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Again, set the parameter <code>quiet</code> to <code>TRUE</code> to suppress the statistical output.</p>
 <div id="exm-bcblue" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.7</strong></span> &nbsp;</p>
 </div>
@@ -939,20 +923,16 @@ Figure&nbsp;3.10: Bar chart with bars filled a shade of blue.
 <p>Explore these parameter values and their effect on the resulting visualization interactively with the <code>lessR</code> function <code>interact()</code>. To use, provide the name of the visualization contained in quotes, such as <code>interact("Chart")</code> or <code>interact("Histogram")</code>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">Examine the code created for <code>Chart()</code></a> from the interactive session. [3:26]</p>
 <p>Parameter values can be numeric or a character string such as a word or a letter. As is true of all computer analysis systems such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as 1300 in the previous example of setting the bin width of a histogram.</p>
-<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-parameters</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-parameters" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<p>Also, as is true of Excel and other analysis systems such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
+<div id="fig-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/Parameters.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
+<img src="images/Parameters.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.11: A parameter and its value in a function call.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>In the <code>Chart()</code> example above, <code>fill</code> names the parameter. The value of <code>"steelblue"</code> is the specific value set for that parameter. Explicitly setting that parameter value overrides the default value of <code>Chart()</code>, which provides a different color for each bar.</p>
 <p>Parameters control many aspects of the way that a function processes data, far more aspects than just color. You can rely upon the default parameter values, or add more paired parameter names and values as there are parameters to add. Customize the resulting bar chart, or rely upon the default values that <code>lessR</code> provides without customizing anything. Every R function has a help file that reveals the parameters associated with that function. To see all the possibilities of applying the function, display the help file for the function. To view its contents, enter a question mark, ?, followed by the function name.</p>
@@ -962,13 +942,13 @@ Figure&nbsp;3.11: A parameter and its value in a function call.
 </section>
 <section id="summary" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.4</span> Summary</h2>
-<p><span class="newthought">To use R to do a data analysis requires at least three separate R functions.</span> Run R either on your <a href="#start">computer</a> or in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a>.</p>
+<p><span class="newthought">To use R to do a data analysis requires at least three separate R functions.</span> Run R either on your <a href="01-Intro.html#start">computer</a> or in the <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud</a>.</p>
 <ol type="1">
-<li>Retrieve the <code>lessR</code> functions from your R <a href="#lessR">library</a> <code>library("lessR")</code></li>
+<li>Retrieve the <code>lessR</code> functions from your R <a href="01-Intro.html#lessR">library</a> <code>library("lessR")</code></li>
 <li>Read the data from a file into R:<br>
-<code>d &lt;- Read("")</code> to <a href="#browse">browse</a> for the file,<br>
+<code>d &lt;- Read("")</code> to <a href="02-Data.html#browse">browse</a> for the file,<br>
 or,<br>
-<code>d &lt;- Read("path name" or "web address")</code> to specify the <a href="#location">location</a> of the file</li>
+<code>d &lt;- Read("path name" or "web address")</code> to specify the <a href="02-Data.html#location">location</a> of the file</li>
 <li>Analyze the data values for a specific variable, generically named <em>x</em>. Begin with the <code>lessR</code> function calls that count the data values that have occurred for variable <em>x</em>: <code>X(x)</code> for a continuous variable, or <code>Chart(x)</code> for a categorical variable.</li>
 </ol>
 <p>The above steps can also be done interactively using the <code>lessR</code> function <code>interact()</code>. Specifically, to interactively create a bar chart, enter at the command line:</p>
@@ -978,7 +958,7 @@ or,<br>
 <p>Beyond <code>lessR</code>, find many, many analysis functions in base R as originally downloaded. Find even more functions in contributed packages such as <code>lessR</code>. <!-- <hr style="width: 30em; margin-top: 1.5em;" /> --></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-medium_bc" class="csl-entry" role="listitem">
 Gerbing, David. 2019. <span>“Easy, Engaging Bar Charts from Simple to Sophisticated.”</span> <em>Medium.com</em>. <a href="&quot;https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b&quot;">"https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b"</a>.
 </div>

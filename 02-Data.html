@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Dec 31, 2025 11:52 am</p>
+        <p class="date">Dec 31, 2025 05:12 pm</p>
       </div>
     </div>
     
@@ -388,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dt" id="toc-dt" class="nav-link active" data-scroll-target="#dt"><span class="header-section-number">2.1</span> Data Table</a></li>
+  <li><a href="#sec-dt" id="toc-sec-dt" class="nav-link active" data-scroll-target="#sec-dt"><span class="header-section-number">2.1</span> Data Table</a></li>
   <li><a href="#read" id="toc-read" class="nav-link" data-scroll-target="#read"><span class="header-section-number">2.2</span> Read Data into R</a>
   <ul class="collapse">
   <li><a href="#browse" id="toc-browse" class="nav-link" data-scroll-target="#browse"><span class="header-section-number">2.2.1</span> Browse for the Data Table File</a></li>
@@ -408,8 +408,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="dt" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="dt"><span class="header-section-number">2.1</span> Data Table</h2>
+<section id="sec-dt" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-dt"><span class="header-section-number">2.1</span> Data Table</h2>
 <p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds. To use any data analysis system such as R, <em>organize the data values into a table</em>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_m8m47ktp" target="_blank" rel="noopener">Data Table</a> [3:24]</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Data table">
@@ -426,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Store the structured data values within a computer file located on your computer, an accessible local network, or the world wide web. Encode the data table in one of a variety of computer file formats. The formats we encounter are Excel files, indicated by a file type of <code>.xlsx</code>, and text files in the form of comma-separated value files (csv). Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
-<p>The Excel data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a> contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em>, plus an ID field called <em>Name</em>, for a total of five columns. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a> displays their data values for the first six employees.</p>
+<p>The Excel data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em>, plus an ID field called <em>Name</em>, for a total of five columns. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> displays their data values for the first six employees.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-dataTable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -517,7 +517,7 @@ Figure&nbsp;2.1: Structure of a data table.
 <p>Read the data table into an R data frame (table) with the <code>Read()</code> function, then analyze specific variables in that data table, each referenced by its name.</p>
 </div>
 </div>
-<p>The data table can exist in one of many different formats, including Excel. <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-file</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a> shows the first several lines of this data table in detail.</p>
+<p>The data table can exist in one of many different formats, including Excel. <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-file" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -626,7 +626,7 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 <section id="output-of-read" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="output-of-read"><span class="header-section-number">2.2.3</span> Output of <code>Read()</code></h3>
 <p><span class="newthought">R organizes analyses by variable name, so knowing the exact variable names is critical.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
-<p><code>Read()</code> also displays the type of how each variable is stored in the computer, as numbers with or without decimal digits, or as character strings in this example. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-readOut</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
+<p><code>Read()</code> also displays the type of how each variable is stored in the computer, as numbers with or without decimal digits, or as character strings in this example. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
 <div style="width: 110%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -644,7 +644,7 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 </div>
 </div>
 <p>Always compare the output of <code>Read()</code> with the actual data file to ensure that your data was correctly read. Never read data into R or any other system without first ensuring that the data values in the data table stored on some computer system correspond to the variables and data values read into a R data frame.</p>
-<p>To allow for the display of many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a> and <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-file</span></a>.</p>
+<p>To allow for the display of many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> and <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.</p>
 </section>
 </section>
 <section id="display-the-data" class="level2 page-columns page-full" data-number="2.3">
@@ -692,13 +692,13 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 </div>
 </div>
 </div>
-<p>Compare this output, the representation of the data within R, to the data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a> as an Excel file. Same data, different locations.</p>
+<p>Compare this output, the representation of the data within R, to the data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> as an Excel file. Same data, different locations.</p>
 <p>Another option to view the data read into R invokes the Base R <code>View()</code> function, which works directly from within RStudio.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>One advantage of this form of viewing the data is that you can view much data just by scrolling.</p>
-<p><a href="#fig-dataDisplay" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataDisplay</span></a> shows the display of data within RStudio with <code>View()</code>, with the scroll bar at the right-side of the window pane.</p>
+<p><a href="#fig-dataDisplay" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> shows the display of data within RStudio with <code>View()</code>, with the scroll bar at the right-side of the window pane.</p>
 <div style="width: 110%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -745,7 +745,7 @@ Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 <p><code>NA</code> and <code>&lt;NA&gt;</code>for <em>not available</em> indicates missing data for numerical and non-numerical variables, respectively.</p>
 </div>
 </div>
-<p>The blank cells in the Excel file, <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dataTable</span></a>, are replaced with either <code>NA</code> for the numerical variable Years, and <code>&lt;NA&gt;</code> for the variable Dept with non-numerical values.</p>
+<p>The blank cells in the Excel file, <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>, are replaced with either <code>NA</code> for the numerical variable Years, and <code>&lt;NA&gt;</code> for the variable Dept with non-numerical values.</p>
 </section>
 <section id="two-types-of-variables" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="two-types-of-variables"><span class="header-section-number">2.4</span> Two Types of Variables</h2>

@@ -365,7 +365,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Dec 31, 2025 11:52 am</p>
+        <p class="date">Dec 31, 2025 05:12 pm</p>
       </div>
     </div>
     
@@ -463,18 +463,18 @@ window.Quarto = {
 <p><span class="newthought">Data analytics is a fast developing, exciting topic of research and application that impacts many areas of our lives.</span> We are today experiencing an authentic knowledge revolution that integrates the statistical analysis of data using computers. Here you are introduced to data analytics. After you spend a few hours learning the basics of the R software system for analytics, the rest is straightforward. From a small investment in learning how the system works, you gain access to much data analytic prowess using one of the primary languages of modern data science.</p>
 <section id="overview" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
-<p><span class="newthought">We begin with some basic concepts of data analytics.</span> All data analysis, as in 100%, is done on the computer. We use R <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team 2022</a>)</span> as the app for data analytics, the same analysis system many data scientists use doing real data science throughout the world.</p>
+<p><span class="newthought">We begin with some basic concepts of data analytics.</span> All data analysis, as in 100%, is done on the computer. We use R <span class="citation" data-cites="R">(<a href="references.html#ref-R" role="doc-biblioref">R Core Team 2022</a>)</span> as the app for data analytics, the same analysis system many data scientists use doing real data science throughout the world.</p>
 <p>A core set of tasks form part of <em>every</em> analytics project:</p>
 <ul>
-<li><a href="#read">Read</a> the data from a computer file into the analysis system, here R.<br>
+<li><a href="02-Data.html#read">Read</a> the data from a computer file into the analysis system, here R.<br>
 </li>
-<li><a href="#sec-count">Count</a> the data values recorded for each variable with either a
+<li><a href="03-Visualization.html">Count</a> the data values recorded for each variable with either a
 <ul>
-<li><a href="#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
-<li><a href="#hist">histogram</a> for a variable with many unique values</li>
+<li><a href="03-Visualization.html#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
+<li><a href="03-Visualization.html#hist">histogram</a> for a variable with many unique values</li>
 </ul></li>
 </ul>
-<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
+<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer or use in the cloud, reading data into R, and then analyzing that data. Besides the provided, self-sufficient written instructions, also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
 <p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Practice as you go">
 <div class="callout-header d-flex align-content-center">
@@ -547,7 +547,7 @@ window.Quarto = {
 <p><code>&gt;</code> prompt in the R console, enter the name of the function designed to accomplish that analysis with the variable(s) to be analyzed, followed by Enter/Return.</p>
 </div>
 </div>
-<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-cmnd</span></a> shows the R prompt for one line in the R console.</p>
+<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows the R prompt for one line in the R console.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-cmnd" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
@@ -563,7 +563,7 @@ Figure&nbsp;1.1: R command line prompt.
 </div>
 </div>
 <p>Each function has a name, such as <code>X()</code> to display a histogram along the <span class="math inline">\(x\)</span>-axis and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values such as a variable name are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
-<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-hprmt</span></a> creates the <a href="#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
+<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
@@ -578,7 +578,7 @@ Figure&nbsp;1.2: Function call entered at the command prompt.
 </div>
 </div>
 </div>
-<p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
+<p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="02-Data.html#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
 <p>That is it. To get the histogram and mean and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>X(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case beginning the function reference with an uppercase H.</p>
 <p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done by the people who wrote the functions referenced in the analysis. Instead of potentially writing complicated computer code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Just getting the histogram with Excel involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
@@ -619,7 +619,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </div>
 </div>
 <p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
-<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
+<p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Separate your data from the code">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -639,7 +639,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <section id="getRStudio" class="level3" data-number="1.1.3">
 <h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
 <p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
-<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-RStudio</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
+<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-RStudio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -654,7 +654,7 @@ Figure&nbsp;1.3: RStudio window panes.
 </div>
 </div>
 </div>
-<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-RStudio</span></a>. Create a new R script file with the following menu sequence:</p>
+<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. Create a new R script file with the following menu sequence:</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
 <p>Enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console. Save the file of R script so that you to provide for reproducing or extending the analysis without having to re-type everything.</p>
 </section>
@@ -704,7 +704,7 @@ Figure&nbsp;1.3: RStudio window panes.
 </section>
 <section id="new-project" class="level4" data-number="1.2.2.2">
 <h4 data-number="1.2.2.2" class="anchored" data-anchor-id="new-project"><span class="header-section-number">1.2.2.2</span> New project</h4>
-<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-newproj</span></a>.</p>
+<p>Organize your analyses by project, maybe one project for all your homework assignments. Each project corresponds to a different data analysis project. To begin, select the <code>New Project</code> drop-down menu, then <code>New RStudio Project</code>, as in <a href="#fig-newproj" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-newproj" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -719,7 +719,7 @@ Figure&nbsp;1.4: Create a new project.
 </div>
 </div>
 </div>
-<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-name</span></a> toward the top of the window and type in a new name, HW or something.</p>
+<p>Click on the initial project name <code>Untitled Project</code> shown in <a href="#fig-name" class="quarto-xref">Figure&nbsp;<span>1.5</span></a> toward the top of the window and type in a new name, HW or something.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-name" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -738,7 +738,7 @@ Figure&nbsp;1.5: Name your project.
 </section>
 <section id="upload-data-to-the-cloud" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="upload-data-to-the-cloud"><span class="header-section-number">1.2.2.3</span> Upload data to the cloud</h4>
-<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-upload</span></a>.</p>
+<p>Your cloud account provides no direct access to data files on your computer. This lack of computer access makes no difference if reading a file from the web. However, to access a data file that resides on your own computer from your cloud account, first upload the data file. To upload, go the right-bottom window pane of your RStudio session and select the <code>Files</code> tab at the top-left of the window pane. Then select the <code>Upload</code> tab, shown in <a href="#fig-upload" class="quarto-xref">Figure&nbsp;<span>1.6</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-upload" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -757,7 +757,7 @@ Figure&nbsp;1.6: Upload a data file to the cloud.
 </section>
 <section id="logout-and-login" class="level4" data-number="1.2.2.4">
 <h4 data-number="1.2.2.4" class="anchored" data-anchor-id="logout-and-login"><span class="header-section-number">1.2.2.4</span> Logout and login</h4>
-<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-logout</span></a>.</p>
+<p>When finished, at the top-right corner of the web page, click your initials and log out, shown in <a href="#fig-logout" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-logout" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -779,7 +779,7 @@ Figure&nbsp;1.7: Logout of your cloud account.
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.3</span> <code>lessR</code> Enhancements</h3>
 <section id="ungeek" class="level4" data-number="1.2.3.1">
 <h4 data-number="1.2.3.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">1.2.3.1</span> Ungeek</h4>
-<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>X()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
+<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>X()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="No programming involved">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -850,7 +850,7 @@ https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="#vig">examples</a> of various analyses.</p>
+<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
 <pre><code>lessR 4.5.1                         feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")   Read text, Excel, SPSS, SAS, or R data file
@@ -872,7 +872,7 @@ Interactive data analysis.
 <p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-GerbR" class="csl-entry" role="listitem">
 Gerbing, David. 2021. <span>“Enhancement of the Command-Line Environment for Use in the Introductory Statistics Course and Beyond.”</span> <em>Journal of Statistics and Data Science Education</em> 29 (3): 251–66. <a href="https://doi.org/10.1080/26939169.2021.1999871">https://doi.org/10.1080/26939169.2021.1999871</a>.
 </div>
