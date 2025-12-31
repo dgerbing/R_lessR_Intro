@@ -95,3 +95,17 @@ span.math.display {
   color: rgb(74,87,165);
   background-color: rgb(236,242,254);
 }
+
+/* Reduce space between Plotly figures and captions */
+.quarto-figure .html-widget {
+  display: block;
+  clear: both;
+  margin-top: -.4em;
+  margin-bottom: -.4em;
+  padding-bottom: 0em;
+}
+
+.quarto-figure figcaption {
+  clear: both;
+  margin-top: -0.5em;
+}
