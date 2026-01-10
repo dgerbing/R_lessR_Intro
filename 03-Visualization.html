@@ -365,7 +365,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Jan 7, 2026 05:52 pm</p>
+        <p class="date">Jan 9, 2026 09:47 pm</p>
       </div>
     </div>
     
@@ -665,7 +665,7 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 <p>If the numerical variable <span class="math inline">\(y\)</span> is explicitly specified without additional information, <code>Chart()</code> identifies the data in summary (pivot) table form instead of the original data values.</p>
 </div>
 </div>
-<p>When the data are a summary table, <code>Chart()</code> reads the values of the <span class="math inline">\(y\)</span> variable, here <em>n</em>, directly instead of computing its values.</p>
+<p>When the data are a summary table, <code>Chart()</code> reads the values of the <span class="math inline">\(y\)</span> variable when specified, here <em>n</em>, directly instead of computing its values. Note that the <span class="math inline">\(y\)</span> argument must be named with a <code>y=</code> before the corresponding variable name. (That is because it follows in a different order in the function definition, it is listed third instead of second.)</p>
 <div id="exm-bcsummary" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2</strong></span> &nbsp;</p>
 </div>
@@ -682,7 +682,7 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </style>
 </div>
 <div class="setoff">
-<pre><code>Chart(Dept, n)</code></pre>
+<pre><code>Chart(Dept, y=n)</code></pre>
 </div>
 <p>This R instruction, a function call, creates the identical bar chart shown in <a href="#fig-bc1" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Here, instead of constructing the bar chart from the original measurements and let <code>Chart()</code> implicitly calculate the summary table of departments and counts, <code>Chart()</code> directly accesses the already computed summary table. Include the numerical variable as the second parameter value in the call to <code>Chart()</code>, which indicates to read data from a two column summary (pivot) table.</p>
 </section>
