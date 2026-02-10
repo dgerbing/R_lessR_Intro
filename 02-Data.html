@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Jan 9, 2026 09:47 pm</p>
+        <p class="date">Feb 10, 2026 04:06 pm</p>
       </div>
     </div>
     
@@ -397,6 +397,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#display-the-data" id="toc-display-the-data" class="nav-link" data-scroll-target="#display-the-data"><span class="header-section-number">2.3</span> Display the Data</a></li>
   <li><a href="#two-types-of-variables" id="toc-two-types-of-variables" class="nav-link" data-scroll-target="#two-types-of-variables"><span class="header-section-number">2.4</span> Two Types of Variables</a></li>
+  <li><a href="#categorical-variables-as-factors" id="toc-categorical-variables-as-factors" class="nav-link" data-scroll-target="#categorical-variables-as-factors"><span class="header-section-number">2.5</span> Categorical Variables as Factors</a>
+  <ul class="collapse">
+  <li><a href="#order-the-categories" id="toc-order-the-categories" class="nav-link" data-scroll-target="#order-the-categories"><span class="header-section-number">2.5.1</span> Order the Categories</a></li>
+  <li><a href="#label-the-categories" id="toc-label-the-categories" class="nav-link" data-scroll-target="#label-the-categories"><span class="header-section-number">2.5.2</span> Label the Categories</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -410,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="sec-dt" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-dt"><span class="header-section-number">2.1</span> Data Table</h2>
-<p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds. To use any data analysis system such as R, <em>organize the data values into a table</em>.</p>
+<p><span class="newthought">Data analysis begins with, well, data.</span> Analyze the data values for at least one variable, such as the company’s employee annual salaries. Organize the data values into a specific kind of structure from which analysis proceeds. To use any data analysis system, such as R, <em>organize the data values into a table</em>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_m8m47ktp" target="_blank" rel="noopener">Data Table</a> [3:24]</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Data table">
 <div class="callout-header d-flex align-content-center">
@@ -422,10 +427,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Organize data values into a rectangular data table with the name of each variable at the top of a column followed by its data values in the remainder of the column.</p>
+<p>Organize data values into a rectangular data table with the name of each variable at the top of a column, followed by its data values in the remainder of the column.</p>
 </div>
 </div>
-<p>Store the structured data values within a computer file located on your computer, an accessible local network, or the world wide web. Encode the data table in one of a variety of computer file formats. The formats we encounter are Excel files, indicated by a file type of <code>.xlsx</code>, and text files in the form of comma-separated value files (csv). Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
+<p>Store the structured data values in a file on your computer, an accessible local network, or the World Wide Web. Encode the data table into one of several computer file formats. The formats we encounter are Excel files (<code>.xlsx</code>) and comma-separated value (csv) files. Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
 <p>The Excel data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em>, plus an ID field called <em>Name</em>, for a total of five columns. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> displays their data values for the first six employees.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -455,7 +460,7 @@ Figure&nbsp;2.1: Structure of a data table.
 <p>A short, concise word or abbreviation that identifies a column of data values in a data table.</p>
 </div>
 </div>
-<p>Analysis of data can only proceed with the data table identified and the relevant variables in the data table identified.</p>
+<p>Analysis of data can proceed only after the data table and the relevant variables within it are identified.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Analyze variables">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -483,7 +488,7 @@ Figure&nbsp;2.1: Structure of a data table.
 <p>The contents of a single cell of a data table, a specific measurement, except for the first row, which (usually) contains the variable names.</p>
 </div>
 </div>
-<p>The name <em>variable</em> was chosen because the data values for a variable vary. Doing <em>data analysis</em> is the analysis of that variability. Data analysis is the analysis of the data values of a single variable and analyses that relate the data values of different variables.</p>
+<p>The name <em>variable</em> was chosen because the data values for a variable vary. Doing <em>data analysis</em> is the analysis of that variability. Analysis of data can proceed only after the data table and the relevant variables within it are identified.</p>
 <p>Variables define the columns of a data table. What about the rows?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Observation">
 <div class="callout-header d-flex align-content-center">
@@ -498,12 +503,12 @@ Figure&nbsp;2.1: Structure of a data table.
 <p>A row of the data table that contains the data for a specific instance of a single person, organization, place, event, or whatever is the object of analysis.</p>
 </div>
 </div>
-<p>Unfortunately, the reference for the rows of the data table is not standardized. <em>Observations</em> are also referred to as <em>cases</em>, <em>examples</em>, <em>samples</em>, and <em>instances</em>.</p>
+<p>Unfortunately, the row references in the data table are not standardized. <em>Observations</em> are also referred to as <em>cases</em>, <em>examples</em>, <em>samples</em>, and <em>instances</em>.</p>
 <p>Consider employee Darnell Ritchie. He has worked at the company for seven years, identifies as a man, and works in administration with an annual salary of $43,788.26. Two data values in this section of the data table are missing. The number of years James Wu has worked at the company is not recorded, nor is the department in which Alissa Jones works.</p>
 </section>
 <section id="read" class="level2 page-columns page-full" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="read"><span class="header-section-number">2.2</span> Read Data into R</h2>
-<p><span class="newthought">To begin an analysis, read your data stored as a computer file into R.</span> Your data organized as a data table exists somewhere as a data file stored somewhere on a computer system, your computer or a network, including the web. Here is how you access your data.</p>
+<p><span class="newthought">To begin an analysis, read your data stored as a computer file into R.</span> Your data, organized as a data table, exists somewhere as a data file stored somewhere on a computer system, your computer or a network, including the web. Here is how you access your data.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Read your data into R, then analyze">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -547,11 +552,11 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 </div>
 </div>
 <p>In the function call to read the data, reference the data table stored on a computer system, including the web, by its file name and location. Each variable in a data table has a name, and so does the data table itself. When read into R, name the data table, the R data frame, with a name of your choice. Regardless of the file name of your data on your computer system, typically name a data table <em>within</em> the active R session, the data frame, as simply <em>d</em> for data. Not only is <em>d</em> easy to type, but it is also the <code>lessR</code> default data frame name for the data processed by its various analysis functions.</p>
-<p>When analyzing data read into R, the same data exists in two locations: a computer file on your computer system and an R data frame within a running R app. Different locations, different names: <em>same</em> data. On your computer system, identify the data table by its file name and location. Within an active R session, R identifies the same data from the data file by its data frame name as read into R, such as <em>d</em>.</p>
+<p>When analyzing data read into R, the same data exists in two locations: a computer file on your computer system and an R data frame within a running R app. Different locations, different names: <em>same</em> data. On your computer system, identify the data table by its file name and location. Within an active R session, R identifies the same data from the data file by the data frame name it was read into R under, such as <em>d</em>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Analogous to multiple Excel worksheets in a single Excel file, a running R session can contain multiple data frames, limited only by the amount of available memory.</p>
-</div></div><p>Do a function call to read the data from a file into a data frame of a running R application. Multiple read functions are available from R as downloaded and from functions in different packages to read the data into R. We use the <code>lessR</code> function <code>Read()</code> for its simplicity and helpful output to better understand the data that R reads into a data frame.</p>
+</div></div><p>Do a function call to read the data from a file into a data frame of a running R application. Multiple functions to read data into R are available, both from the downloaded packages and from functions in different packages. We use the <code>lessR</code> function <code>Read()</code> for its simplicity and helpful output to better understand the data that R reads into a data frame.</p>
 <section id="browse" class="level3 page-columns page-full" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="browse"><span class="header-section-number">2.2.1</span> Browse for the Data Table File</h3>
 <p><span class="newthought">To read the data, direct R to the location of the data file.</span> R cannot read the data file until it knows where the data is stored. One option is to browse for the location of the data file on your computer system. You navigate your file system until you locate the file.</p>
@@ -569,8 +574,7 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 </div>
 </div>
 <p>As with all R (and Excel and Python and everything else) functions, the call to invoke the function includes a matching set of parentheses. Information within the parentheses specifies the information provided to the function for analysis.</p>
-<p>If you are running R/RStudio in the cloud, your “local” computer is your cloud account, not the computer from which you are accessing the cloud. That “computer” could be any device, such as a tablet or an iPhone that does not even run R. First upload your data file to your cloud account, as shown in the previously link reference <a href="http://web.pdx.edu/~gerbing/R/RStudioCloud.pdf" target="_blank" rel="noopener">cloud directions</a>.</p>
-<p>The following <code>Read()</code> statement reads the data stored as a rectangular data table from an external file stored on your computer system such as an Excel file.</p>
+<p>The following <code>Read()</code> statement reads the data stored in a rectangular data table from an external file on your computer, such as an Excel file.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/Read/1_m1sdcer2" target="_blank" rel="noopener noreferrer">Read Data</a> [3:35]</p>
 <div id="exm-ReadBrowse" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.1</strong></span> &nbsp;</p>
@@ -578,7 +582,7 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We need a way to instruct R where to store the data it reads. The <code>Read()</code> function does the reading from an external data file into R, but that data needs to be stored in a data frame within R. The above <code>Read()</code> statement reads the data from the file into an R data frame called <em>d</em>.</p>
+<p>We need a way to instruct R where to store the data it reads. The <code>lessR</code> <code>Read()</code> function reads data from an external file into R. Within R, that data needs to be stored in a data frame. The above <code>Read()</code> statement reads the data from the file into an R data frame called <em>d</em>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Assignment statement `<-`">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -594,7 +598,7 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>The text output of any R function goes somewhere. If you do not specify an object to receive that output, it goes to the console. Doing a <code>Read()</code> without assigning the output to a data frame dumps the contents of the data frame to the R console, without access for later analysis.</p>
+<p>The text output of any R function goes somewhere. If you do not specify an object to receive that output, it goes to the Console. Doing a <code>Read()</code> without assigning the output to a data frame dumps the contents of the data frame to the R Console, without access for later analysis.</p>
 </div></div><p>You can also use an ordinary equals sign, <code>=</code>, to indicate the assignment, but the <code>&lt;-</code> shows the flow of information in the assignment, and is more widely used by R practitioners.</p>
 </section>
 <section id="location" class="level3" data-number="2.2.2">
@@ -621,12 +625,12 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/employee.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To specify a location of the data file on your computer, provide the full path name that locates and names your data file. To obtain this path name, first browse for the file with <code>Read("")</code>. The resulting output displays the path name of the identified file. Copy this path name and insert between the quotes of <code>Read("")</code>, save this and other R function calls in a text file for future analyses without needing to browse for its location.</p>
-<p>In summary, with the <code>Read()</code> function, either put nothing between the quotes to browse for a data file, or specify the data file’s location on your computer system or the web. Direct the data read from a file into an R data frame, usually named <em>d</em>, but can choose any valid name.</p>
+<p>In summary, with the <code>Read()</code> function, either put nothing between the quotes to browse for a data file, or specify the data file’s location on your computer system or the web. Read data from a file into an R data frame, usually named <code>d</code>, but you can choose any valid name.</p>
 </section>
 <section id="output-of-read" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="output-of-read"><span class="header-section-number">2.2.3</span> Output of <code>Read()</code></h3>
-<p><span class="newthought">R organizes analyses by variable name, so knowing the exact variable names is critical.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
-<p><code>Read()</code> also displays the type of how each variable is stored in the computer, as numbers with or without decimal digits, or as character strings in this example. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
+<p><span class="newthought">As with most any data analysis system, R organizes analyses by variable name, so knowing the exact variable names is critical.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
+<p><code>Read()</code> also displays the storage type of each variable: as numbers with or without decimal digits, or as character strings, in this example. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
 <div style="width: 110%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -643,13 +647,13 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 </div>
 </div>
 </div>
-<p>Always compare the output of <code>Read()</code> with the actual data file to ensure that your data was correctly read. Never read data into R or any other system without first ensuring that the data values in the data table stored on some computer system correspond to the variables and data values read into a R data frame.</p>
-<p>To allow for the display of many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> and <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.</p>
+<p>Always compare the output of <code>Read()</code> with the actual data file to ensure that your data was correctly read. Never read data into R or any other system without first checking that the data values in the data table stored on some computer system correspond to the variables and data values read into a R data frame.</p>
+<p>To display many variables, <code>Read()</code> lists the information for each variable in a row. Of course, the data file organizes the variables by column. Compare the output of <code>Read()</code> with the description of the data file in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> and <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>.</p>
 </section>
 </section>
 <section id="display-the-data" class="level2 page-columns page-full" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="display-the-data"><span class="header-section-number">2.3</span> Display the Data</h2>
-<p><span class="newthought">To analyze data, first understand the data.</span> You should know what the data values look like for each variable, and you should know the variable names. The output of the <code>lessR</code> function <code>Read()</code> assists this understanding, but often you want to view the data directly.</p>
+<p><span class="newthought">To analyze data, first understand the data.</span> You should know what the data values look like for each variable, and you should know the variable names. The output of the <code>lessR</code> function <code>Read()</code> assists this understanding, but you often want to view the data directly.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Examine your data">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -663,18 +667,18 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 <p>After reading the data into R, you should view all or some of the contents of the newly created data frame to better understand and verify your data.</p>
 </div>
 </div>
-<p>One way to view the contents of any R object, of which there are many types, is to enter the name of the object at the console, in response to the command prompt <code>&gt;</code>.</p>
-<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/display/1_py9v24jw" target="_blank" rel="noopener noreferrer">Display the Data</a> [1:49]</p>
+<p>One way to view the contents of any R object, of which there are many types, is to enter the name of the object at the Console, in response to the command prompt <code>&gt;</code>.</p>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/display/1_py9v24jw" target="_blank" rel="noopener noreferrer">Display the data</a> [1:49]</p>
 <div id="exm-dlist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.3</strong></span> &nbsp;</p>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Of course, for even medium size data tables we typically do not need or want to view the entire data table. Use the R <code>head()</code> function to list the variable names and, by default, the first six rows of data, here for the data frame <em>d</em>.</p>
+<p>Of course, for even medium-sized data tables we typically do not need or want to view the entire data table. Use the R <code>head()</code> function to list the variable names and, by default, the first six rows of data, here for the data frame <em>d</em>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>R also provides a corresponding function <code>tail()</code> that lists the data values at the end of the file..</p>
+<p>R also provides a corresponding function <code>tail()</code> that lists the data values at the end of the file.</p>
 </div></div><div id="exm-headl" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.4</strong></span> &nbsp;</p>
 </div>
@@ -697,7 +701,7 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>One advantage of this form of viewing the data is that you can view much data just by scrolling.</p>
+<p>One advantage of this form of viewing the data is that you can view the data just by scrolling.</p>
 <p><a href="#fig-dataDisplay" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> shows the display of data within RStudio with <code>View()</code>, with the scroll bar at the right-side of the window pane.</p>
 <div style="width: 110%;">
 <div class="cell" data-layout-align="center">
@@ -716,7 +720,7 @@ Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 </div>
 </div>
 <p>The separation of data from the instructions to process that data is a welcome benefit of R over Excel. You should, however, view your data on a regular basis in order to understand what you are analyzing.</p>
-<p>When something does not work the way you expected it to work, look at your data! Often the problem can be fixed because the computer stored your data differently than the way you thought the data would be stored. Viewing your data as you proceed with an analysis is a crucial step toward successful analysis.</p>
+<p>When something does not work the way you expected it to work, look at your data! Often, the problem can be fixed because the computer stored your data differently than the way you thought the data would be stored. Viewing your data as you proceed with an analysis is a crucial step toward successful analysis.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="To fix an error, begin with your data">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -727,7 +731,7 @@ Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Instead of trying to fix a problem by guessing, first look at your data.</p>
+<p>Instead of when trying to fix a problem by guessing, first look at your data.</p>
 </div>
 </div>
 <p>A discrepancy between what you thought was your data and what actually is your data is often the source of an error trying to do a data analysis.</p>
@@ -777,8 +781,8 @@ Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 </div>
 </div>
 <p>Examples of continuous variables are <em>Salary</em> or <em>Time</em>, defined on a numerical scale with many unique values. Examples of categorical variables are <em>Gender</em> or <em>State</em> of Residence. Each categorical variable has just a relatively few number of possible values compared to a continuous value. This distinction of continuous and categorical variables is common to virtually every data analysis project.</p>
-<p>Sometimes that distinction gets a little confusing because variables with integer values, which are numeric, could be quantitative or qualitative. For example, sometimes Man, Woman, and Other are encoded as 0, 1, and 2, respectively, for three levels of the categorical variable <em>Gender</em>. However, these integer values are just labels for different non-numeric categories. Best to avoid this confusion. Instead, encode categorical variables with non-numeric values, such as <em>Gender</em>, for example, with M, W, and O for Other.</p>
-<p>To distinguish between continuous and categorical variables, determine if the values of a variable are on a numerical scale, presumably with a relatively large number of unique values that can be ordered from smallest to largest value. A categorical variable such as <em>Gender</em>, however, coded numerically, does not imply the values are on a numerical scale. For example, Woman coded a 1, is not more than Man, coded as 0, or vice versa.</p>
+<p>Sometimes that distinction can get a little confusing because numeric variables with integer values can be quantitative or qualitative. For example, sometimes Man, Woman, and Other are encoded as 0, 1, and 2, respectively, for three levels of the categorical variable <em>Gender</em>. However, these integer values are just labels for different non-numeric categories. Best to avoid this confusion. Instead, encode categorical variables with non-numeric values, such as <em>Gender</em>, for example, with M, W, and O for Other.</p>
+<p>To distinguish between continuous and categorical variables, determine if the values of a variable are on a numerical scale. If there is a relatively large number of unique values that can be ordered from smallest to largest value, the variable is likely continuous. A categorical variable, such as <em>Gender</em>, however, coded numerically, does not imply the values are on a numerical scale. For example, Woman coded a 1, is not more than Man, coded as 0, or vice versa.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Recognize integer categorical variables">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -793,8 +797,35 @@ Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 </div>
 </div>
 <p>For example, Gender encoded as 0, 1, and 2 has three possible values, and usually tens if not hundreds of rows of data, each of which contains one of those three values.</p>
+</section>
+<section id="categorical-variables-as-factors" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="categorical-variables-as-factors"><span class="header-section-number">2.5</span> Categorical Variables as Factors</h2>
+<p>Regardless of the data analysis system used to analyze the data, the information contained by a categorical variable is generally not sufficient for its analysis. To represent categorical variables with the proper structure, R provides a specific variable type.</p>
+<blockquote class="blockquote">
+<p><em>Factor</em>: A representation of a categorical variable within R.</p>
+</blockquote>
+<p>To provide this information, usually convert all categorical variables into R factors. The following are two of the most common situations in which the analyst needs to provide more information about categorical variables.</p>
+<section id="order-the-categories" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="order-the-categories"><span class="header-section-number">2.5.1</span> Order the Categories</h3>
+<ul>
+<li>The values of the categorical variable are character strings, but the ordering of the values displayed in the analyses need to be specified.</li>
+</ul>
+<p>For example, suppose a categorical variable named Size has three values: “low”, “medium”, and “high”. In any subsequent analysis, such as a data visualization, the preferred ordering of the categories is in that order. However, R, or any other system, does not understand the meaning of those categories and so alphabetizes them by default. Any bar graph, for example, will have the bars in the order: “high”, “low”, and medium”</p>
+<p>If the variable Size is in the <code>d</code> data frame, then specify the correct order by defining the following factor.</p>
+<pre><code>d$Size &lt;- factor(d$Size, levels=c("low", "medium", "high"))</code></pre>
+<p>Of course, follow the same format for any categorical variable with character string values.</p>
+</section>
+<section id="label-the-categories" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="label-the-categories"><span class="header-section-number">2.5.2</span> Label the Categories</h3>
+<ul>
+<li>Attach labels to the numerical categories of a categorical variable.</li>
+</ul>
+<p>For example, suppose that the responses to an item on an attitude survey named <em>m01</em> in the <code>d</code> data frame were recorded as a 1, 2, or 3. Suppose that those numerical values correspond to “Disagree”, “Neutral”, and “Agree”. To label the numerical responses according to their meaning on the output displays, define <em>m01</em> as a factor accordingly.</p>
+<pre><code>d$m01$ &lt;- factor(d$m01, levels=1:3, labels=c("Disagree", "Neutral", Agree"))</code></pre>
+<p>The <code>levels</code> parameter specifies the values of the variable as they occur in the data. The <code>1:3</code> means the data values for this variable consist the integers from 1 to 3. The <code>labels</code> parameter specifies the labels to display on the output in place of the numbers, listed in the same order as the corresponding levels.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
