@@ -131,40 +131,11 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -365,7 +336,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Feb 10, 2026 04:06 pm</p>
+        <p class="date">Mar 29, 2026 06:18 pm</p>
       </div>
     </div>
     
@@ -437,44 +408,41 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1.1</span> Overview</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">2</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#RvsExcel" id="toc-RvsExcel" class="nav-link" data-scroll-target="#RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</a></li>
-  <li><a href="#advantages-of-r" id="toc-advantages-of-r" class="nav-link" data-scroll-target="#advantages-of-r"><span class="header-section-number">1.1.2</span> Advantages of R</a></li>
-  <li><a href="#getRStudio" id="toc-getRStudio" class="nav-link" data-scroll-target="#getRStudio"><span class="header-section-number">1.1.3</span> RStudio</a></li>
+  <li><a href="#RvsExcel" id="toc-RvsExcel" class="nav-link" data-scroll-target="#RvsExcel"><span class="header-section-number">2.1</span> R vs.&nbsp;Excel</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">2.1.1</span> Function Calls</a></li>
   </ul></li>
-  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start"><span class="header-section-number">1.2</span> Getting Started</a>
+  <li><a href="#advantages-of-r" id="toc-advantages-of-r" class="nav-link" data-scroll-target="#advantages-of-r"><span class="header-section-number">2.2</span> Advantages of R</a></li>
+  <li><a href="#getRStudio" id="toc-getRStudio" class="nav-link" data-scroll-target="#getRStudio"><span class="header-section-number">2.3</span> RStudio</a></li>
+  </ul></li>
+  <li><a href="#start" id="toc-start" class="nav-link" data-scroll-target="#start"><span class="header-section-number">3</span> Getting Started</a>
   <ul class="collapse">
-  <li><a href="#download" id="toc-download" class="nav-link" data-scroll-target="#download"><span class="header-section-number">1.2.1</span> Download</a></li>
-  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="header-section-number">1.2.2</span> <code>lessR</code> Enhancements</a></li>
+  <li><a href="#lessR" id="toc-lessR" class="nav-link" data-scroll-target="#lessR"><span class="header-section-number">3.1</span> <code>lessR</code> Enhancements</a>
+  <ul class="collapse">
+  <li><a href="#ungeek" id="toc-ungeek" class="nav-link" data-scroll-target="#ungeek"><span class="header-section-number">3.1.1</span> Ungeek</a></li>
+  <li><a href="#download-and-install" id="toc-download-and-install" class="nav-link" data-scroll-target="#download-and-install"><span class="header-section-number">3.1.2</span> Download and Install</a></li>
+  <li><a href="#potential-issues" id="toc-potential-issues" class="nav-link" data-scroll-target="#potential-issues"><span class="header-section-number">3.1.3</span> Potential Issues</a></li>
+  <li><a href="#access-lessr" id="toc-access-lessr" class="nav-link" data-scroll-target="#access-lessr"><span class="header-section-number">3.1.4</span> Access <code>lessR</code></a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
 
 
 
 
 
 
-<p><span class="newthought">Data analytics is a fast developing, exciting topic of research and application that impacts many areas of our lives.</span> We are today experiencing an authentic knowledge revolution that integrates the statistical analysis of data using computers. Here you are introduced to data analytics. After you spend a few hours learning the basics of the R software system for analytics, the rest is straightforward. From a small investment in learning how the system works, you gain access to much data analytic prowess using one of the primary languages of modern data science.</p>
-<section id="overview" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
+<p><span class="newthought">Data analytics is a fast-developing, exciting topic of research and application that impacts many areas of our lives.</span> We are today experiencing an authentic knowledge revolution that integrates the statistical analysis of data using computers. Here you are introduced to data analytics. After you spend a few hours learning the basics of the R software system for analytics, the rest is straightforward. From a small investment in learning how the system works, you gain access to much data analytic prowess using one of the primary languages of modern data science.</p>
+<section id="overview" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Overview</h1>
 <p><span class="newthought">We begin with some basic concepts of data analytics.</span> All data analysis, as in 100%, is done on the computer. We use R <span class="citation" data-cites="R">(<a href="references.html#ref-R" role="doc-biblioref">R Core Team 2025</a>)</span> as the app for data analytics, the same analysis system that many data scientists use to do real data science throughout the world.</p>
-<p>A core set of tasks form part of <em>every</em> analytics project:</p>
-<ul>
-<li><a href="02-Data.html#read">Read</a> the data from a computer file into the analysis system, here R.<br>
-</li>
-<li><a href="03-Visualization.html">Count</a> the data values recorded for each variable with either a
-<ul>
-<li><a href="03-Visualization.html#bcMeas">bar chart</a> for a variable with relatively few unique values</li>
-<li><a href="03-Visualization.html#hist">histogram</a> for a variable with many unique values</li>
-</ul></li>
-</ul>
-<p>The following content explains how to access and use R to accomplish these essential tasks. Sequentially follow the provided instructions, from downloading R to your computer, reading data into R, and then analyzing that data. In addition to the provided, self-sufficient written instructions, you will also find optional referenced videos and reading material. To extend your analytic skills beyond this discussion, reference the article <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>, or the book <span class="citation" data-cites="gerbing23">(<a href="references.html#ref-gerbing23" role="doc-biblioref">Gerbing 2023</a>)</span>, for a wide range of data analyses illustrated and explained in detail.</p>
-<p>Work through the following content step-by-step. Identify each step as a numbered example. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
+<p>Following a general explanation of how R works, find some instructions on how to accomplish some basic tasks. Work through the following content step-by-step. Each step is straightforward. Skipping steps or skimming the content, however, leads to nowhere except confusion.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Practice as you go">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -489,8 +457,8 @@ window.Quarto = {
 </div>
 </div>
 <p>Get the basics down, and the rest readily follows.</p>
-<section id="RvsExcel" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="RvsExcel"><span class="header-section-number">1.1.1</span> R vs.&nbsp;Excel</h3>
+<section id="RvsExcel" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="RvsExcel"><span class="header-section-number">2.1</span> R vs.&nbsp;Excel</h2>
 <p><span class="newthought">Excel and R analyze data with functions.</span> You already know more about using R than you thought you did. Excel implements many built-in functions, plus user-defined functions (which Excel calls macros), and so does R.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Function">
 <div class="callout-header d-flex align-content-center">
@@ -508,14 +476,14 @@ window.Quarto = {
 <p>The input into a data analysis function is data. The output of a function can assume several forms:</p>
 <ul>
 <li>text in the form of writing and tables</li>
-<li>visualizations in a graphics format, such as <em>pdf</em> or <em>png</em></li>
+<li>visualizations in a graphics format such as <em>pdf</em> or <em>png</em></li>
 <li>data transformed from the original input data.</li>
 </ul>
 <p>To run an R program is to process the code, a sequence of function calls that perform the analyses.</p>
-<section id="functions" class="level4" data-number="1.1.1.1">
-<h4 data-number="1.1.1.1" class="anchored" data-anchor-id="functions"><span class="header-section-number">1.1.1.1</span> Function Calls</h4>
-<p><img src="images/ExcelFunction.png" style="float:right; margin-top:2.5em; padding-left:1.5em;" width="140"></p>
-<p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values, the annual salaries of six employees at a company. According to the standard organization of data, find the variable name <em>Salary</em> in the first row of the Excel worksheet. The data values follow in the same column under the variable name.</p>
+<section id="functions" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="functions"><span class="header-section-number">2.1.1</span> Function Calls</h3>
+<p><img src="images/ExcelFunction.png" style="float:right; margin-top:2.5em; padding-left:1.5em;" width="145"></p>
+<p><span class="newthought">R and Excel differ on how to instruct a function to do its work.</span> To illustrate, consider the following six data values: the annual salaries of six employees at a company. According to the standard organization of data, find the variable name <em>Salary</em> in the first row of the Excel worksheet. The data values follow in the same column under the variable name.</p>
 <p>What is the average salary? Compute the average, more technically called the (arithmetic) mean, either with the Excel function <code>average()</code> or with the R function <code>mean()</code>. Both functions provide the same result, but the respective languages name their functions differently.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Function call">
 <div class="callout-header d-flex align-content-center">
@@ -530,9 +498,9 @@ window.Quarto = {
 <p>Computer instruction to process the computations of a function from within a data analysis system such as Excel or R.</p>
 </div>
 </div>
-<p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, sharing the same type of storage area, a worksheet cell, as the data values.</p>
-<p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column relative to the cell that contains the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
-<p><em>R function call</em>. R works differently from a worksheet app. R processes the analysis instructions line-by-line in an area separate from the data, called the <em>R Console</em>. Each line is called a <em>command line</em>, which contains a prompt, a <code>&gt;</code>, for entering a command, that is, an R instruction.</p>
+<p><em>Excel function call</em>. Enter the function call into a cell in the worksheet, using the same type of storage area (a worksheet cell) as the data values.</p>
+<p>In this example, enter the function call beneath the column of data into the 8th cell in Column A. Specify the data for analysis with a <em>cell range</em>, such as the relative cell range A2:A7. This cell range refers to cells in the same column as the cell containing the function call. This cell range extends from the cell in the second row of Column A to the cell in the seventh row.</p>
+<p><em>R function call</em>. R works differently from a worksheet app. R processes the analysis instructions line-by-line in an area separate from the data, called the <em>R console</em>. Each line is called a <em>command line</em>, which contains a prompt, a <code>&gt;</code>, for entering a command, that is, an R instruction.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="R prompt">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -543,61 +511,61 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>&gt;</code> prompt in the R Console, enter the name of the function designed to accomplish that analysis with the variable(s) to be analyzed, followed by Enter/Return.</p>
+<p>At the <code>&gt;</code> prompt in the R console, enter the name of the function designed to accomplish that analysis with the variable(s) to be analyzed, followed by Enter/Return.</p>
 </div>
 </div>
-<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows the R prompt for one line in the R Console.</p>
+<p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the R prompt for one line in the R console.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-cmnd" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/RCommandPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:32.0%">
+<img src="images/RCommandPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:25.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: R command line prompt.
+Figure&nbsp;2.1: R command line prompt.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Each function has a name, such as <code>X()</code>, which displays a histogram along the <span class="math inline">\(x\)</span>-axis, and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, where various values, such as a variable name, are passed to it To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
-<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
+<p>Each function has a name, such as <code>Histogram()</code> to display a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values, such as a variable name, are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
+<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>Histogram()</code> function for the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/hsPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:15.0%">
+<img src="images/hsPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:24.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.2: Function call entered at the command prompt.
+Figure&nbsp;2.2: Function call entered at the command prompt.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Data easily flows from an Excel worksheet OK I’ll go to my meeting into R. To begin this analysis, <a href="02-Data.html#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
-<p>That is it. To get a histogram, summary statistics, and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>X(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case, beginning the function reference with an uppercase H.</p>
-<p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done for you by the people who wrote the functions referenced in the analysis. Instead of potentially writing multiple lines of computer code, enter a simple function call to analyze the data. In this example, the R function accomplished much more than the computation of a simple mean. Just getting the histogram with Excel involves more work.</p>
+<p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="02-Data.html#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
+<p>That is it. To get the histogram, mean, and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case, beginning the function reference with an uppercase H.</p>
+<p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done by the people who wrote the functions referenced in the analysis. Instead of potentially writing complicated computer code, enter a simple function call to analyze the data. In this example, the R function did much more than compute a simple mean. Just getting the histogram with Excel involves much more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
 </section>
-<section id="advantages-of-r" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="advantages-of-r"><span class="header-section-number">1.1.2</span> Advantages of R</h3>
+<section id="advantages-of-r" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="advantages-of-r"><span class="header-section-number">2.2</span> Advantages of R</h2>
 <p><span class="newthought">Data scientists use R (or similar languages) for their analyses</span> instead of Excel. Some reasons for the preference for R and related languages follow.</p>
 <ul style="list-style-type: disc;">
 <li>
-Excel is great for data entry and viewing data as a spreadsheet app, but provides only the most basic statistical computations. Excel is <em>not</em> a serious app for data analysis.
+Excel is great for data entry and viewing data as a spreadsheet app, but it provides only the most basic statistical computations. Excel is <em>not</em> a serious app for data analysis.
 </li>
 <li>
-Once the concept of working with R is understood, less work is required to conduct an analysis even directly from Excel data, such as simply entering <code>X(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
+Once the concept of working with R is understood, less work is required to conduct an analysis, even directly from Excel data, such as simply entering <code>Histogram(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
 </li>
 <li>
 R does Big Data, efficiently handling data sets with millions of rows of data, limited only by the computer’s available memory.
 </li>
 <li>
-R separates the instructions for the analysis of data from the data. This separation makes debugging errors much more straightforward than Excel files that can include multiple, linked worksheets that can more easily hide errors.
+R separates the instructions for the analysis of data from the data. This separation makes debugging errors much more straightforward than in Excel files, which can include multiple, linked worksheets that can more easily hide errors.
 </li>
 <li>
 Obtain each R analysis with one or more instructions, function calls, that can be saved for future use instead of irrecoverable mouse clicks. The results of R analyses are <i>reproducible</i>.
@@ -617,7 +585,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <p>Analyses can be re-run in the future to reproduce previously obtained results.</p>
 </div>
 </div>
-<p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file, able to retrieve and re-run the instructions at any time. Saving the R code allows for reproducible analysis. The instructions for analyses done by one person become accessible to all members of your organization with access to the file, including yourself, at any subsequent point in time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
+<p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file that can be retrieved and re-run at any time. Saving the R code allows for reproducible analysis. The instructions for analyses performed by one person become accessible to all members of your organization who have access to the file, including yourself, at any time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
 <p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Separate your data from the code">
 <div class="callout-header d-flex align-content-center">
@@ -629,16 +597,19 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>From the perspective of data science, Excel worksheets exhibit a fundamental flaw, the confounding of the data with the instructions to process that data. Both data and data processing instructions are entered into adjacent cells stored within the same worksheet. On the contrary, R and related analysis systems separately store data and data processing instructions into different files (p.&nbsp;251).</p>
+<p>From a data science perspective, Excel worksheets exhibit a fundamental flaw: the confounding of data with the instructions for processing it. Both the data and the data processing instructions are entered into adjacent cells within the same worksheet. On the contrary, R and related analysis systems store data and processing instructions in separate files (p.&nbsp;251).</p>
 </div>
 </div>
-<p>Countless overly complex Excel worksheets that model business processes are horrendous to debug and understand in their complexity. Let the (moderate size) data reside within Excel, but use R or similar language to write your code that manipulates and analyzes your data. If needed, export the results of your specified computations back to Excel. R writes data to Excel files as easily as it reads data from Excel worksheets.</p>
-<p>Separate your data from your code to process that data. Data analysis programming languages such as R provide that separation. In my opinion, Excel is vastly overused to the extent that it becomes a detriment to many business operations. Welcome, instead, to the world of data science.</p>
+<p>Countless overly complex Excel worksheets that model business processes are horrendous to debug and understand. Let the (moderate size) data reside within Excel, but use R or a similar language to write your code that manipulates and analyzes your data. If needed, export the results of your specified computations back to Excel. R writes data to Excel files as easily as it reads data from Excel worksheets.</p>
+<p>Separate your data from your code to process that data. Programming languages for data analysis, such as R, provide that separation. In my opinion, Excel is vastly overused to the extent that it becomes a detriment to many business operations. Welcome, instead, to the world of data science.</p>
 </section>
-<section id="getRStudio" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">1.1.3</span> RStudio</h3>
-<p><span class="newthought">Most analysts who use R do so from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R Console, but within the RStudio environment.</p>
-<p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R Console, the same Console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio directs the data visualizations and can also display other information such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
+<section id="getRStudio" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="getRStudio"><span class="header-section-number">2.3</span> RStudio</h2>
+<p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>RStudio does more than run R data analyses. It also runs Python and other data analysis languages. It also serves as the basis for writing standard documents in the Quarto Markdown language, such as the document you are now reading.</p>
+</div></div><p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio displays data visualizations and can also display other information, such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-RStudio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -647,31 +618,28 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <img src="images/RStudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:98.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.3: RStudio window panes.
+Figure&nbsp;2.3: RStudio window panes.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>R processes all instructions at the command prompt in the R Console window pane. One option directly enters the instructions at the command prompt. The short-coming of this approach is that the instructions must be reentered every time the analysis is re-run. To provide for reproducibility from storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code> in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. Create a new R script file with the following menu sequence:</p>
+<p>R processes all instructions at the command prompt in the R console window pane. One option directly enters the instructions at the command prompt. The shortcoming of this approach is that the instructions must be re-entered every time the analysis is re-run. To enable reproducibility when storing R code, add a fourth window pane in the top-left corner, labeled <code>Script Files</code>, in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>. Create a new R script file with the following menu sequence:</p>
 <pre><code>File menu --&gt; New File --&gt; R Script</code></pre>
-<p>Enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the Console. Save the file of R script so that you to provide for reproducing or extending the analysis without having to re-type everything.</p>
+<p>Enter R instructions into the script window, select one or more instructions, and press the <code>Run</code> button at the top-right of the window pane. RStudio will copy the selected information to the command prompt and run the instructions as if you had entered them directly into the console. Save the file of the R script so that you can provide for reproducing or extending the analysis without having to re-type everything.</p>
 </section>
 </section>
-<section id="start" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="start"><span class="header-section-number">1.2</span> Getting Started</h2>
-<section id="download" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="download"><span class="header-section-number">1.2.1</span> Download</h3>
-<p>Running R on your computer requires to first download the R app to your computer, and, usually the RStudio app as well. Get them both at the same <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">location</a>.</p>
-<p>When installing R, choose your operating system from the links at the top of the corresponding web page. For <em>Windows</em>, the top of the resulting web page has the download link. For <em>Mac</em>, several paragraphs down, in the left margin, you have a choice. The first link in the margin is for <code>arm64</code>, the version for the more recently developed Apple M series processors. A second link, further down the margin, applies to Apple’s older Intel CPU computers. If not sure of your CPU type, go to the first choice under the Apple menu, About this Mac, and look at the information for Chip.</p>
+<section id="start" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Getting Started</h1>
+<p>Running R on your computer requires first downloading the R app, and usually the RStudio app as well. Get them both at the same <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">location</a>.</p>
+<p>When installing R, choose your operating system from the links at the top of the corresponding web page. For <em>Windows</em>, the top of the resulting web page has the download link. For <em>Mac</em>, several paragraphs down, in the left margin, you have a choice. The first link in the margin is for <code>For Apple silicon (M1-3) Macs</code>, the version for the more recently developed Apple M series processors. A second link, further down the margin, is <code>For older Intel Macs</code>. If you are not sure of your CPU type, go to the first choice under the Apple menu, About this Mac, and look at the information for <code>Chip</code>.</p>
 <p>If you are asked the question, <em>Install in a personal library?</em> answer <code>y</code> for yes (unless you understand administrative privileges). The installer offers both 32-bit and 64-bit versions. Unless your computer is from around 2012 or earlier, run 64-bit software as you would any other app.</p>
-<p>Once R and RStudio are downloaded, their installations proceed as with any app. Accept the given defaults for each step of the process. When installed, run R as you would any other application, such as double-clicking on the application’s icon in your file system display. Usually, however, run the RStudio app, which then automatically connects to and runs R in the RStudio environment.</p>
-</section>
-<section id="lessR" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="lessR"><span class="header-section-number">1.2.2</span> <code>lessR</code> Enhancements</h3>
-<section id="ungeek" class="level4" data-number="1.2.2.1">
-<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">1.2.2.1</span> Ungeek</h4>
-<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>X()</code> function for plotting distributions along the <span class="math inline">\(x\)</span>-axis, such as a histogram. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions is included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Once R and RStudio are downloaded, their installations proceed as with any app. Accept the given defaults for each step of the process. After installation, run R as you would any other application, such as by double-clicking its icon in your file system. Usually, however, run the RStudio app, which then automatically connects to and runs R in the RStudio environment.</p>
+<section id="lessR" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="lessR"><span class="header-section-number">3.1</span> <code>lessR</code> Enhancements</h2>
+<section id="ungeek" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="ungeek"><span class="header-section-number">3.1.1</span> Ungeek</h3>
+<p><span class="newthought">Standard R is for geeks.</span> R analyses typically involve writing programming code well beyond just a few function calls. I have made R for basic data analysis more straightforward with my 45 or so functions that complement the standard R functions, such as my <code>Chart()</code> function. These functions, and the more extensive and helpful error diagnostics they provide, result in a more or less “un-geeked” R. The set of these functions are included in the package called <code>lessR</code>, the basis for my article in the <em>Journal of Statistics and Data Science Education</em>, <span class="citation" data-cites="GerbR">Gerbing (<a href="references.html#ref-GerbR" role="doc-biblioref">2021</a>)</span>, and book, <span class="citation" data-cites="gerbing23">Gerbing (<a href="references.html#ref-gerbing23" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="No programming involved">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -686,64 +654,70 @@ Figure&nbsp;1.3: RStudio window panes.
 </div>
 </div>
 </section>
-<section id="download-and-install" class="level4" data-number="1.2.2.2">
-<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="download-and-install"><span class="header-section-number">1.2.2.2</span> Download and Install</h4>
-<p><code>lessR</code> organizes functions into what the R ecosystem refers to as a package. The full R ecosystem, available on servers worldwide, consists of the hundreds of base (standard) R functions included with the installation of R, plus the functions found in additional packages that fulfill a strict set of requirements before published on the R servers. Downloading R installs all the base R functions. Separately download packages such as <code>lessR</code> to access additional functions, all accessed via the standard R environment.</p>
-<p>Running R, within RStudio or by itself, one time only, download the <code>lessR</code> package of functions (and associated dependent packages) from the worldwide network of R servers. At the R Console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R Console, then press Enter/Return.</p>
+<section id="download-and-install" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="download-and-install"><span class="header-section-number">3.1.2</span> Download and Install</h3>
+<p><code>lessR</code> organizes functions into what the R ecosystem calls a package. The full R ecosystem, available on servers worldwide, consists of hundreds of base (standard) R functions included with R, plus functions from additional packages that meet strict requirements before being published on the R servers. Downloading R installs all the base R functions. Separately download packages such as <code>lessR</code> to access additional functions, all accessed via the standard R environment.</p>
+<p>Running R, within RStudio or by itself, on either your computer or in the cloud, one time only, download the <code>lessR</code> package of functions (and associated dependent packages) from the worldwide network of R servers. At the R console command prompt, <code>&gt;</code>, enter the following instruction (function call) into the R console, then press Enter/Return.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_as8dy1xh" target="_blank" rel="noopener noreferrer">install lessR</a> [1:28]</p>
-<div id="exm-install" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.1</strong></span> &nbsp;&nbsp;</p>
-</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lessR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This installation process involves not only downloading the <code>lessR</code> functions, but also many packages on which <code>lessR</code> depends. The entire process takes some seconds to a minute or so, depending on the speed of your Internet connection.</p>
 </section>
-<section id="potential-issues" class="level4" data-number="1.2.2.3">
-<h4 data-number="1.2.2.3" class="anchored" data-anchor-id="potential-issues"><span class="header-section-number">1.2.2.3</span> Potential Issues</h4>
+<section id="potential-issues" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="potential-issues"><span class="header-section-number">3.1.3</span> Potential Issues</h3>
 <p style="padding: 0;">
 </p><p><span style="font-size: 1.25em;">➝</span> If asked the following question about compilation, answer <code>no</code>.</p>
-<pre><code>Do you want to install from sources the package which
+<pre><code>Do you want to install from sources the package that
    needs compilation? (Yes/no/cancel)</code></pre>
 <p style="padding: 0;">
-</p><p><span style="font-size: 1.25em;">➝</span> When you install <code>lessR</code> you may get the following warning, which will be misleading for most people who use R.</p>
-<p></p>
+</p><p><span style="font-size: 1.25em;">➝</span> When you install lessR you may get the following warning, which will be misleading for most people who use R.</p>
 <pre><code>&gt; install.packages("lessR")
-WARNING: Rtools is required to build R packages but is not
-currently installed. Please download and install the
-appropriate version of Rtools before proceeding:
+WARNING: Rtools is required to build R packages, but is not currently 
+installed. Please download and install the appropriate version of Rtools
+before proceeding:
 
 https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
-<p>That message is for people who want to work with R at a much deeper level than the typical user. You likely have no desire to ever “build” an R package, which means compile from source R code to a ready-to-run binary Windows, Mac, or Linux/Unix binary. Feel free to ignore the warning as <code>lessR</code> and its dependent packages have already been built for you.</p>
+<p>That message is for people who want to work with R at a much deeper level than the typical user. You likely have no desire to ever “build” an R package, which means compiling R source code into a ready-to-run Windows, Mac, or Linux/Unix binary. Feel free to ignore the warning, as <code>lessR</code> and its dependent packages have already been built for you.</p>
 <p style="padding: 0;">
 </p><p><span style="font-size: 1.25em;">➝</span> On some occasions, one of the additional packages upon which <code>lessR</code> depends does not get downloaded. Then, when you try to access <code>lessR</code> as shown below, you get a message that <code>lessR</code> cannot be accessed because of a missing package.</p>
 <p>The response to that system error is to install the missing package using the same <code>install.packages()</code> function you used to install <code>lessR</code>.</p>
 </section>
-<section id="access-lessr" class="level4" data-number="1.2.2.4">
-<h4 data-number="1.2.2.4" class="anchored" data-anchor-id="access-lessr"><span class="header-section-number">1.2.2.4</span> Access <code>lessR</code></h4>
-<p>Once downloaded, R stores the <code>lessR</code> functions in your R library created for you during the installation process. To access these functions in a specific R session, retrieve them from the library.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Begin each session with library(&quot;lessR&quot;)">
+<section id="access-lessr" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="access-lessr"><span class="header-section-number">3.1.4</span> Access <code>lessR</code></h3>
+<p>Once downloaded, R stores the <code>lessR</code> functions in your R library created for you during the installation process. To access these functions for a specific R session, retrieve them from the library.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Begin each session with `library(lessR)`">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Begin each session with library(“lessR”)
+<span class="screen-reader-only">Tip</span>Begin each session with <code>library(lessR)</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At the beginning of <i>every</i> R session, first invoke the R function call <code>library("lessR")</code> that retrieves the <b>lessR</b> functions from your library for data analysis.</p>
+<p>At the beginning of <i>every</i> R session, first invoke the R function call <code>library(lessR)</code> that retrieves the <b>lessR</b> functions from your library for data analysis.</p>
 </div>
 </div>
-<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_jom6shh9" target="_blank" rel="noopener noreferrer">library(“lessR”)</a> [1:04]</p>
-<div id="exm-library" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.2</strong></span> &nbsp;&nbsp;</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Quotes or no quotes?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quotes or no quotes?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>library()</code> function is one of the few places in R where it makes no difference if you enclose the package name in quotes. Both <code>library(lessR)</code> and <code>library("lessR")</code> work, so you may see that function illustrated either way in various examples.</p>
+</div>
+</div>
+<p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_jom6shh9" target="_blank" rel="noopener noreferrer">library(lessR)</a> [1:04]</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lessR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lessR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, which includes some instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.5.2                          feedback: gerbing@pdx.edu 
+<p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, including instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
+<pre><code>lessR 4.5.3                          feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
 &gt; d &lt;- Read("")  Read data file, many formats available, e.g., Excel
   d is the default data frame, data= in analysis routines optional
@@ -766,10 +740,9 @@ View lessR updates, now including modern time series forecasting.
 
 Interactive data analysis for constructing visualizations.
   Enter: interact()</code></pre>
-<p>If this information does not appear when you enter <code>library("lessR")</code>, then the <code>lessR</code> package is not properly installed in your R library.</p>
 <p>Occasionally, update your R packages. To update, enter:</p>
 <p><code>update.packages(ask=FALSE)</code></p>
-<p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.</p>
+<p>This instruction updates <code>lessR</code> as well as the packages upon which <code>lessR</code> depends, and any other packages you may have installed. Or, if using RStudio, from the <code>Tools</code> menu, you can also select <code>Check for Package Updates...</code>.```</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

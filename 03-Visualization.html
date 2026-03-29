@@ -365,7 +365,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Feb 10, 2026 04:06 pm</p>
+        <p class="date">Mar 29, 2026 06:18 pm</p>
       </div>
     </div>
     
@@ -773,7 +773,16 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 </section>
 <section id="other-charts" class="level3" data-number="3.1.6">
 <h3 data-number="3.1.6" class="anchored" data-anchor-id="other-charts"><span class="header-section-number">3.1.6</span> Other Charts</h3>
-<p>As shown, obtain a specific chart from the <code>type</code> parameter. The default is <code>"bar"</code> for the bar chart. The previous example showed the pie chart from the value of <code>"pie"</code>. Other possibilities include: <code>"radar"</code> for a radar chart, <code>"treemap"</code> for a tree map, and <code>"icicle"</code> for an icicle chart.</p>
+<p><code>Chart()</code> can create seven different types of charts. As shown, specify the type of chart with the <code>type</code> parameter.</p>
+<ul>
+<li>Bar chart with <code>type="bar"</code>, the default value</li>
+<li>Dot chart with <code>type="dot"</code></li>
+<li>Pie chart with <code>type="pie"</code></li>
+<li>Radar chart with <code>type="radar"</code></li>
+<li>Bubble chart with <code>type="bubble"</code></li>
+<li>Icicle chart with <code>type="icicle"</code></li>
+<li>Treemap chart with <code>type="treemap"</code></li>
+</ul>
 </section>
 </section>
 <section id="hist" class="level2" data-number="3.2">
@@ -912,7 +921,7 @@ Figure&nbsp;3.10: Bar chart with bars filled a shade of blue.
 </div>
 <p>Explore these parameter values and their effect on the resulting visualization interactively with the <code>lessR</code> function <code>interact()</code>. To use, provide the name of the visualization contained in quotes, such as <code>interact("Chart")</code> or <code>interact("Histogram")</code>.</p>
 <p><span class="vid">Video</span>: <a href="https://media.pdx.edu/media/t/1_qs5y0tev" target="_blank" rel="noopener noreferrer">Examine the code created for <code>Chart()</code></a> from the interactive session. [3:26]</p>
-<p>Parameter values can be numeric or a character string, such as a word or a letter. As is true of all computer analysis systems, such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as 1300 in the previous example of setting the bin width of a histogram.</p>
+<p>Parameter values, the arguments of a function, can be numeric or a character string, such as a word or a letter. As is true of all computer analysis systems, such as Excel and R, if a parameter value is a character string, enclose its value in quotes. For example, <code>"steelblue"</code>. Specify numbers without quotes, such as 1300 in the previous example of setting the bin width of a histogram.</p>
 <p>Also, as is true of Excel and other analysis systems, such as R, the general format for setting a parameter value <em>within</em> the call to a function follows in <a href="#fig-parameters" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>. The three dots, <code>...</code>, in the figure indicate other stuff that is part of the function call, such as a variable name.</p>
 <div id="fig-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
