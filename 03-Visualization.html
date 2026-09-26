@@ -59,26 +59,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -366,7 +347,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Apr 13, 2026 05:35 am</p>
+        <p class="date">Sep 25, 2026 07:21 pm</p>
       </div>
     </div>
     
@@ -581,8 +562,16 @@ Figure&nbsp;3.1: Instruction to create a bar chart of the counts of each categor
 <div id="exm-bc" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.1</strong></span> &nbsp;</p>
 </div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'lab_cex' is renamed 'lab_size' -- please update your call.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'axis_cex' is renamed 'axis_size' -- please update your call.</code></pre>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-bc1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -629,11 +618,11 @@ Figure&nbsp;3.2: The distribution of variable Dept visualized as the bar chart o
 <p>Continuing the previous example of employment in various company departments, suppose the summary table of the counts is already available, but not the raw data, the original data table. Maybe you found a company report that listed the count of employees in each department, and from that table, wish to create the corresponding bar chart.</p>
 <p>If available from another source, enter the summary table directly into a worksheet app, such as Excel. In the following example, locate the already constructed summary table as an Excel file on the web. Then, read the summary table into R for analysis, the values that <code>Chart()</code> implicitly computed in the previous example.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/DeptCount.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>After reading the summary data into the R data frame <em>d</em>, display the contents of the resulting small data frame (table).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept  n
 1 ACCT  5
@@ -692,8 +681,7 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </section>
 <section id="more-bar-charts-and-beyond" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="more-bar-charts-and-beyond"><span class="header-section-number">3.1.4</span> More Bar Charts and Beyond</h3>
-<p><span class="newthought">There is more to know.</span> If you would like to learn more about bar charts, I wrote a fun <a href="https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b" target="_blank" rel="noopener noreferrer">article</a> for medium.com <span class="citation" data-cites="medium_bc">(<a href="references.html#ref-medium_bc" role="doc-biblioref">Gerbing 2019</a>)</span>. The link provides free access. For a more comprehensive understanding of data visualization, see my May 2020 book on the topic <span class="citation" data-cites="rdv">(<a href="references.html#ref-rdv" role="doc-biblioref">Gerbing 2020</a>)</span>.</p>
-<p>For example, the above discussion identified three ways to obtain the summary table on which the bar chart is based:</p>
+<p><span class="newthought">There is more to know.</span> The above discussion identified three ways to obtain the summary table on which the bar chart is based:</p>
 <ul>
 <li>compute the count for each category from the original data table</li>
 <li>compute a statistic for a numerical variable for each category.</li>
@@ -703,7 +691,7 @@ Figure&nbsp;3.3: Instruction to create a bar chart for the categorical variable 
 </section>
 <section id="pc" class="level3" data-number="3.1.5">
 <h3 data-number="3.1.5" class="anchored" data-anchor-id="pc"><span class="header-section-number">3.1.5</span> Pie Chart of Counts</h3>
-<p><span class="newthought">The Chart() function provides multiple alternatives to the bar chart.</span> Data visualized as a bar chart for a single variable can also be represented with a <code>"pie"</code> chart, a <code>"radar"</code> chart, a <code>"bubble"</code> chart, a <code>"treemap"</code>, and an <code>"icicle"</code> chart. Specify the type of chart with the parameter <code>type</code>, where <code>"bar"</code> is the default choice. Here, we consider the most common alternative to the bar chart, the pie chart.</p>
+<p><span class="newthought">The Chart() function provides multiple alternatives to the bar chart.</span> Data visualized as a bar chart for a single variable can also be represented with a <code>"pie"</code> chart, a <code>"radar"</code> chart, a <code>"bubble"</code> chart, a <code>"treemap"</code>, and an <code>"icicle"</code> chart. Specify the type of chart with the parameter <code>form Jesus</code>, where <code>"bar"</code> is the default choice. Here, we consider the most common alternative to the bar chart, the pie chart.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Pie Chart">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -735,7 +723,18 @@ Figure&nbsp;3.4: Instruction to generate a pie (ring) chart of the counts of eac
 <p><span class="theorem-title"><strong>Example 3.3</strong></span> &nbsp;</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">type=</span><span class="st">"pie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'lab_cex' is renamed 'lab_size' -- please update your call.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'axis_cex' is renamed 'axis_size' -- please update your call.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'main_cex' is renamed 'main_size' -- please update your call.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">form=</span><span class="st">"pie"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -756,7 +755,7 @@ Figure&nbsp;3.5: Ring chart version of a pie chart for variable Dept in the d da
 <p><span class="theorem-title"><strong>Example 3.4</strong></span> &nbsp;</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">"pie"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">hole=</span><span class="dv">0</span>, <span class="at">form=</span><span class="st">"pie"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -778,13 +777,14 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 <h3 data-number="3.1.6" class="anchored" data-anchor-id="other-charts"><span class="header-section-number">3.1.6</span> Other Charts</h3>
 <p><code>Chart()</code> can create seven different types of charts. As shown, specify the type of chart with the <code>type</code> parameter.</p>
 <ul>
-<li>Bar chart with <code>type="bar"</code>, the default value</li>
-<li>Dot chart with <code>type="dot"</code></li>
-<li>Pie chart with <code>type="pie"</code></li>
-<li>Radar chart with <code>type="radar"</code></li>
-<li>Bubble chart with <code>type="bubble"</code></li>
-<li>Icicle chart with <code>type="icicle"</code></li>
-<li>Treemap chart with <code>type="treemap"</code></li>
+<li>Bar chart with <code>form="bar"</code>, the default value</li>
+<li>Dot chart with <code>form="dot"</code></li>
+<li>Pie chart with <code>form="pie"</code></li>
+<li>Radar chart with <code>form="radar"</code></li>
+<li>Bubble chart with <code>form="bubble"</code></li>
+<li>Icicle chart with <code>form="icicle"</code></li>
+<li>Treemap chart with <code>form="treemap"</code></li>
+<li>Profile chart with <code>form="profile"</code></li>
 </ul>
 </section>
 </section>
@@ -817,7 +817,7 @@ Figure&nbsp;3.6: Standard pie chart of variable <em>Dept</em> in the <span class
 <p>Group similar data values from a continuous variable together into a bin, then assign a single count to each bin.</p>
 </div>
 </div>
-<p>The <code>lessR</code> function for plotting the distribution of a single continuous variable along the <span class="math inline">\(x\)</span>-axis is <code>X()</code>. One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("X")</code> into the R Console. Or, directly call the <code>lessR</code> function <code>X()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
+<p>The <code>lessR</code> function for plotting the distribution of a single continuous variable along the <span class="math inline">\(x\)</span>-axis is <code>X()</code>. One possibility creates the histogram and associated statistics from a continuous variable using <code>lessR</code> by entering <code>interact("Histogram")</code> into the R Console. Or, directly call the <code>lessR</code> function <code>X()</code>. In this example, create the histogram for the generic variable <span class="math inline">\(x\)</span>.</p>
 <div id="fig-hsExplain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hsExplain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -833,8 +833,16 @@ Figure&nbsp;3.7: Instruction to generate a histogram of the counts for each bin 
 <div id="exm-hs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.5</strong></span> &nbsp;</p>
 </div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'lab_cex' is renamed 'lab_size' -- please update your call.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'axis_cex' is renamed 'axis_size' -- please update your call.</code></pre>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-hs1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -855,7 +863,7 @@ Figure&nbsp;3.8: Histogram of Salary.
 <p><span class="theorem-title"><strong>Example 3.6</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">X</span>(Salary, <span class="at">bin_width=</span><span class="dv">13000</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-binwidth" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -908,7 +916,7 @@ Figure&nbsp;3.9: Histogram of Salaries with a specified bin width of 13000.
 <p><span class="theorem-title"><strong>Example 3.7</strong></span> &nbsp;</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Chart</span>(Dept, <span class="at">fill=</span><span class="st">"steelblue"</span>, <span class="at">quiet=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-bcblue" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -956,18 +964,10 @@ or,<br>
 <p>The above steps can also be done interactively using the <code>lessR</code> function <code>interact()</code>. Specifically, to interactively create a bar chart, enter at the command line:</p>
 <pre><code>interact("Chart")</code></pre>
 <p>To interactively create a histogram, enter at the command line:</p>
-<pre><code>interact("X")</code></pre>
+<pre><code>interact("Histogram")</code></pre>
 <p>Beyond <code>lessR</code>, find many, many analysis functions in base R as originally downloaded. Find even more functions in contributed packages, such as <code>lessR</code>. <!-- <hr style="width: 30em; margin-top: 1.5em;" /> --></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-medium_bc" class="csl-entry" role="listitem">
-Gerbing, David. 2019. <span>“Easy, Engaging Bar Charts from Simple to Sophisticated.”</span> <em>Medium.com</em>. <a href="&quot;https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b&quot;">"https://towardsdatascience.com/easy-bar-charts-from-simple-to-sophisticated-7270c03eced8?source=friends_link&amp;sk=0a724c1bb0317fc494ae80fa0ae7b58b"</a>.
-</div>
-<div id="ref-rdv" class="csl-entry" role="listitem">
-Gerbing, David. 2020. <em>R Visualizations: Derive Meaning from Data</em>. CRC Press.
-</div>
-</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>

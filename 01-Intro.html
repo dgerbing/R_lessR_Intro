@@ -132,6 +132,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -337,7 +366,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Apr 13, 2026 05:35 am</p>
+        <p class="date">Sep 25, 2026 07:20 pm</p>
       </div>
     </div>
     
@@ -530,8 +559,8 @@ Figure&nbsp;2.1: R command line prompt.
 </div>
 </div>
 </div>
-<p>Each function has a name, such as <code>Histogram()</code> to display a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values, such as a variable name, are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
-<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>Histogram()</code> function for the variable <em>Salary</em>.</p>
+<p>Each function has a name, such as <code>X()</code> to display a distribution of a continuous variable along the <span class="math inline">\(x\)</span>-axis, by default, a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values, such as a variable name, are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
+<p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
@@ -547,8 +576,8 @@ Figure&nbsp;2.2: Function call entered at the command prompt.
 </div>
 </div>
 <p>Data easily flows from an Excel worksheet into R. To begin this analysis, <a href="02-Data.html#read">read</a> the Excel worksheet that includes a variable named <em>Salary</em> into R from a simple instruction you enter at the command line.</p>
-<p>That is it. To get the histogram, mean, and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>Histogram(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case, beginning the function reference with an uppercase H.</p>
-<p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done by the people who wrote the functions referenced in the analysis. Instead of potentially writing complicated computer code, enter a simple function call to analyze the data. In this example, the R function did much more than compute a simple mean. Just getting the histogram with Excel involves much more work.</p>
+<p>That is it. To get the histogram, mean, and more of the variable Salary after reading the data into R, at the <code>&gt;</code> prompt enter the function call <code>X(Salary)</code>. To analyze the data values for a variable in R, refer to the variable’s name within the parentheses. Be aware of the exact spelling of the variable names, including capitalization, in this case, beginning the function reference with an uppercase X.</p>
+<p>As with the Excel example, this histogram analysis with R requires <em>no programming</em>. The programming was done by the people who wrote the functions referenced in the analysis. Instead of potentially writing complicated computer code, enter a simple function call to analyze the data. In this example, the R function did much more than compute a simple mean. Just getting the histogram and the associated statistics with Excel involves more work.</p>
 <p>We have seen that both Excel and R analyze the data values for a variable organized within a column, though with different user interfaces. R, however, presents several advantages.</p>
 </section>
 </section>
@@ -560,7 +589,7 @@ Figure&nbsp;2.2: Function call entered at the command prompt.
 Excel is great for data entry and viewing data as a spreadsheet app, but it provides only the most basic statistical computations. Excel is <em>not</em> a serious app for data analysis.
 </li>
 <li>
-Once the concept of working with R is understood, less work is required to conduct an analysis, even directly from Excel data, such as simply entering <code>Histogram(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
+Once the concept of working with R is understood, less work is required to conduct an analysis, even directly from Excel data, such as simply entering <code>X(Salary)</code>, than can be obtained with the more cumbersome set of procedures offered by Excel.
 </li>
 <li>
 R does Big Data, efficiently handling data sets with millions of rows of data, limited only by the computer’s available memory.
@@ -586,7 +615,7 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <p>Analyses can be re-run in the future to reproduce previously obtained results.</p>
 </div>
 </div>
-<p>The analyst typically does not enter code directly into R. Instead, write the R instructions into a file that can be retrieved and re-run at any time. Saving the R code allows for reproducible analysis. The instructions for analyses performed by one person become accessible to all members of your organization who have access to the file, including yourself, at any time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
+<p>The analyst typically does not enter code directly into R at the command prompt. Instead, write the R instructions into a simple text file that can be retrieved and re-run at any time. Saving the R code allows for reproducible analysis. The instructions for analyses performed by one person become accessible to all members of your organization who have access to the file, including yourself, at any time. On the contrary, those Excel mouse clicks vanish into digital dust.</p>
 <p>As I wrote in the <em>Journal of Statistics and Data Science Education</em> <span class="citation" data-cites="GerbR">(<a href="references.html#ref-GerbR" role="doc-biblioref">Gerbing 2021</a>)</span>:</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Separate your data from the code">
 <div class="callout-header d-flex align-content-center">
@@ -718,26 +747,20 @@ https://cran.rstudio.com/bin/windows/Rtools/</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lessR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Does it work? If the <code>lessR</code> functions successfully load from your R library, the following appears, including instructions for getting started with R and <code>lessR</code>. These instructions include how to read data from files on your computer system into R for analysis and how to access <a href="04-MoreStuff.html#vig">examples</a> of various analyses.</p>
-<pre><code>lessR 4.5.3                          feedback: gerbing@pdx.edu 
+<pre><code>lessR 4.5.7                          feedback: gerbing@pdx.edu 
 --------------------------------------------------------------
-&gt; d &lt;- Read("")  Read data file, many formats available, e.g., Excel
-  d is the default data frame, data= in analysis routines optional
+d &lt;- Read("")  Read data file, many formats available, e.g., Excel
+d is the default data frame, data= in analysis routines optional
 
-Find examples of reading, writing, and manipulating data, graphics,
-testing means and proportions, regression, factor analysis,
-customization, forecasting, and aggregation to pivot tables.
-  Enter: browseVignettes("lessR")
+Find many examples for visualization, models, and general analysis.
+  Enter: browseVignettes("lessR")  or  news(package="lessR")
 
-Although most previous function calls still work, most
-visualization functions are now reorganized to three functions:
-   Chart(): type = "bar", "pie", "radar", "bubble", "dot",
-                   "sunburst", "treemap", "icicle"
-   X(): type="histogram", "density", "vbs", and more
-   XY(): type="scatter" for a scatterplot, or "contour", "smooth"
-There is also Flows() for Sankey flow diagrams.
-
-View lessR updates, now including modern time series forecasting.
-  Enter: news(package="lessR"), or ?Chart, ?X, or ?XY
+Visualize your data.
+  Chart(): form = "bar", "pie", "radar", "bubble", "dot",
+                  "sunburst", "treemap", "icicle", "profile" 
+  X(): form="histogram", "freq_poly", "density", "vbs", and more
+  XY(): form="scatter", "contour", "smooth", "hexbin", "sunflower" 
+More info, enter: ?Chart, ?X, or ?XY + ?Flows for Sankey diagrams.
 
 Interactive data analysis for constructing visualizations.
   Enter: interact()</code></pre>
