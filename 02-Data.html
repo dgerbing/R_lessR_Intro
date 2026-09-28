@@ -318,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Sep 25, 2026 07:39 pm</p>
+        <p class="date">Sep 27, 2026 11:39 am</p>
       </div>
     </div>
     
@@ -434,19 +434,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Store the structured data values in a file on your computer, an accessible local network, or the World Wide Web. Encode the data table into one of several computer file formats. The formats we encounter are Excel files (<code>.xlsx</code>) and comma-separated value (csv) files. Identify a text file with one of several potential file types, such as <code>.txt</code>, but usually <code>.csv</code>.</p>
 <p>The Excel data table in <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> contains four variables: <em>Years</em>, <em>Gender</em>, <em>Dept</em>, and <em>Salary</em>, plus an ID field called <em>Name</em>, for a total of five columns. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> displays their data values for the first six employees.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-dataTable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-dataTable" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Structure of a data table.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dataTable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/DataTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+<img src="images/DataTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Structure of a data table.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dataTable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.1: Structure of a data table.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>Describe the data table by its columns, rows, and cell entries.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Variable name">
@@ -525,19 +521,15 @@ Figure&nbsp;2.1: Structure of a data table.
 </div>
 </div>
 <p>The data table can exist in one of many different formats, including Excel. <a href="#fig-file" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> shows a data table as an Excel file named <em>employee.xlsx</em> stored on a (Macintosh) computer. <a href="#fig-dataTable" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the first several lines of this data table in detail.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-file" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-file" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Data table, named employee.xlsx, stored as an Excel file.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fileComputerDark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%">
+<img src="images/fileComputerDark.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Data table, named employee.xlsx, stored as an Excel file.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-file-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel file.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>The data table is stored as a computer file. To analyze your data, read the data table from the computer file, which copies the data into a corresponding data table within a running R session.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Data frame">
@@ -624,7 +616,7 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 <p><span class="theorem-title"><strong>Example 2.2</strong></span> &nbsp;</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"http://web.pdx.edu/~gerbing/data/employee.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">Read</span>(<span class="st">"https://raw.githubusercontent.com/dgerbing/data/master/Employee.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To specify a location of the data file on your computer, provide the full path name that locates and names your data file. To obtain this path name, first browse for the file with <code>Read("")</code>. The resulting output displays the path name of the identified file. Copy this path name and insert between the quotes of <code>Read("")</code>, save this and other R function calls in a text file for future analyses without needing to browse for its location.</p>
 <p>In summary, with the <code>Read()</code> function, either put nothing between the quotes to browse for a data file, or specify the data file’s location on your computer system or the web. Read data from a file into an R data frame, usually named <code>d</code>, but you can choose any valid name.</p>
@@ -634,19 +626,15 @@ Figure&nbsp;2.2: Data table, named <em>employee.xlsx</em>, stored as an Excel fi
 <p><span class="newthought">As with most any data analysis system, R organizes analyses by variable name, so knowing the exact variable names is critical.</span> This specification includes the pattern of capitalization. The <code>Read()</code> function automatically displays these names. The variables are in the columns, so to specify a variable is to select a column of data values.</p>
 <p><code>Read()</code> also displays the storage type of each variable: as numbers with or without decimal digits, or as character strings, in this example. Also listed are the number of complete and missing values for each variable, the number of unique values for each variable, and sample data values. <a href="#fig-readOut" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> lists the output from reading the <em>employee.xlsx</em> data file.</p>
 <div style="width: 110%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-readOut" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-readOut" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Annotated output of Read() function with the Variable Name column highlighted.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-readOut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/readOut.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:110.0%">
+<img src="images/readOut.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:110.0%" alt="Annotated output of Read() function with the Variable Name column highlighted.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-readOut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name column highlighted.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 </div>
 <p>Always compare the output of <code>Read()</code> with the actual data file to ensure that your data was correctly read. Never read data into R or any other system without first checking that the data values in the data table stored on some computer system correspond to the variables and data values read into a R data frame.</p>
@@ -689,12 +677,12 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Name Years Gender Dept    Salary JobSat Plan Pre Post
-1 Ritchie, Darnell     7      M ADMN  53788.26    med    1  82   92
-2        Wu, James    NA      M SALE  94494.58    low    1  62   74
-3      Hoang, Binh    15      M SALE 111074.86    low    3  96   97
-4    Jones, Alissa     5      W &lt;NA&gt;  53772.58   &lt;NA&gt;    1  65   62
-5   Downs, Deborah     7      W FINC  57139.90   high    2  90   86
-6   Afshari, Anbar     6      W ADMN  69441.93   high    2 100  100</code></pre>
+1 Ritchie, Darnell     7      M ADMN  63788.26    med    1  82   92
+2        Wu, James    NA      M SALE 104494.58    low    1  62   74
+3   Downs, Deborah     7      W FINC  67139.90   high    2  90   86
+4      Hoang, Binh    15      M SALE 121074.86    low    3  96   97
+5    Jones, Alissa     5      W &lt;NA&gt;  63772.58   &lt;NA&gt;    1  65   62
+6   Afshari, Anbar     6      W ADMN  79441.93   high    2 100  100</code></pre>
 </div>
 </div>
 </div>
@@ -704,19 +692,15 @@ Figure&nbsp;2.3: Annotated output of Read() function with the Variable Name colu
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>One advantage of this form of viewing the data is that you can view the data just by scrolling. <a href="#fig-dataDisplay" class="quarto-xref">Figure&nbsp;<span>2.4</span></a> shows the display of data within RStudio with <code>View(d)</code>, with the scroll bar at the right-side of the window pane. Or, in RStudio, select the name of the data frame from the <code>Environment</code> tab at the top right window pane.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-dataDisplay" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-dataDisplay" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The View() data display from within RStudio.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dataDisplay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/Data.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%">
+<img src="images/Data.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="The View() data display from within RStudio.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dataDisplay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.4: The <code>View()</code> data display from within RStudio.
 </figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>The separation of data from the instructions to process that data is a welcome benefit of R over Excel. You should, however, view your data on a regular basis in order to understand what you are analyzing.</p>
 <p>When something does not work the way you expected it to work, look at your data! Often, the problem can be fixed because the computer stored your data differently than the way you thought the data would be stored. Viewing your data as you proceed with an analysis is a crucial step toward successful analysis.</p>
