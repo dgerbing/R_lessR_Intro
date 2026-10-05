@@ -366,7 +366,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Sep 27, 2026 11:39 am</p>
+        <p class="date">Oct 4, 2026 05:19 pm</p>
       </div>
     </div>
     
@@ -545,7 +545,7 @@ window.Quarto = {
 </div>
 </div>
 <p><a href="#fig-cmnd" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the R prompt for one line in the R console.</p>
-<div id="fig-cmnd" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" alt="R command line prompt.">
+<div id="fig-cmnd" class="quarto-float quarto-figure quarto-figure-left anchored" alt="R command line prompt." data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cmnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/RCommandPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:25.0%" alt="R command line prompt.">
@@ -557,7 +557,7 @@ Figure&nbsp;2.1: R command line prompt.
 </div>
 <p>Each function has a name, such as <code>X()</code> to display a distribution of a continuous variable along the <span class="math inline">\(x\)</span>-axis, by default, a histogram and related summary statistics such as the mean. The <code>()</code> indicates that the reference is to a function, which is where various values, such as a variable name, are passed to the function. To call a function for data analysis, in response to the R command prompt, <code>&gt;</code>, enter the function name, a left parenthesis, usually at least one value such as the variable name for which to do the analysis, and then a matching right parenthesis.</p>
 <p>The example in <a href="#fig-hprmt" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> creates the <a href="03-Visualization.html#hist">histogram</a> of variable <em>Salary</em>, as well as summary statistics that include the mean, by calling the <code>X()</code> function for the variable <em>Salary</em>.</p>
-<div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" alt="Function call entered at the command prompt.">
+<div id="fig-hprmt" class="quarto-float quarto-figure quarto-figure-left anchored" alt="Function call entered at the command prompt." data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hprmt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/hsPrompt.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:14.0%" alt="Function call entered at the command prompt.">
@@ -630,9 +630,9 @@ Obtain each R analysis with one or more instructions, function calls, that can b
 <p><span class="newthought">Most analysts who use R run R from within an app called RStudio</span> because of the additional features that RStudio provides. From RStudio, you are running R at the standard R command line from what is called the R console, but within the RStudio environment.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>RStudio does more than run R data analyses. It also runs Python and other data analysis languages. It also serves as the basis for writing standard documents in the Quarto Markdown language, such as the document you are now reading.</p>
+<p>RStudio (and the related Positron) does more than run R data analyses. It also runs Python and other data analysis languages. It also serves as the basis for writing standard documents in the Quarto Markdown language, such as the document you are now reading.</p>
 </div></div><p>As shown in <a href="#fig-RStudio" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>, the RStudio window consists of several resizable window panes. The primary window pane is the standard R console, the same console available from running R by itself. The bottom-right window pane with the <code>Plots</code> tab is where RStudio displays data visualizations and can also display other information, such as your file directory. The top-right window pane displays information such as your <code>History</code> of entered R instructions.</p>
-<div id="fig-RStudio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="RStudio window panes.">
+<div id="fig-RStudio" class="quarto-float quarto-figure quarto-figure-center anchored" alt="RStudio window panes." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/RStudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:98.0%" alt="RStudio window panes.">
@@ -649,7 +649,11 @@ Figure&nbsp;2.3: RStudio window panes.
 </section>
 <section id="start" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Getting Started</h1>
-<p>Running R on your computer requires first downloading the R app, and usually the RStudio app as well. Get them both at the same <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener">location</a>.</p>
+<p>Running R on your computer requires first downloading the R app, and usually the RStudio app as well.</p>
+<ul>
+<li><a href="https://cran.rstudio.com" target="_blank" rel="noopener">R</a></li>
+<li><a href="https://docs.posit.co/ide/user/#direct-downloads-open-source" target="_blank" rel="noopener">RStudio</a></li>
+</ul>
 <p>When installing R, choose your operating system from the links at the top of the corresponding web page. For <em>Windows</em>, the top of the resulting web page has the download link. For <em>Mac</em>, several paragraphs down, in the left margin, you have a choice. The first link in the margin is for <code>For Apple silicon (M1-3) Macs</code>, the version for the more recently developed Apple M series processors. A second link, further down the margin, is <code>For older Intel Macs</code>. If you are not sure of your CPU type, go to the first choice under the Apple menu, About this Mac, and look at the information for <code>Chip</code>.</p>
 <p>If you are asked the question, <em>Install in a personal library?</em> answer <code>y</code> for yes (unless you understand administrative privileges). The installer offers both 32-bit and 64-bit versions. Unless your computer is from around 2012 or earlier, run 64-bit software as you would any other app.</p>
 <p>Once R and RStudio are downloaded, their installations proceed as with any app. Accept the given defaults for each step of the process. After installation, run R as you would any other application, such as by double-clicking its icon in your file system. Usually, however, run the RStudio app, which then automatically connects to and runs R in the RStudio environment.</p>
